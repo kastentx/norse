@@ -8,7 +8,7 @@
   "themes": ["apocalypse", "fate", "rebirth", "prophecy", "cosmic-cycle"],
   "characters": ["odin", "thor", "loki", "freyr", "heimdall"],
   "realms": ["asgard", "midgard", "muspelheim", "niflheim"],
-  "imageUrl": "/images/stories/ragnarok-hero.svg",
+  "imageUrl": "/images/stories/ragnarok-hero.webp",
   "metadata": {
     "featured": true,
     "publishedDate": "2025-01-02T00:00:00.000Z",
@@ -32,7 +32,7 @@
     {
       "id": "image-1",
       "type": "illustration",
-      "imageUrl": "/images/stories/ragnarok-winter.svg",
+      "imageUrl": "/images/stories/ragnarok-winter.webp",
       "caption": "The endless winter of Fimbulvetr engulfs the realms",
       "alt": "A dark, frozen landscape representing the three winters before Ragnarök"
     },
@@ -59,7 +59,7 @@
     {
       "id": "image-2",
       "type": "illustration",
-      "imageUrl": "/images/stories/ragnarok-serpent.svg",
+      "imageUrl": "/images/stories/ragnarok-serpent.webp",
       "caption": "Jörmungandr emerges from the depths",
       "alt": "The massive World Serpent rising from the ocean during Ragnarök"
     },
@@ -80,7 +80,7 @@
     {
       "id": "image-3",
       "type": "illustration",
-      "imageUrl": "/images/stories/ragnarok-battle.svg",
+      "imageUrl": "/images/stories/ragnarok-battle.webp",
       "caption": "The gods face their final destiny at Vigrid",
       "alt": "Epic battle scene showing the gods fighting their destined enemies at Ragnarök"
     },

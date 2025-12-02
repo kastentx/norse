@@ -8,7 +8,7 @@
   "themes": ["cosmology", "nature", "interconnection", "mythology-basics"],
   "characters": ["odin"],
   "realms": ["asgard", "midgard", "niflheim", "jotunheim"],
-  "imageUrl": "/images/stories/yggdrasil-full.svg",
+  "imageUrl": "/images/stories/yggdrasil-full.webp",
   "metadata": {
     "featured": true,
     "publishedDate": "2025-01-02T00:00:00.000Z",
@@ -25,7 +25,7 @@
     {
       "id": "image-1",
       "type": "illustration",
-      "imageUrl": "/images/stories/yggdrasil-full.svg",
+      "imageUrl": "/images/stories/yggdrasil-full.webp",
       "text": "Yggdrasil connecting the Nine Realms"
     },
     {
@@ -50,7 +50,7 @@
     {
       "id": "image-2",
       "type": "illustration",
-      "imageUrl": "/images/stories/yggdrasil-creatures.svg",
+      "imageUrl": "/images/stories/yggdrasil-creatures.webp",
       "text": "The creatures dwelling in Yggdrasil"
     },
     {
@@ -70,7 +70,7 @@
     {
       "id": "image-3",
       "type": "illustration",
-      "imageUrl": "/images/stories/yggdrasil-stags.svg",
+      "imageUrl": "/images/stories/yggdrasil-stags.webp",
       "text": "The four stags among Yggdrasil's branches"
     },
     {
