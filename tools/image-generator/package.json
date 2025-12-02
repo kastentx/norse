@@ -1,0 +1,28 @@
+{
+  "name": "norse-image-generator",
+  "version": "1.0.0",
+  "description": "MCP server for automated Norse mythology image generation using Venice.ai",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "generate": "tsx src/generate-images.ts"
+  },
+  "keywords": ["mcp", "image-generation", "venice-ai"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.2",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "sharp": "^0.33.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

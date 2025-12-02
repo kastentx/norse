@@ -229,7 +229,7 @@
 - [ ] T137 Test responsive layout on desktop (1024px-2560px)
 - [ ] T138 Verify all images have descriptive alt text
 - [ ] T139 Test loading states and skeleton animations
-- [ ] T140 Validate all JSON data files against Zod schemas
+- [X] T140 Validate all JSON data files against Zod schemas
 - [X] T141 Add error boundaries for component error handling
 - [ ] T142 Test browser tab inactive behavior during animations
 - [ ] T143 Add analytics or tracking (optional, per requirements)
