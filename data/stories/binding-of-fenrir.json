@@ -1,0 +1,117 @@
+{
+  "id": "binding-of-fenrir",
+  "slug": "binding-of-fenrir",
+  "title": "The Binding of Fenrir",
+  "summary": "The tale of how the gods bound the monstrous wolf Fenrir with an unbreakable magical chain, at the cost of Tyr's hand, to prevent the beast from bringing about Ragnarök.",
+  "difficulty": "intermediate",
+  "readingTime": 8,
+  "themes": ["prophecy", "sacrifice", "fate", "monsters"],
+  "characters": ["tyr", "odin", "loki", "thor"],
+  "realms": ["asgard", "jotunheim", "svartalfheim"],
+  "imageUrl": "/images/stories/fenrir-full.jpg",
+  "metadata": {
+    "featured": true,
+    "publishedDate": "2025-01-02T00:00:00.000Z",
+    "lastUpdated": "2025-01-02T00:00:00.000Z"
+  },
+  "content": [
+    {
+      "id": "intro",
+      "type": "text",
+      "heading": "The Monstrous Wolf",
+      "text": "Among Loki's children with the giantess Angrboða were three particularly dangerous offspring: Jörmungandr the world serpent, Hel the half-dead goddess, and Fenrir, the monstrous wolf. When the gods learned of a prophecy that these children would bring great misfortune, Odin cast Jörmungandr into the ocean and banished Hel to the underworld. But Fenrir, they decided to raise in Asgard, thinking they could control him. Only Tyr was brave enough to feed the growing wolf.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "image-1",
+      "type": "illustration",
+      "imageUrl": "/images/stories/fenrir-young.jpg",
+      "text": "Young Fenrir among the gods of Asgard"
+    },
+    {
+      "id": "growing",
+      "type": "text",
+      "heading": "Growing Threat",
+      "text": "As Fenrir grew, he became larger and more fearsome with each passing day. His strength was immense, and his appetite insatiable. The gods became increasingly concerned, for prophecy foretold that Fenrir would play a key role in Ragnarök—specifically, that he would kill Odin during the final battle. They realized they needed to restrain the wolf before he became too powerful. But how could they accomplish this without provoking his wrath or confirming the prophecy they feared?",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "firstchain",
+      "type": "text",
+      "heading": "The First Chains",
+      "text": "The gods decided to challenge Fenrir's strength as a test. They forged a massive chain called Leyding and approached the wolf. 'Let us see if you are as strong as we have heard,' they said. 'Let us bind you with this chain, and if you can break free, it will prove your might.' Fenrir, confident in his strength and seeing no threat in the proposal, agreed. The gods bound him with Leyding—and with a single kick of his legs, Fenrir shattered the chain into pieces.",
+      "parallaxIntensity": 0.3
+    },
+    {
+      "id": "quote-1",
+      "type": "quote",
+      "text": "The wolf thought that he would easily snap apart these fetters, since they were very strong. But when they were fastened on him, he shook himself and dug in with his feet and broke them so that the fragments flew far away."
+    },
+    {
+      "id": "secondchain",
+      "type": "text",
+      "heading": "Dromi the Mighty",
+      "text": "The gods forged an even stronger chain, called Dromi, half again as strong as Leyding. Again they approached Fenrir. 'You broke the first chain easily—but can you break this one?' Fenrir examined Dromi and saw that while it was indeed much stronger, he had also grown in might since breaking Leyding. 'If I break this chain,' he thought, 'my fame will be even greater.' Once more he allowed himself to be bound. With tremendous effort and thrashing, Fenrir broke Dromi as well. The gods were now deeply concerned.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "image-2",
+      "type": "illustration",
+      "imageUrl": "/images/stories/fenrir-chains.jpg",
+      "text": "Fenrir breaking the chains Leyding and Dromi"
+    },
+    {
+      "id": "gleipnir",
+      "type": "text",
+      "heading": "Gleipnir the Unbreakable",
+      "text": "Odin sent a messenger to Svartalfheim, the realm of the dwarves, to commission a special binding. The dwarves crafted Gleipnir, a magical ribbon made from six impossible ingredients: the sound of a cat's footfall, the beard of a woman, the roots of a mountain, the sinews of a bear, the breath of a fish, and the spittle of a bird. This is why these things no longer exist in the world. Gleipnir was as smooth and soft as a silk ribbon, yet stronger than any chain ever forged. When the gods received it, they knew this would hold Fenrir—if they could convince him to accept it.",
+      "parallaxIntensity": 0.6
+    },
+    {
+      "id": "challenge",
+      "type": "text",
+      "heading": "The Challenge",
+      "text": "The gods took Fenrir to the island of Lyngvi in the lake Ámsvartnir, bringing Gleipnir with them. 'Here is another binding for you to test your strength against,' they said. But when Fenrir saw the thin ribbon, he became suspicious. 'This does not look like it would bring me glory to break,' he said. 'And if it is indeed made with cunning and magic, then once it is on me it will never come off. I will not allow you to bind me with this unless one of you places his hand in my mouth as a pledge of good faith. If you are speaking truly and I can break free, I will not bite. But if this is a trick, I will take the hand.'",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "quote-2",
+      "type": "quote",
+      "text": "The wolf said: 'If you bind me so that I cannot free myself, you will retreat so that I will have to wait long before I get any help from you. I am reluctant to have this band put on me. But rather than have my courage questioned, let one of you put his hand in my mouth as a pledge that this is done in good faith.'"
+    },
+    {
+      "id": "sacrifice",
+      "type": "text",
+      "heading": "Tyr's Sacrifice",
+      "text": "The gods looked at one another, for they knew well that Gleipnir would hold, and therefore whoever placed their hand in Fenrir's mouth would lose it. Only Tyr, the god of war and justice, stepped forward. He had fed Fenrir as a pup and perhaps felt a bond with the beast, or perhaps his sense of duty and sacrifice compelled him. Without hesitation, Tyr placed his right hand between Fenrir's terrible jaws. The other gods bound the wolf with Gleipnir. When Fenrir tried to break free, the ribbon only grew tighter. Realizing he had been tricked, Fenrir bit down, severing Tyr's hand at the wrist.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "image-3",
+      "type": "illustration",
+      "imageUrl": "/images/stories/fenrir-tyr.jpg",
+      "text": "Tyr sacrificing his hand to bind Fenrir"
+    },
+    {
+      "id": "bound",
+      "type": "text",
+      "heading": "The Bound Wolf",
+      "text": "All the gods laughed when they saw Fenrir securely bound—all except Tyr, who had lost his hand. The gods took a great chain called Gelgja and tied it to Gleipnir, then threaded it through a boulder called Gjöll, which they sank deep into the earth. Then they took another huge rock called Thviti and drove it even deeper as an anchoring peg. Fenrir thrashed and opened his jaws wide, so the gods placed a sword in his mouth, hilt against his lower jaw and point against his upper palate, to keep his mouth propped open. The wolf's howling was terrible, and drool runs from his mouth in a river called Ván (Hope).",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "prophecy",
+      "type": "text",
+      "heading": "Until Ragnarök",
+      "text": "There Fenrir remains bound until Ragnarök. When that final battle comes, the earth will shake so violently that all fetters and bonds will break. Fenrir will finally be free. He will open his terrible jaws—the upper jaw reaching to the sky, the lower to the earth—and he would open them wider still if there were room. With fire blazing from his eyes and nostrils, Fenrir will rush forth and fulfill the ancient prophecy: he will swallow Odin, the All-Father. But even this is not the end, for Odin's son Viðarr will avenge his father by tearing Fenrir's jaws apart, killing the great wolf at last.",
+      "parallaxIntensity": 0.6
+    },
+    {
+      "id": "conclusion",
+      "type": "text",
+      "heading": "The Price of Security",
+      "text": "The binding of Fenrir shows the gods at their most pragmatic and ruthless. They used trickery and sacrifice to neutralize a threat, breaking their own pledge of good faith. Tyr lost his hand, his primary weapon as a god of war, to secure the safety of Asgard. Yet this act of binding did not prevent Ragnarök—it merely delayed it. Indeed, it may have ensured it, for Fenrir's rage at his imprisonment will only make him more terrible when he finally breaks free. Sometimes, the Norse myths suggest, attempting to avoid one's fate only serves to bring it about. The binding of Fenrir is both the gods' greatest act of self-preservation and a step along the inevitable path to their doom.",
+      "parallaxIntensity": 0.5
+    }
+  ]
+}

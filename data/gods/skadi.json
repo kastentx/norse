@@ -1,0 +1,27 @@
+{
+  "id": "skadi",
+  "name": "Skaði",
+  "type": "Jotun",
+  "domain": ["winter", "skiing", "hunting", "mountains"],
+  "title": "Goddess of Winter",
+  "description": "Skaði is a giantess and goddess associated with bowhunting, skiing, winter, and mountains. She is the daughter of the giant Þjazi. When her father was killed by the gods, Skaði came to Asgard fully armed, seeking vengeance. The gods offered her compensation, including the right to choose a husband from among them, but she had to choose by looking only at their feet. She hoped to choose the beautiful Baldur but ended up selecting Njörðr, the god of the sea. Their marriage was troubled by their incompatible preferences for sea versus mountains. Skaði is a fierce huntress and is often depicted on skis with a bow, hunting in the snowy mountains.",
+  "symbols": ["bow", "skis", "wolf"],
+  "realm": "jotunheim",
+  "family": {
+    "parents": ["thiazi"],
+    "spouse": "njord"
+  },
+  "attributes": {
+    "appearance": "Tall, strong giantess dressed for winter hunting, carrying a bow and skis, with fierce eyes and dark hair",
+    "personality": "Independent, fierce, vengeful yet fair, skilled hunter, prefers solitude of mountains",
+    "powers": ["skiing mastery", "archery excellence", "winter magic", "mountain traversal", "hunting prowess"]
+  },
+  "stories": ["njord-and-skadi", "thiazi-and-idunn", "ragnarok"],
+  "imageUrl": "/images/gods/skadi.webp",
+  "iconUrl": "/images/gods/icons/skadi.svg",
+  "metadata": {
+    "featured": false,
+    "popularity": 70,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

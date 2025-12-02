@@ -206,11 +206,11 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T117 [P] Add remaining god JSON files (12-15 total) in data/gods/
-- [ ] T118 [P] Add remaining story JSON files (5-8 total) in data/stories/
-- [ ] T119 [P] Add all god portrait images (WebP/AVIF with fallbacks) in public/images/gods/
-- [ ] T120 [P] Add all story illustration images (WebP/AVIF) in public/images/stories/
-- [ ] T121 [P] Add all realm visualization images (WebP/AVIF) in public/images/realms/
+- [X] T117 [P] Add remaining god JSON files (12-15 total) in data/gods/
+- [X] T118 [P] Add remaining story JSON files (5-8 total) in data/stories/
+- [X] T119 [P] Add all god portrait images (WebP/AVIF with fallbacks) in public/images/gods/
+- [X] T120 [P] Add all story illustration images (WebP/AVIF) in public/images/stories/
+- [X] T121 [P] Add all realm visualization images (WebP/AVIF) in public/images/realms/
 - [ ] T122 [P] Create Symbol entity JSON data files in data/symbols/
 - [ ] T123 [P] Add symbol icon images to public/images/symbols/
 - [X] T124 Implement related content cross-linking (gods ↔ stories ↔ realms)

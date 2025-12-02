@@ -1,0 +1,110 @@
+{
+  "id": "theft-of-mjolnir",
+  "slug": "theft-of-mjolnir",
+  "title": "The Theft of Mjölnir",
+  "summary": "When the giant Thrym steals Thor's hammer and demands Freyja as his bride for its return, the gods devise an outrageous plan—disguising Thor as Freyja to retrieve Mjölnir at the wedding feast.",
+  "difficulty": "beginner",
+  "readingTime": 7,
+  "themes": ["trickery", "comedy", "adventure", "giants"],
+  "characters": ["thor", "loki", "freyja", "heimdall"],
+  "realms": ["asgard", "jotunheim"],
+  "imageUrl": "/images/stories/mjolnir-full.jpg",
+  "metadata": {
+    "featured": true,
+    "publishedDate": "2025-01-02T00:00:00.000Z",
+    "lastUpdated": "2025-01-02T00:00:00.000Z"
+  },
+  "content": [
+    {
+      "id": "intro",
+      "type": "text",
+      "heading": "Thor Awakens",
+      "text": "Thor, the thunder god, awoke one morning and reached for Mjölnir, his mighty hammer, as he did every day. But to his shock and rage, the hammer was gone! He tore apart his dwelling, searching everywhere, but Mjölnir had vanished. Without his hammer, Thor was nearly powerless, and all of Asgard was vulnerable. The giants and other enemies of the gods would surely take advantage if they learned that Thor was disarmed. The thunder god's roars of fury shook the halls of Asgard.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "image-1",
+      "type": "illustration",
+      "imageUrl": "/images/stories/mjolnir-missing.jpg",
+      "text": "Thor discovers his hammer has been stolen"
+    },
+    {
+      "id": "loki",
+      "type": "text",
+      "heading": "Loki's Investigation",
+      "text": "Thor immediately sought out Loki, for if anyone could discover the truth through cunning, it was the trickster god. Loki borrowed Freyja's falcon cloak, which allowed the wearer to fly, and soared off to Jötunheim, the realm of the giants. There he encountered Thrym, the lord of the giants, sitting on a burial mound braiding golden collars for his dogs and trimming his horses' manes. When Loki asked if he knew anything about the missing hammer, Thrym laughed heartily. 'I have hidden Mjölnir eight leagues beneath the earth,' he boasted. 'And Thor will never get it back unless I receive the beautiful Freyja as my bride!'",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "quote-1",
+      "type": "quote",
+      "text": "Then said Thrym, lord of giants: 'I have hidden Mjölnir beneath the earth eight leagues down. No man shall have it back unless he brings me Freyja as my bride.'"
+    },
+    {
+      "id": "proposal",
+      "type": "text",
+      "heading": "An Outrageous Demand",
+      "text": "Loki flew swiftly back to Asgard and reported Thrym's demand. The gods immediately went to Freyja's hall to present the giant's offer. 'Put on a bridal veil and the Brísingamen necklace,' they said. 'We must travel to Jötunheim so you can marry Thrym and retrieve Mjölnir.' At these words, Freyja's fury was terrible. She shook with rage so violently that her necklace burst apart and the foundations of the gods' halls trembled. 'Do you think me so desperate for a man,' she thundered, 'that I would marry a giant? I will never go to Jötunheim as any creature's bride!'",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "council",
+      "type": "text",
+      "heading": "Heimdall's Plan",
+      "text": "The gods convened a council to determine what should be done. They could not leave Mjölnir in giant hands, yet Freyja would not yield. Then Heimdall, the far-seeing watchman of the gods, spoke up with an idea. 'Let us dress Thor in a bridal veil and the Brísingamen,' he suggested. 'Let him wear women's clothing and go to Jötunheim as Thrym's bride. When the hammer is brought out to consecrate the marriage, Thor can seize it and take vengeance.' At first, Thor was outraged by this suggestion—the other gods would mock him forever! But Loki pointed out that without Mjölnir, the giants would soon overrun Asgard. Reluctantly, Thor agreed.",
+      "parallaxIntensity": 0.3
+    },
+    {
+      "id": "image-2",
+      "type": "illustration",
+      "imageUrl": "/images/stories/mjolnir-disguise.jpg",
+      "text": "Thor dressed as a bride with Loki as bridesmaid"
+    },
+    {
+      "id": "journey",
+      "type": "text",
+      "heading": "Journey to Jötunheim",
+      "text": "The gods dressed Thor in bridal garments, hung the Brísingamen around his neck, and covered his bearded face with a thick veil. Loki dressed as a bridesmaid to accompany him. Together they drove Thor's chariot pulled by his goats, Tanngrisnir and Tanngnjóstr, toward Jötunheim. The earth shook beneath them and mountains burst into flame as they rode—even disguised, Thor's power was evident. When they arrived, Thrym was overjoyed. 'Prepare a feast!' he commanded. 'Bring out the best food and drink! Tonight I wed Freyja, and all the giants shall celebrate!'",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "feast",
+      "type": "text",
+      "heading": "The Wedding Feast",
+      "text": "At the feast, Thrym seated his 'bride' beside him. Thor, maintaining his disguise, began to eat with his characteristic appetite. He devoured an entire ox, eight salmon, and all the delicacies meant for the women. He drank three entire barrels of mead. Thrym watched in amazement. 'I have never seen a bride eat or drink so much!' he exclaimed. Quick-thinking Loki answered, 'Freyja was so eager to come to Jötunheim that she has not eaten for eight days and nights!' Thrym accepted this explanation and leaned forward to kiss his bride. But when he lifted the veil and saw Thor's burning eyes glaring at him, he leapt back in fear.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "quote-2",
+      "type": "quote",
+      "text": "Then said the giant Thrym: 'Why are Freyja's eyes so terrifying? It seems as if fire burns from them!' Loki answered: 'Freyja has not slept for eight nights, so eager was she to come to Jötunheim.'"
+    },
+    {
+      "id": "revelation",
+      "type": "text",
+      "heading": "The Hammer Returns",
+      "text": "Thrym's sister came forward demanding a bridal gift of gold rings. But Thrym was ready to conclude the ceremony. 'Bring in Mjölnir!' he commanded. 'Lay the hammer on the maiden's lap to consecrate our marriage, and let us join hands in the name of Vár, goddess of oaths!' This was the moment Thor had been waiting for. As soon as the hammer was placed on his lap, Thor's hand closed around its handle. His heart laughed within him. In one swift motion, he tore off the bridal veil and revealed himself. Thunder echoed through the hall.",
+      "parallaxIntensity": 0.6
+    },
+    {
+      "id": "image-3",
+      "type": "illustration",
+      "imageUrl": "/images/stories/mjolnir-revealed.jpg",
+      "text": "Thor reveals himself and reclaims Mjölnir"
+    },
+    {
+      "id": "vengeance",
+      "type": "text",
+      "heading": "Thor's Wrath",
+      "text": "Before Thrym could even cry out, Thor brought Mjölnir down upon his head, crushing the giant lord instantly. The thunder god's rage, held in check throughout the humiliating charade, now exploded in full fury. He struck down Thrym's sister who had demanded bride-gifts—she received a hammer blow instead of gold. Thor slaughtered all the giants at the wedding feast, leaving none alive to tell the tale of their treachery. The halls of Jötunheim rang with thunder and lightning as Thor took his vengeance. Finally, exhausted but satisfied, Thor and Loki drove back to Asgard in triumph.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "conclusion",
+      "type": "text",
+      "heading": "A Tale of Cunning and Strength",
+      "text": "The theft of Mjölnir is one of the most humorous tales in Norse mythology, showing even the mighty Thor in an absurd situation. Yet beneath the comedy lies serious themes: without Mjölnir, Thor is vulnerable, and all of Asgard is at risk. The story shows that sometimes strength alone is not enough—cunning and even humiliation may be necessary to achieve victory. Thor's willingness to endure mockery and dress as a bride demonstrates that even the proudest warrior must sometimes set aside pride for the greater good. And of course, it reminds us that stealing from the gods—particularly from Thor—is a fatal mistake. Mjölnir was returned, and Thrym paid the ultimate price for his greed and audacity.",
+      "parallaxIntensity": 0.4
+    }
+  ]
+}

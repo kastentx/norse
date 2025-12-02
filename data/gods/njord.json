@@ -1,0 +1,27 @@
+{
+  "id": "njord",
+  "name": "Njörðr",
+  "type": "Vanir",
+  "domain": ["sea", "wind", "fishing", "wealth"],
+  "title": "God of the Sea",
+  "description": "Njörðr is the god of the sea, seafaring, wind, fishing, and wealth in Norse mythology. He is one of the Vanir who came to live in Asgard as a hostage after the Aesir-Vanir War. Njörðr is the father of the powerful deities Freyr and Freyja. He is married to Skaði, the goddess associated with winter and mountains, but their marriage is troubled because Njörðr loves the sea while Skaði prefers the mountains. They attempted to live nine nights in each realm but neither could abide the other's home. Njörðr is invoked for calm seas and good catches, and his hall Nóatún (ship-enclosure) is by the sea.",
+  "symbols": ["ship", "wealth", "sea"],
+  "realm": "vanaheim",
+  "family": {
+    "spouse": "skadi",
+    "children": ["freyr", "freyja"]
+  },
+  "attributes": {
+    "appearance": "Strong, seafaring god with weather-worn features, often depicted near the sea or on a ship, associated with calm waters",
+    "personality": "Calm, wealthy, generous, peaceful, skilled sailor, uncomfortable away from the sea",
+    "powers": ["calming seas", "controlling wind", "bringing wealth from the sea", "ship protection"]
+  },
+  "stories": ["aesir-vanir-war", "njord-and-skadi", "ragnarok"],
+  "imageUrl": "/images/gods/njord.webp",
+  "iconUrl": "/images/gods/icons/njord.svg",
+  "metadata": {
+    "featured": false,
+    "popularity": 65,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

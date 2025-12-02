@@ -1,0 +1,27 @@
+{
+  "id": "frigg",
+  "name": "Frigg",
+  "type": "Aesir",
+  "domain": ["marriage", "motherhood", "domesticity", "fate"],
+  "title": "Queen of Asgard",
+  "description": "Frigg is the queen of the Aesir gods and Odin's wife, making her the foremost among the goddesses of Asgard. She is associated with marriage, motherhood, domestic arts, and foreknowledge. Frigg knows the fate of all beings but never reveals what she knows. She dwells in Fensalir, her own hall in Asgard. Frigg is a devoted mother, best known for her attempts to protect her son Baldur from his prophesied death. She extracted oaths from all things in nature not to harm him, overlooking only the mistletoe. When Baldur died despite her efforts, her grief was profound. Frigg is often depicted spinning clouds on her spinning wheel.",
+  "symbols": ["spinning-wheel", "keys", "mistletoe"],
+  "realm": "asgard",
+  "family": {
+    "spouse": "odin",
+    "children": ["baldur", "hodr"]
+  },
+  "attributes": {
+    "appearance": "Regal and beautiful, often depicted with a spinning wheel, wearing queenly robes and a crown or elegant headdress",
+    "personality": "Wise, loving mother, protective, dignified, keeper of secrets, sorrowful",
+    "powers": ["foreknowledge", "domestic magic", "fate-weaving", "shapeshifting", "prophecy"]
+  },
+  "stories": ["death-of-baldur", "ragnarok", "creation-of-world"],
+  "imageUrl": "/images/gods/frigg.webp",
+  "iconUrl": "/images/gods/icons/frigg.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 80,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

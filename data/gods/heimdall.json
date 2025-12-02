@@ -1,0 +1,26 @@
+{
+  "id": "heimdall",
+  "name": "Heimdall",
+  "type": "Aesir",
+  "domain": ["vigilance", "light", "protection", "foresight"],
+  "title": "The Watchman of the Gods",
+  "description": "Heimdall is the ever-vigilant guardian of the gods, stationed at the Bifröst bridge that connects Asgard to Midgard. He possesses extraordinary senses—he can see for hundreds of miles day or night, and can hear grass growing on the earth and wool growing on sheep. Heimdall requires less sleep than a bird and is destined to sound the Gjallarhorn to announce the beginning of Ragnarök. In the final battle, Heimdall and Loki are fated to kill each other. Heimdall is said to be the son of nine mothers (possibly nine waves) and is sometimes called the 'whitest of the gods' due to his association with light.",
+  "symbols": ["gjallarhorn", "bifrost", "gulltoppr"],
+  "realm": "asgard",
+  "family": {
+    "parents": ["nine-mothers"]
+  },
+  "attributes": {
+    "appearance": "Bright and shining, with golden teeth, incredibly keen eyes and ears, often depicted with the Gjallarhorn",
+    "personality": "Watchful, dutiful, vigilant, serious, loyal to his role as guardian",
+    "powers": ["extraordinary hearing", "exceptional sight", "foresight", "minimal sleep requirement", "great strength"]
+  },
+  "stories": ["ragnarok", "creation-of-world", "heimdall-and-loki"],
+  "imageUrl": "/images/gods/heimdall.webp",
+  "iconUrl": "/images/gods/icons/heimdall.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 70,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

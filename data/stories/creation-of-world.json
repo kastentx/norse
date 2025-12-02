@@ -1,0 +1,123 @@
+{
+  "id": "creation-of-world",
+  "slug": "creation-of-world",
+  "title": "The Creation of the World",
+  "summary": "The Norse creation myth tells how the cosmos was formed from the body of the primordial giant Ymir, and how the first humans were created from driftwood by Odin and his brothers.",
+  "difficulty": "beginner",
+  "readingTime": 10,
+  "themes": ["cosmology", "creation", "origin", "mythology-basics"],
+  "characters": ["odin", "thor", "loki"],
+  "realms": ["niflheim", "muspelheim", "asgard", "midgard"],
+  "imageUrl": "/images/stories/creation-full.jpg",
+  "metadata": {
+    "featured": true,
+    "publishedDate": "2025-01-02T00:00:00.000Z",
+    "lastUpdated": "2025-01-02T00:00:00.000Z"
+  },
+  "content": [
+    {
+      "id": "intro",
+      "type": "text",
+      "heading": "In the Beginning",
+      "text": "Before the world existed, there was only Ginnungagap—the yawning void. To the north lay Niflheim, the realm of ice, mist, and freezing cold. To the south burned Muspelheim, the realm of fire and flame, guarded by the fire giant Surtr. These two primal forces would eventually collide to create all existence.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "image-1",
+      "type": "illustration",
+      "imageUrl": "/images/stories/creation-void.jpg",
+      "text": "Ginnungagap, the primordial void between fire and ice"
+    },
+    {
+      "id": "ymir",
+      "type": "text",
+      "heading": "The Birth of Ymir",
+      "text": "Where the heat of Muspelheim met the ice of Niflheim in Ginnungagap, the ice began to melt and drip. From these primordial drops emerged Ymir, the first being—a colossal frost giant. As Ymir slept, he sweated, and from his sweat came more giants: under his left arm grew a male and female, and his legs created a six-headed son together. Thus began the race of frost giants.",
+      "parallaxIntensity": 0.3
+    },
+    {
+      "id": "audhumla",
+      "type": "text",
+      "heading": "Auðhumla the Cow",
+      "text": "Alongside Ymir formed Auðhumla, a primordial cow. Ymir fed on the four rivers of milk that flowed from her udders. Auðhumla herself fed by licking the salty ice blocks. As she licked, she uncovered something within the ice—over three days, she freed a man. This was Búri, the first of the gods. Búri had a son named Borr, who married Bestla, a giantess. Together they had three sons: Odin, Vili, and Vé.",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "quote-1",
+      "type": "quote",
+      "text": "Then spoke Gangleri: 'Where did Ymir dwell, and what did he live on?' Hár answered: 'When the ice dripped, there was born from it a cow called Auðhumla. Four rivers of milk ran from her teats, and she fed Ymir.'"
+    },
+    {
+      "id": "slaying",
+      "type": "text",
+      "heading": "The Slaying of Ymir",
+      "text": "As the sons of Borr grew, tension arose between the gods and the giants. Odin, Vili, and Vé eventually rose up against Ymir and killed him. So much blood poured from his wounds that it drowned all the frost giants except Bergelmir and his wife, who escaped in a boat. These two would become the ancestors of a new generation of giants, forever hostile to the gods.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "image-2",
+      "type": "illustration",
+      "imageUrl": "/images/stories/creation-ymir.jpg",
+      "text": "Odin and his brothers slay the giant Ymir"
+    },
+    {
+      "id": "crafting",
+      "type": "text",
+      "heading": "Crafting the World",
+      "text": "From Ymir's immense corpse, the three brothers crafted the entire world. His flesh became the earth, his blood the seas and lakes, his bones the mountains, and his teeth the stones and pebbles. They took his skull and made the sky, setting it up over the earth and placing a dwarf at each of the four corners to hold it aloft: Norðri, Suðri, Austri, and Vestri—North, South, East, and West. Ymir's brains they tossed into the air to become the clouds.",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "quote-2",
+      "type": "quote",
+      "text": "Of Ymir's flesh the earth was formed, and of his blood the sea; crags of his bones, trees of his hair, and of his skull the sky."
+    },
+    {
+      "id": "midgard",
+      "type": "text",
+      "heading": "Creating Midgard",
+      "text": "The gods took Ymir's eyebrows and used them to create a protective wall around a central realm that would be safe from the giants. This realm they called Midgard, the 'middle enclosure,' destined to be the home of humanity. Around Midgard lay the vast ocean, and in that ocean they cast Jörmungandr, the world serpent, who grew so large that he encircled the entire world and grasped his own tail.",
+      "parallaxIntensity": 0.3
+    },
+    {
+      "id": "image-3",
+      "type": "illustration",
+      "imageUrl": "/images/stories/creation-midgard.jpg",
+      "text": "Midgard, the realm of humanity, protected by the ocean"
+    },
+    {
+      "id": "stars",
+      "type": "text",
+      "heading": "The Stars and Sun",
+      "text": "The gods gathered sparks and embers flying from Muspelheim and placed them in the sky to create stars, providing light to illuminate both heaven and earth. They gave them positions and paths. They also created the sun and moon, placing them in chariots to be drawn across the sky. Sól drives the sun chariot, while her brother Máni drives the moon. They are forever pursued by wolves—Sköll chases the sun and Hati Hróðvitnisson the moon. At Ragnarök, these wolves will finally catch and devour them.",
+      "parallaxIntensity": 0.6
+    },
+    {
+      "id": "askembla",
+      "type": "text",
+      "heading": "The First Humans",
+      "text": "One day, as Odin, Vili, and Vé walked along the seashore, they found two trees washed up on the beach—an ash and an elm. From these logs they created the first two humans. Odin gave them breath and life, Vili gave them consciousness and movement, and Vé gave them faces, speech, hearing, and sight. They named the man Ask (ash tree) and the woman Embla (elm tree). From this first couple descended all of humanity, who would dwell in Midgard under the protection and watchful eyes of the gods.",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "image-4",
+      "type": "illustration",
+      "imageUrl": "/images/stories/creation-humans.jpg",
+      "text": "The creation of Ask and Embla, the first humans"
+    },
+    {
+      "id": "asgard",
+      "type": "text",
+      "heading": "Building Asgard",
+      "text": "Finally, the gods established their own realm, Asgard, high above Midgard. Here they built great halls and palaces. Odin constructed Válaskjálf with its high seat Hliðskjálf, from which he could observe all the nine realms. They built Valhalla, the hall of the slain, where warriors who died in battle would feast and prepare for Ragnarök. They also constructed the Bifröst, the rainbow bridge, to connect Asgard to the other realms. Thus the cosmos took shape, ordered from chaos, life from death.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "conclusion",
+      "type": "text",
+      "heading": "A World Born of Violence",
+      "text": "The Norse creation myth reveals a cosmos born from conflict and violence—ice meeting fire, gods slaying giants, order carved from chaos. Yet from this violence came beauty and life. The world-tree Yggdrasil grew to connect all the realms, and the well of Urðr began to flow. The Norns came to tend the tree and weave the fates of all beings. The world was made, and the age of gods and humans had begun. Yet even in this beginning lay the seeds of the end, for Ragnarök was foretold from the start—the cycle would complete, and from destruction would come creation once more.",
+      "parallaxIntensity": 0.5
+    }
+  ]
+}

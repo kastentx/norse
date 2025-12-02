@@ -1,0 +1,28 @@
+{
+  "id": "freyja",
+  "name": "Freyja",
+  "type": "Vanir",
+  "domain": ["love", "beauty", "fertility", "war", "death"],
+  "title": "Lady of the Vanir",
+  "description": "Freyja is one of the most prominent goddesses in Norse mythology, associated with love, beauty, fertility, sex, war, gold, and seiðr (magic). She is a member of the Vanir, a group of gods associated with fertility and prosperity. Freyja is known for her incredible beauty and her fierce independence. She possesses the Brísingamen necklace and rides a chariot pulled by two cats. She receives half of those who die in battle in her hall Fólkvangr, while Odin receives the other half in Valhalla. Freyja is also a practitioner of seiðr, a form of Norse magic, and is said to have taught this art to Odin himself.",
+  "symbols": ["brisingamen", "hildisvini", "falcon-cloak"],
+  "realm": "vanaheim",
+  "family": {
+    "parents": ["njord"],
+    "siblings": ["freyr"],
+    "children": ["hnoss", "gersemi"]
+  },
+  "attributes": {
+    "appearance": "Stunningly beautiful goddess with golden hair, often wearing the golden Brísingamen necklace, riding a chariot pulled by cats or the boar Hildisvíni",
+    "personality": "Passionate, independent, powerful, sensual, fierce in both love and war",
+    "powers": ["seiðr magic", "shapeshifting", "divination", "choosing the slain", "fertility blessings"]
+  },
+  "stories": ["ragnarok", "brisingamen-theft", "freyr-and-gerd"],
+  "imageUrl": "/images/gods/freyja.webp",
+  "iconUrl": "/images/gods/icons/freyja.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 95,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "baldur",
+  "name": "Baldur",
+  "type": "Aesir",
+  "domain": ["light", "purity", "beauty", "joy"],
+  "title": "The Shining God",
+  "description": "Baldur is the beloved god of light, joy, purity, and beauty in Norse mythology. He is the son of Odin and Frigg, and is known for his exceptional beauty and kindness. Baldur is so pure and good that light radiates from him. His tragic death, brought about by Loki's trickery, is one of the most famous tales in Norse mythology and serves as a catalyst for Ragnarök. After having prophetic dreams of his own death, his mother Frigg extracted oaths from all things not to harm him, except for mistletoe, which she deemed too young. Loki exploited this oversight, leading to Baldur's death and eventual imprisonment in Hel until after Ragnarök.",
+  "symbols": ["light", "mistletoe", "hringhorni"],
+  "realm": "asgard",
+  "family": {
+    "parents": ["odin", "frigg"],
+    "siblings": ["thor", "hodr", "vidar", "vali"],
+    "spouse": "nanna",
+    "children": ["forseti"]
+  },
+  "attributes": {
+    "appearance": "Extraordinarily handsome with radiant features, fair hair, and skin so bright it glows, often depicted in white robes",
+    "personality": "Pure, kind, beloved by all, gentle, wise, perfect in every way",
+    "powers": ["radiating light", "invulnerability (temporarily)", "inspiring joy", "wisdom"]
+  },
+  "stories": ["death-of-baldur", "ragnarok", "creation-of-world"],
+  "imageUrl": "/images/gods/baldur.webp",
+  "iconUrl": "/images/gods/icons/baldur.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 90,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

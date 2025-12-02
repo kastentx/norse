@@ -1,0 +1,28 @@
+{
+  "id": "freyr",
+  "name": "Freyr",
+  "type": "Vanir",
+  "domain": ["fertility", "prosperity", "sunshine", "peace"],
+  "title": "Lord of the Vanir",
+  "description": "Freyr is one of the most important gods in Norse mythology, associated with virility, prosperity, sunshine, and fair weather. He is a Vanir god who came to live in Asgard as a hostage following the Aesir-Vanir War. Freyr is the brother of Freyja and son of Njörðr. He possesses the magical ship Skíðblaðnir, which can be folded up and carried in a pocket, and the golden boar Gullinbursti. Freyr's most prized possession was his sword that could fight on its own, but he gave it away to win the hand of the giantess Gerðr, leaving him defenseless for Ragnarök.",
+  "symbols": ["skidbladnir", "gullinbursti", "sword"],
+  "realm": "vanaheim",
+  "family": {
+    "parents": ["njord"],
+    "siblings": ["freyja"],
+    "spouse": "gerd"
+  },
+  "attributes": {
+    "appearance": "Handsome god with golden hair, often depicted with his golden boar or magical ship, radiating warmth and light",
+    "personality": "Generous, peaceful, passionate, devoted, willing to sacrifice for love",
+    "powers": ["weather control", "fertility blessings", "bringing prosperity", "peace-making"]
+  },
+  "stories": ["freyr-and-gerd", "ragnarok", "creation-of-world"],
+  "imageUrl": "/images/gods/freyr.webp",
+  "iconUrl": "/images/gods/icons/freyr.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 85,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

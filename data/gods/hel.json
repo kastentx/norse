@@ -1,0 +1,27 @@
+{
+  "id": "hel",
+  "name": "Hel",
+  "type": "Jotun",
+  "domain": ["death", "underworld", "disease"],
+  "title": "Queen of the Underworld",
+  "description": "Hel is the ruler of Helheim, the realm of the dead in Norse mythology. She is the daughter of Loki and the giantess Angrboða, and sister to Fenrir the wolf and Jörmungandr the world serpent. When the gods learned of these dangerous children, Odin cast Hel into Niflheim and gave her authority over nine realms, to provide lodgings for those sent to her—mainly those who die of sickness or old age, as opposed to those who die gloriously in battle and go to Valhalla or Fólkvangr. Hel is often described as being half alive and half dead in appearance. She plays a crucial role in the story of Baldur, refusing to release him from the underworld unless all things weep for him.",
+  "symbols": ["death", "decay", "helheim"],
+  "realm": "helheim",
+  "family": {
+    "parents": ["loki", "angrboda"],
+    "siblings": ["fenrir", "jormungandr"]
+  },
+  "attributes": {
+    "appearance": "Half of her body appears alive and beautiful, the other half appears decayed and corpse-like, often described as being blue or black on one side",
+    "personality": "Stern, impartial, unyielding, neither cruel nor kind, dutiful to her role as keeper of the dead",
+    "powers": ["dominion over the dead", "necromancy", "disease control", "immortality"]
+  },
+  "stories": ["death-of-baldur", "ragnarok", "binding-of-fenrir"],
+  "imageUrl": "/images/gods/hel.webp",
+  "iconUrl": "/images/gods/icons/hel.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 85,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

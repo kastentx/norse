@@ -1,0 +1,26 @@
+{
+  "id": "tyr",
+  "name": "Tyr",
+  "type": "Aesir",
+  "domain": ["war", "justice", "law", "honor"],
+  "title": "God of War and Justice",
+  "description": "Tyr is the Norse god of war, law, and justice. He is one of the oldest gods and was once considered the head of the Norse pantheon before Odin. Tyr is famous for his bravery and self-sacrifice. When the gods needed to bind the monstrous wolf Fenrir, none were willing to place their hand in Fenrir's mouth as a pledge of good faith except Tyr. When the binding proved unbreakable, Fenrir bit off Tyr's right hand. Despite his disability, Tyr remains one of the bravest gods and is destined to fight and be killed by Garmr, the hound of Hel, during Ragnarök. Tyr represents lawful conduct and honorable warfare.",
+  "symbols": ["sword", "spear", "scales-of-justice"],
+  "realm": "asgard",
+  "family": {
+    "parents": ["odin"]
+  },
+  "attributes": {
+    "appearance": "Strong warrior god missing his right hand, depicted with armor, sword, and a stern but noble expression",
+    "personality": "Brave, honorable, just, self-sacrificing, dedicated to law and order",
+    "powers": ["combat mastery", "inspiring courage", "oath-binding", "tactical warfare"]
+  },
+  "stories": ["binding-of-fenrir", "ragnarok", "creation-of-world"],
+  "imageUrl": "/images/gods/tyr.webp",
+  "iconUrl": "/images/gods/icons/tyr.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 75,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}
