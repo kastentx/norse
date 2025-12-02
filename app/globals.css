@@ -1,10 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --font-norse: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
+@theme {
+  --font-norse: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  --color-norse-gold: #FFD700;
+  --color-norse-bronze: #CD7F32;
+  --color-norse-stone: #8B8D7A;
+  --color-norse-ice: #E0F4FF;
+  --color-norse-fire: #FF6B35;
+  --color-norse-night: #0F1419;
+  --color-norse-rune: #9D4EDD;
+  
+  --animate-fade-in: fadeIn 0.3s ease-in-out;
+  --animate-slide-in: slideIn 0.3s ease-out;
+  --animate-scale-in: scaleIn 0.3s ease-out;
+  --animate-parallax: parallax 0.5s ease-out;
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+  
+  @keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes parallax {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -16,8 +46,4 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-body {
-  @apply bg-gray-50 text-gray-900 antialiased;
 }
