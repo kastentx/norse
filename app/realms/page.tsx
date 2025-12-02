@@ -1,0 +1,88 @@
+"use client";
+
+import { useState } from "react";
+import { getAllRealms } from "@/lib/data/realms";
+import { Realm } from "@/types/realm";
+import RealmMap from "@/components/realms/RealmMap";
+import RealmDetail from "@/components/realms/RealmDetail";
+
+// Metadata is set in layout since this is a Client Component
+
+export default function RealmsPage() {
+  const realms = getAllRealms();
+  const [selectedRealm, setSelectedRealm] = useState<Realm | null>(null);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black via-norse-gray-900 to-black py-16">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-norse text-5xl text-norse-gold md:text-6xl lg:text-7xl">
+            The Nine Realms
+          </h1>
+          <p className="mx-auto max-w-2xl text-lg text-norse-gray-300 md:text-xl">
+            Explore the cosmic tree Yggdrasil and discover the Nine Realms of
+            Norse mythology, each connected by the World Tree
+          </p>
+        </div>
+
+        {/* Map Container */}
+        <div className="relative mx-auto max-w-7xl">
+          <RealmMap
+            realms={realms}
+            selectedRealm={selectedRealm}
+            onRealmSelect={setSelectedRealm}
+          />
+        </div>
+
+        {/* Detail Panel */}
+        {selectedRealm && (
+          <RealmDetail
+            realm={selectedRealm}
+            onClose={() => setSelectedRealm(null)}
+          />
+        )}
+
+        {/* Realm Legend */}
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="rounded-lg border border-norse-gold/20 bg-norse-gray-800/50 p-6 backdrop-blur-sm">
+            <h3 className="mb-3 font-norse text-xl text-norse-gold">
+              Upper Realms
+            </h3>
+            <ul className="space-y-2 text-norse-gray-300">
+              {realms
+                .filter((r) => r.location.level === "upper")
+                .map((realm) => (
+                  <li key={realm.id}>• {realm.name}</li>
+                ))}
+            </ul>
+          </div>
+          <div className="rounded-lg border border-norse-gold/20 bg-norse-gray-800/50 p-6 backdrop-blur-sm">
+            <h3 className="mb-3 font-norse text-xl text-norse-gold">
+              Middle Realms
+            </h3>
+            <ul className="space-y-2 text-norse-gray-300">
+              {realms
+                .filter((r) => r.location.level === "middle")
+                .map((realm) => (
+                  <li key={realm.id}>• {realm.name}</li>
+                ))}
+            </ul>
+          </div>
+          <div className="rounded-lg border border-norse-gold/20 bg-norse-gray-800/50 p-6 backdrop-blur-sm">
+            <h3 className="mb-3 font-norse text-xl text-norse-gold">
+              Lower Realms
+            </h3>
+            <ul className="space-y-2 text-norse-gray-300">
+              {realms
+                .filter((r) => r.location.level === "lower")
+                .map((realm) => (
+                  <li key={realm.id}>• {realm.name}</li>
+                ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

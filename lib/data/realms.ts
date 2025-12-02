@@ -1,39 +1,26 @@
-import fs from "fs/promises";
-import path from "path";
 import { Realm, RealmSchema } from "@/types/realm";
+import { z } from "zod";
+import realmsData from "@/data/realms/nine-realms.json";
 
-const DATA_DIR = path.join(process.cwd(), "data", "realms");
+// Validate the imported data
+const RealmsArraySchema = z.array(RealmSchema);
 
 /**
  * Get all Nine Realms sorted by level (upper -> middle -> lower) and name
  * @returns Array of Realm objects
  */
-export async function getAllRealms(): Promise<Realm[]> {
+export function getAllRealms(): Realm[] {
   try {
-    const files = await fs.readdir(DATA_DIR);
-    const jsonFiles = files.filter((file) => file.endsWith(".json"));
-
-    const realms = await Promise.all(
-      jsonFiles.map(async (file) => {
-        const filePath = path.join(DATA_DIR, file);
-        const content = await fs.readFile(filePath, "utf-8");
-        const data = JSON.parse(content);
-        return RealmSchema.parse(data);
-      })
-    );
-
+    const validated = RealmsArraySchema.parse(realmsData);
+    
     // Sort by level priority (upper > middle > lower), then alphabetically
     const levelOrder = { upper: 0, middle: 1, lower: 2 };
-    return realms.sort((a, b) => {
+    return validated.sort((a, b) => {
       const levelDiff = levelOrder[a.location.level] - levelOrder[b.location.level];
       return levelDiff !== 0 ? levelDiff : a.name.localeCompare(b.name);
     });
   } catch (error) {
-    if (error instanceof Error && "code" in error && error.code === "ENOENT") {
-      console.warn(`Realms directory not found: ${DATA_DIR}`);
-      return [];
-    }
-    console.error("Error loading realms:", error);
+    console.error("Failed to validate realms data:", error);
     return [];
   }
 }
@@ -41,21 +28,11 @@ export async function getAllRealms(): Promise<Realm[]> {
 /**
  * Get a single realm by its ID
  * @param id - Realm ID
- * @returns Realm object or null if not found
+ * @returns Realm object or undefined if not found
  */
-export async function getRealmById(id: string): Promise<Realm | null> {
-  try {
-    const filePath = path.join(DATA_DIR, `${id}.json`);
-    const content = await fs.readFile(filePath, "utf-8");
-    const data = JSON.parse(content);
-    return RealmSchema.parse(data);
-  } catch (error) {
-    if (error instanceof Error && "code" in error && error.code === "ENOENT") {
-      return null;
-    }
-    console.error(`Error loading realm ${id}:`, error);
-    return null;
-  }
+export function getRealmById(id: string): Realm | undefined {
+  const realms = getAllRealms();
+  return realms.find((realm) => realm.id === id);
 }
 
 /**
@@ -63,11 +40,24 @@ export async function getRealmById(id: string): Promise<Realm | null> {
  * @param level - Realm level (upper, middle, or lower)
  * @returns Array of Realm objects
  */
-export async function getRealmsByLevel(
+export function getRealmsByLevel(
   level: "upper" | "middle" | "lower"
-): Promise<Realm[]> {
-  const realms = await getAllRealms();
+): Realm[] {
+  const realms = getAllRealms();
   return realms.filter((realm) => realm.location.level === level);
+}
+
+/**
+ * Get realms connected to a specific realm
+ * @param realmId - The realm ID
+ * @returns Array of connected realms
+ */
+export function getConnectedRealms(realmId: string): Realm[] {
+  const realm = getRealmById(realmId);
+  if (!realm || !realm.connections) return [];
+
+  const allRealms = getAllRealms();
+  return allRealms.filter((r) => realm.connections?.includes(r.id));
 }
 
 /**
@@ -75,8 +65,8 @@ export async function getRealmsByLevel(
  * @param query - Search query string
  * @returns Array of Realm objects matching the query
  */
-export async function searchRealms(query: string): Promise<Realm[]> {
-  const realms = await getAllRealms();
+export function searchRealms(query: string): Realm[] {
+  const realms = getAllRealms();
   const lowerQuery = query.toLowerCase();
 
   return realms.filter(
