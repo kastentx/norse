@@ -88,8 +88,8 @@
 - [X] T044 [P] [US1] Create sample God JSON data files (Odin, Thor, Loki) in data/gods/
 - [X] T045 [US1] Create gods route group directory structure: app/(gods)/gods/ (using app/gods/ instead)
 - [X] T046 [US1] Create gods listing page (Client Component with API route) in app/gods/page.tsx
-- [ ] T047 [US1] Create god detail dynamic route in app/(gods)/gods/[slug]/page.tsx
-- [ ] T048 [US1] Implement generateStaticParams for god routes in app/(gods)/gods/[slug]/page.tsx
+- [X] T047 [US1] Create god detail dynamic route in app/gods/[slug]/page.tsx
+- [X] T048 [US1] Implement generateStaticParams for god routes in app/gods/[slug]/page.tsx
 - [X] T049 [P] [US1] Create GodSkeleton loading component in components/gods/GodSkeleton.tsx
 - [X] T050 [US1] Create GodCard component (Client Component) with hover animations in components/gods/GodCard.tsx
 - [X] T051 [US1] Create GodGrid component (Client Component) with stagger animations in components/gods/GodGrid.tsx
