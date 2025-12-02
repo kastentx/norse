@@ -1,6 +1,7 @@
 {
   "name": "norse",
   "version": "1.0.0",
+  "type": "module",
   "description": "Interactive Norse Mythology Knowledge Base",
   "scripts": {
     "dev": "next dev",
