@@ -9,7 +9,7 @@ export interface StorySection {
   id?: string;
   type: SectionType;
   heading?: string;
-  text: string;
+  text?: string;
   imageUrl?: string;
   parallaxIntensity?: number;
 }
@@ -45,9 +45,17 @@ export const StorySectionSchema = z.object({
   id: z.string().optional(),
   type: SectionTypeSchema,
   heading: z.string().optional(),
-  text: z.string(),
+  text: z.string().optional(),
   imageUrl: z.string().optional(),
   parallaxIntensity: z.number().min(0).max(1).optional(),
+}).refine((data) => {
+  // Text is required for text and quote types, but optional for illustrations
+  if ((data.type === "text" || data.type === "quote") && !data.text) {
+    return false;
+  }
+  return true;
+}, {
+  message: "text field is required for text and quote section types",
 });
 
 export const StoryDifficultySchema = z.enum(["beginner", "intermediate", "advanced"]);
