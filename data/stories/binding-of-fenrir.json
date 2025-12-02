@@ -8,7 +8,7 @@
   "themes": ["prophecy", "sacrifice", "fate", "monsters"],
   "characters": ["tyr", "odin", "loki", "thor"],
   "realms": ["asgard", "jotunheim", "svartalfheim"],
-  "imageUrl": "/images/stories/fenrir-full.jpg",
+  "imageUrl": "/images/stories/fenrir-full.webp",
   "metadata": {
     "featured": true,
     "publishedDate": "2025-01-02T00:00:00.000Z",
@@ -25,7 +25,7 @@
     {
       "id": "image-1",
       "type": "illustration",
-      "imageUrl": "/images/stories/fenrir-young.jpg",
+      "imageUrl": "/images/stories/fenrir-young.webp",
       "text": "Young Fenrir among the gods of Asgard"
     },
     {
@@ -57,7 +57,7 @@
     {
       "id": "image-2",
       "type": "illustration",
-      "imageUrl": "/images/stories/fenrir-chains.jpg",
+      "imageUrl": "/images/stories/fenrir-chains.webp",
       "text": "Fenrir breaking the chains Leyding and Dromi"
     },
     {
@@ -89,7 +89,7 @@
     {
       "id": "image-3",
       "type": "illustration",
-      "imageUrl": "/images/stories/fenrir-tyr.jpg",
+      "imageUrl": "/images/stories/fenrir-tyr.webp",
       "text": "Tyr sacrificing his hand to bind Fenrir"
     },
     {
