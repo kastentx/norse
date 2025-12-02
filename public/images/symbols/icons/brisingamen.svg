@@ -1,0 +1,35 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brísingamen - Freyja's Necklace Icon -->
+  <g transform="translate(32, 32)">
+    <!-- Necklace chain (upper arc) -->
+    <path d="M -20,-8 Q -24,-12 -22,-16 Q -18,-20 -12,-18 Q -6,-16 0,-16 Q 6,-16 12,-18 Q 18,-20 22,-16 Q 24,-12 20,-8" 
+          stroke="#D4AF37" 
+          stroke-width="2.5" 
+          fill="none"
+          stroke-linecap="round"/>
+    
+    <!-- Chain links -->
+    <circle cx="-16" cy="-14" r="2" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    <circle cx="-8" cy="-16" r="2" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    <circle cx="0" cy="-16" r="2" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    <circle cx="8" cy="-16" r="2" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    <circle cx="16" cy="-14" r="2" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    
+    <!-- Central pendant (ornate design) -->
+    <g transform="translate(0, -4)">
+      <!-- Outer frame -->
+      <path d="M -6,0 L 0,12 L 6,0 Z" fill="#D4AF37" stroke="#1a1a2e" stroke-width="1.5"/>
+      
+      <!-- Inner jewel -->
+      <ellipse cx="0" cy="4" rx="4" ry="6" fill="#FF6B6B" stroke="#1a1a2e" stroke-width="1"/>
+      
+      <!-- Decorative swirls -->
+      <circle cx="-3" cy="2" r="1.5" fill="#FFD700"/>
+      <circle cx="3" cy="2" r="1.5" fill="#FFD700"/>
+      <circle cx="0" cy="8" r="1.5" fill="#FFD700"/>
+    </g>
+    
+    <!-- Radiant glow effect -->
+    <circle cx="0" cy="4" r="14" fill="#D4AF37" opacity="0.1"/>
+  </g>
+</svg>

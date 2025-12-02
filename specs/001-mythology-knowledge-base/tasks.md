@@ -211,8 +211,8 @@
 - [X] T119 [P] Add all god portrait images (WebP/AVIF with fallbacks) in public/images/gods/
 - [X] T120 [P] Add all story illustration images (WebP/AVIF) in public/images/stories/
 - [X] T121 [P] Add all realm visualization images (WebP/AVIF) in public/images/realms/
-- [ ] T122 [P] Create Symbol entity JSON data files in data/symbols/
-- [ ] T123 [P] Add symbol icon images to public/images/symbols/
+- [X] T122 [P] Create Symbol entity JSON data files in data/symbols/
+- [X] T123 [P] Add symbol icon images to public/images/symbols/
 - [X] T124 Implement related content cross-linking (gods ↔ stories ↔ realms)
 - [X] T125 Add breadcrumb navigation across all pages
 - [X] T126 [P] Optimize bundle size with dynamic imports for heavy components

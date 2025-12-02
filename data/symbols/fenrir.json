@@ -1,0 +1,18 @@
+{
+  "id": "fenrir",
+  "name": "Fenrir",
+  "type": "creature",
+  "description": "The monstrous wolf, son of Loki and the giantess Angrboða. Raised by the gods in Asgard, Fenrir grew so large and fierce that only Tyr dared to feed him. The gods bound him with the magical chain Gleipnir, but he will break free at Ragnarök to devour Odin.",
+  "associatedGods": ["tyr", "odin", "loki"],
+  "significance": "Represents chaos, inevitability of fate, and the limits of divine power. His binding demonstrates the gods' fear of prophecy and their attempts to forestall doom. His eventual freedom at Ragnarök shows that fate cannot be avoided.",
+  "properties": [
+    "Grows larger and fiercer each day",
+    "Bound by the magical chain Gleipnir",
+    "Cost Tyr his hand when being bound",
+    "Destined to kill Odin at Ragnarök",
+    "Father to wolves Sköll and Hati who chase the sun and moon"
+  ],
+  "stories": ["binding-of-fenrir", "ragnarok"],
+  "imageUrl": "/images/symbols/fenrir.webp",
+  "iconUrl": "/images/symbols/icons/fenrir.svg"
+}

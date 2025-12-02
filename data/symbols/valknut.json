@@ -1,0 +1,18 @@
+{
+  "id": "valknut",
+  "name": "Valknut",
+  "type": "concept",
+  "description": "Three interlocking triangles that form a powerful Norse symbol, often found on memorial stones and burial artifacts. The name means 'knot of the slain' and is closely associated with Odin and the warriors who die in battle. Its exact meaning remains mysterious.",
+  "associatedGods": ["odin"],
+  "significance": "Symbol of the afterlife, warrior's death, and Odin's power over life and death. Represents the connection between the living and the dead, and the transition of fallen warriors to Valhalla. May symbolize the nine realms or the interconnection of fate.",
+  "properties": [
+    "Three interlocking triangles",
+    "Often appears with Odin's symbols",
+    "Found on Viking Age memorial stones",
+    "Associated with honorable death in battle",
+    "May represent the power to bind and unbind"
+  ],
+  "stories": ["ragnarok"],
+  "imageUrl": "/images/symbols/valknut.webp",
+  "iconUrl": "/images/symbols/icons/valknut.svg"
+}

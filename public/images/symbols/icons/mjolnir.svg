@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mjölnir - Thor's Hammer Icon -->
+  <g transform="translate(32, 32)">
+    <!-- Hammer head -->
+    <rect x="-20" y="-8" width="40" height="16" rx="2" fill="#D4AF37" stroke="#1a1a2e" stroke-width="2"/>
+    
+    <!-- Handle -->
+    <rect x="-3" y="6" width="6" height="22" rx="1" fill="#8B4513" stroke="#1a1a2e" stroke-width="1.5"/>
+    
+    <!-- Cross guard -->
+    <rect x="-8" y="4" width="16" height="4" rx="1" fill="#D4AF37" stroke="#1a1a2e" stroke-width="1"/>
+    
+    <!-- Lightning detail on hammer head -->
+    <path d="M -2,-4 L 2,0 L -1,0 L 3,6 L -3,-2 L 0,-2 Z" fill="#FFD700" opacity="0.6"/>
+  </g>
+</svg>

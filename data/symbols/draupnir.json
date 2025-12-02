@@ -1,0 +1,18 @@
+{
+  "id": "draupnir",
+  "name": "Draupnir",
+  "type": "artifact",
+  "description": "Odin's golden arm ring, forged by the dwarven brothers Sindri and Brokkr at the same time as Mjölnir. Every ninth night, eight new rings of equal weight and quality drip from Draupnir, making it an endless source of wealth and abundance.",
+  "associatedGods": ["odin"],
+  "significance": "Symbol of abundance, generosity, and the cyclical nature of wealth. Represents Odin's role as gift-giver and the importance of generosity in Norse culture. The number nine reflects the cosmic significance of that number in Norse mythology.",
+  "properties": [
+    "Produces eight new rings every ninth night",
+    "Each copy is of equal quality to the original",
+    "Made of pure gold",
+    "Given to Baldur's funeral pyre",
+    "Returned to Odin from Hel"
+  ],
+  "stories": [],
+  "imageUrl": "/images/symbols/draupnir.webp",
+  "iconUrl": "/images/symbols/icons/draupnir.svg"
+}

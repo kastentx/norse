@@ -1,0 +1,18 @@
+{
+  "id": "sleipnir",
+  "name": "Sleipnir",
+  "type": "creature",
+  "description": "Odin's eight-legged horse, the swiftest of all steeds. Born from Loki's shapeshifting encounter with the stallion Svaðilfari, Sleipnir can travel between all Nine Realms, running across land, sea, and sky. The horse is grey in color and bears runes on its teeth.",
+  "associatedGods": ["odin", "loki"],
+  "significance": "Symbol of shamanic travel between worlds, speed, and supernatural power. Represents Odin's ability to journey to all realms including the realm of the dead. The eight legs may symbolize the eight directions or represent unmatched swiftness.",
+  "properties": [
+    "Has eight legs for superior speed",
+    "Can travel between all Nine Realms",
+    "Gallops through air and over water",
+    "Born from Loki in mare form",
+    "Carries Odin to Hel and back"
+  ],
+  "stories": ["ragnarok"],
+  "imageUrl": "/images/symbols/sleipnir.webp",
+  "iconUrl": "/images/symbols/icons/sleipnir.svg"
+}

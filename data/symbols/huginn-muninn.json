@@ -1,0 +1,18 @@
+{
+  "id": "huginn-muninn",
+  "name": "Huginn and Muninn",
+  "type": "creature",
+  "description": "Odin's two ravens, whose names mean 'Thought' and 'Memory'. Each day they fly across all Nine Realms gathering information and return to Odin's shoulders at evening to whisper their findings in his ears. They represent Odin's omniscience and his role as the all-seeing god.",
+  "associatedGods": ["odin"],
+  "significance": "Symbols of wisdom, knowledge, and the mind's power. Represent the dual aspects of consciousness - active thought and retained memory. Their daily flights demonstrate Odin's relentless pursuit of knowledge and awareness of all events in the cosmos.",
+  "properties": [
+    "Fly across all Nine Realms daily",
+    "Report all news to Odin",
+    "Huginn represents thought and reason",
+    "Muninn represents memory and reflection",
+    "Never separated from Odin for long"
+  ],
+  "stories": ["ragnarok", "creation-of-world"],
+  "imageUrl": "/images/symbols/huginn-muninn.webp",
+  "iconUrl": "/images/symbols/icons/huginn-muninn.svg"
+}

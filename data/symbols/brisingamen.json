@@ -1,0 +1,18 @@
+{
+  "id": "brisingamen",
+  "name": "Brísingamen",
+  "type": "artifact",
+  "description": "Freyja's magnificent golden necklace, forged by four dwarven brothers known as the Brísings. The necklace is so beautiful that Freyja paid any price to obtain it. It represents her power over love, beauty, and desire, and shines with otherworldly radiance.",
+  "associatedGods": ["freyja", "loki"],
+  "significance": "Symbol of beauty, desire, and feminine power. Represents the lengths one will go for beauty and the price of vanity. Also symbolizes the sun and fertility. Loki once stole it, leading to conflict between the gods.",
+  "properties": [
+    "Unmatched in beauty and craftsmanship",
+    "Forged by master dwarf smiths",
+    "Radiates golden light",
+    "Cannot be removed against Freyja's will",
+    "Stolen by Loki but recovered by Heimdall"
+  ],
+  "stories": [],
+  "imageUrl": "/images/symbols/brisingamen.webp",
+  "iconUrl": "/images/symbols/icons/brisingamen.svg"
+}

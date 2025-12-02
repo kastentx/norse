@@ -1,0 +1,18 @@
+{
+  "id": "mjolnir",
+  "name": "Mjölnir",
+  "type": "weapon",
+  "description": "Thor's legendary hammer, forged by dwarven craftsmen Sindri and Brokkr. Known for its incredible destructive power and the ability to return to Thor's hand after being thrown. The hammer is both a weapon against giants and a symbol of protection and blessing.",
+  "associatedGods": ["thor"],
+  "significance": "Symbol of protection, consecration, and divine power. Used to bless marriages, births, and funerals. Represents the might of the Aesir against the forces of chaos.",
+  "properties": [
+    "Always returns to Thor when thrown",
+    "Can only be wielded by those deemed worthy",
+    "Creates thunder and lightning when swung",
+    "Can shatter mountains",
+    "Short handle due to Loki's interference during forging"
+  ],
+  "stories": ["theft-of-mjolnir", "thors-journey-utgard"],
+  "imageUrl": "/images/symbols/mjolnir.webp",
+  "iconUrl": "/images/symbols/icons/mjolnir.svg"
+}

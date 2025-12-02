@@ -1,0 +1,27 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fenrir - The Great Wolf Icon -->
+  <g transform="translate(32, 32)">
+    <!-- Wolf head silhouette -->
+    <ellipse cx="0" cy="0" rx="14" ry="12" fill="#4a4a4a" stroke="#1a1a2e" stroke-width="2"/>
+    
+    <!-- Snout -->
+    <ellipse cx="10" cy="2" rx="8" ry="6" fill="#5a5a5a" stroke="#1a1a2e" stroke-width="1.5"/>
+    
+    <!-- Ears -->
+    <path d="M -8,-12 L -6,-20 L -2,-12 Z" fill="#4a4a4a" stroke="#1a1a2e" stroke-width="1.5"/>
+    <path d="M 8,-12 L 10,-20 L 6,-12 Z" fill="#4a4a4a" stroke="#1a1a2e" stroke-width="1.5"/>
+    
+    <!-- Eyes (fierce red) -->
+    <circle cx="-4" cy="-2" r="2.5" fill="#ff4444"/>
+    <circle cx="2" cy="-2" r="2.5" fill="#ff4444"/>
+    
+    <!-- Fangs -->
+    <path d="M 14,6 L 16,12 L 12,10 Z" fill="#ffffff" stroke="#1a1a2e" stroke-width="1"/>
+    <path d="M 18,6 L 20,12 L 16,10 Z" fill="#ffffff" stroke="#1a1a2e" stroke-width="1"/>
+    
+    <!-- Chain (Gleipnir) -->
+    <path d="M -20,8 Q -10,10 0,8 Q 10,6 20,8" stroke="#D4AF37" stroke-width="2.5" fill="none"/>
+    <circle cx="-15" cy="9" r="2" fill="none" stroke="#D4AF37" stroke-width="2"/>
+    <circle cx="15" cy="7" r="2" fill="none" stroke="#D4AF37" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+{
+  "id": "yggdrasil",
+  "name": "Yggdrasil",
+  "type": "concept",
+  "description": "The immense World Tree, an ash tree that connects and shelters all Nine Realms of Norse cosmology. Its branches extend over all worlds, and its roots delve into three wells of fate. The tree is constantly threatened by decay but sustained by the Norns who water it daily.",
+  "associatedGods": ["odin"],
+  "significance": "Central axis of Norse cosmology. Represents the interconnection of all existence, the cycle of life and death, and the structure of the universe. Odin hung himself from Yggdrasil for nine days to gain knowledge of the runes.",
+  "properties": [
+    "Connects all Nine Realms",
+    "Three roots extending to different wells",
+    "Home to various creatures including an eagle, squirrel, and serpent",
+    "Gnawed constantly by deer and the dragon Níðhöggr",
+    "Will survive Ragnarök and shelter life's rebirth"
+  ],
+  "stories": ["yggdrasil", "ragnarok", "creation-of-world"],
+  "imageUrl": "/images/symbols/yggdrasil.webp",
+  "iconUrl": "/images/symbols/icons/yggdrasil.svg"
+}

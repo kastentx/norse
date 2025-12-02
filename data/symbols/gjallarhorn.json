@@ -1,0 +1,18 @@
+{
+  "id": "gjallarhorn",
+  "name": "Gjallarhorn",
+  "type": "artifact",
+  "description": "Heimdall's mighty horn, kept beneath Yggdrasil's roots near Mimir's well. Its blast can be heard throughout all Nine Realms. Heimdall will sound it once to announce the beginning of Ragnarök, summoning gods and heroes for the final battle against the forces of chaos.",
+  "associatedGods": ["heimdall"],
+  "significance": "Symbol of warning, awakening, and the inevitable arrival of fate. Represents vigilance and the call to action in times of ultimate crisis. Its single blast at Ragnarök marks the end of the current age and the beginning of cosmic transformation.",
+  "properties": [
+    "Sound reaches all Nine Realms",
+    "Kept hidden until Ragnarök",
+    "Only Heimdall can blow it properly",
+    "Single blast announces Ragnarök",
+    "Will shatter upon being blown"
+  ],
+  "stories": ["ragnarok"],
+  "imageUrl": "/images/symbols/gjallarhorn.webp",
+  "iconUrl": "/images/symbols/icons/gjallarhorn.svg"
+}

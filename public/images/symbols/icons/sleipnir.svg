@@ -1,0 +1,40 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sleipnir - Eight-Legged Horse Icon -->
+  <g transform="translate(32, 32)">
+    <!-- Horse head -->
+    <path d="M -8,-12 Q -10,-18 -6,-20 L -2,-18 L 0,-12 Z" fill="#8B8B8B" stroke="#1a1a2e" stroke-width="1.5"/>
+    
+    <!-- Horse body -->
+    <ellipse cx="0" cy="0" rx="16" ry="10" fill="#A0A0A0" stroke="#1a1a2e" stroke-width="2"/>
+    
+    <!-- Mane -->
+    <path d="M -6,-16 Q -8,-20 -6,-22" stroke="#D4AF37" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M -4,-14 Q -6,-18 -4,-20" stroke="#D4AF37" stroke-width="2" fill="none" stroke-linecap="round"/>
+    
+    <!-- Eight legs (4 pairs) - showing as 4 visible from side view -->
+    <!-- Front legs pair 1 -->
+    <line x1="8" y1="8" x2="6" y2="18" stroke="#8B8B8B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="10" y1="8" x2="8" y2="18" stroke="#8B8B8B" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    
+    <!-- Front legs pair 2 -->
+    <line x1="4" y1="8" x2="2" y2="18" stroke="#8B8B8B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="6" y1="8" x2="4" y2="18" stroke="#8B8B8B" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    
+    <!-- Back legs pair 1 -->
+    <line x1="-6" y1="8" x2="-8" y2="18" stroke="#8B8B8B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-4" y1="8" x2="-6" y2="18" stroke="#8B8B8B" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    
+    <!-- Back legs pair 2 -->
+    <line x1="-10" y1="8" x2="-12" y2="18" stroke="#8B8B8B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-8" y1="8" x2="-10" y2="18" stroke="#8B8B8B" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    
+    <!-- Hooves (gold) -->
+    <circle cx="6" cy="18" r="1.5" fill="#D4AF37"/>
+    <circle cx="2" cy="18" r="1.5" fill="#D4AF37"/>
+    <circle cx="-8" cy="18" r="1.5" fill="#D4AF37"/>
+    <circle cx="-12" cy="18" r="1.5" fill="#D4AF37"/>
+    
+    <!-- Eye -->
+    <circle cx="-4" cy="-14" r="1" fill="#D4AF37"/>
+  </g>
+</svg>

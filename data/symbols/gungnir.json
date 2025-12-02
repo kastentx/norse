@@ -1,0 +1,18 @@
+{
+  "id": "gungnir",
+  "name": "Gungnir",
+  "type": "weapon",
+  "description": "Odin's mighty spear, crafted by the Sons of Ivaldi, the same dwarves who created Sif's golden hair. The spear never misses its target when thrown and always returns to Odin's hand. Its shaft is inscribed with powerful runes that enhance its magical properties.",
+  "associatedGods": ["odin"],
+  "significance": "Symbol of authority, precision, and inevitable fate. Represents Odin's role as warrior-king and the inescapable nature of destiny. Used to begin battles by throwing it over enemy armies.",
+  "properties": [
+    "Never misses its mark",
+    "Cannot be stopped once thrown",
+    "Inscribed with sacred runes",
+    "Returns to Odin's hand",
+    "Oaths sworn on Gungnir cannot be broken"
+  ],
+  "stories": ["ragnarok", "creation-of-world"],
+  "imageUrl": "/images/symbols/gungnir.webp",
+  "iconUrl": "/images/symbols/icons/gungnir.svg"
+}

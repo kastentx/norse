@@ -1,0 +1,27 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gjallarhorn - Heimdall's Horn Icon -->
+  <g transform="translate(32, 32)">
+    <!-- Horn body (curved) -->
+    <path d="M -24,8 Q -20,10 -14,8 Q -8,6 0,2 Q 8,-2 16,-8 Q 20,-12 22,-18" 
+          stroke="#D4AF37" 
+          stroke-width="5" 
+          fill="none"
+          stroke-linecap="round"/>
+    
+    <!-- Horn bell opening -->
+    <ellipse cx="-24" cy="8" rx="5" ry="8" fill="#C9A055" stroke="#D4AF37" stroke-width="2"/>
+    
+    <!-- Mouthpiece -->
+    <circle cx="22" cy="-18" r="3" fill="#8B6914" stroke="#D4AF37" stroke-width="1.5"/>
+    
+    <!-- Decorative bands -->
+    <line x1="-12" y1="7" x2="-10" y2="9" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+    <line x1="4" y1="-1" x2="6" y2="1" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+    <line x1="14" y1="-7" x2="16" y2="-5" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Sound waves (when blown) -->
+    <path d="M -28,6 Q -32,8 -34,12" stroke="#D4AF37" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="2,3"/>
+    <path d="M -28,10 Q -34,12 -38,16" stroke="#D4AF37" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="2,3"/>
+    <path d="M -26,12 Q -32,16 -36,22" stroke="#D4AF37" stroke-width="1.5" fill="none" opacity="0.3" stroke-dasharray="2,3"/>
+  </g>
+</svg>
