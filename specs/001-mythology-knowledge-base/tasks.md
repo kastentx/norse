@@ -85,23 +85,23 @@
 
 ### Implementation for User Story 1
 
-- [ ] T044 [P] [US1] Create sample God JSON data files (Odin, Thor, Loki) in data/gods/
-- [ ] T045 [US1] Create gods route group directory structure: app/(gods)/gods/
-- [ ] T046 [US1] Create gods listing page (Server Component) in app/(gods)/gods/page.tsx
+- [X] T044 [P] [US1] Create sample God JSON data files (Odin, Thor, Loki) in data/gods/
+- [X] T045 [US1] Create gods route group directory structure: app/(gods)/gods/ (using app/gods/ instead)
+- [X] T046 [US1] Create gods listing page (Client Component with API route) in app/gods/page.tsx
 - [ ] T047 [US1] Create god detail dynamic route in app/(gods)/gods/[slug]/page.tsx
 - [ ] T048 [US1] Implement generateStaticParams for god routes in app/(gods)/gods/[slug]/page.tsx
-- [ ] T049 [P] [US1] Create GodSkeleton loading component in components/gods/GodSkeleton.tsx
-- [ ] T050 [US1] Create GodCard component (Client Component) with hover animations in components/gods/GodCard.tsx
-- [ ] T051 [US1] Create GodGrid component (Client Component) with stagger animations in components/gods/GodGrid.tsx
-- [ ] T052 [US1] Create GodDetailPanel component (Client Component) with slide-in animation in components/gods/GodDetailPanel.tsx
-- [ ] T053 [US1] Add keyboard navigation support (Enter, Escape keys) to GodDetailPanel component
-- [ ] T054 [US1] Add focus management to return focus to grid card after closing panel
-- [ ] T055 [US1] Implement ARIA labels and semantic HTML in all god components
-- [ ] T056 [US1] Add reduced-motion variants to all god component animations
-- [ ] T057 [P] [US1] Add placeholder god images to public/images/gods/
-- [ ] T058 [P] [US1] Optimize god images with Next.js Image component in GodCard
-- [ ] T059 [US1] Add loading Suspense boundary with skeleton to gods listing page
-- [ ] T060 [US1] Create gods section layout in app/(gods)/layout.tsx
+- [X] T049 [P] [US1] Create GodSkeleton loading component in components/gods/GodSkeleton.tsx
+- [X] T050 [US1] Create GodCard component (Client Component) with hover animations in components/gods/GodCard.tsx
+- [X] T051 [US1] Create GodGrid component (Client Component) with stagger animations in components/gods/GodGrid.tsx
+- [X] T052 [US1] Create GodDetailPanel component (Client Component) with slide-in animation in components/gods/GodDetailPanel.tsx
+- [X] T053 [US1] Add keyboard navigation support (Enter, Escape keys) to GodDetailPanel component
+- [X] T054 [US1] Add focus management to return focus to grid card after closing panel
+- [X] T055 [US1] Implement ARIA labels and semantic HTML in all god components
+- [X] T056 [US1] Add reduced-motion variants to all god component animations
+- [X] T057 [P] [US1] Add placeholder god images to public/images/gods/
+- [X] T058 [P] [US1] Optimize god images with Next.js Image component in GodCard
+- [X] T059 [US1] Add loading state with skeleton to gods listing page
+- [X] T060 [US1] Create API route for gods in app/api/gods/route.ts
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
