@@ -54,7 +54,7 @@ export function GodCard({ god, index, onClick }: GodCardProps) {
           src={god.imageUrl}
           alt={`${god.name} - ${god.title || "Norse deity"}`}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
         />
         {/* Overlay gradient */}

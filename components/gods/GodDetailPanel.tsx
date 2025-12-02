@@ -163,12 +163,12 @@ export function GodDetailPanel({ god, isOpen, onClose }: GodDetailPanelProps) {
             {/* Content */}
             <div className="p-6 space-y-8">
               {/* Image */}
-              <div className="relative h-80 w-full rounded-lg overflow-hidden border-2 border-norse-stone/20">
+              <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-lg overflow-hidden border-2 border-norse-stone/20 bg-gradient-to-br from-norse-night via-norse-stone/10 to-norse-night">
                 <Image
                   src={god.imageUrl}
                   alt={`${god.name} - ${god.title || "Norse deity"}`}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   priority
                   sizes="(max-width: 640px) 100vw, 600px"
                 />
