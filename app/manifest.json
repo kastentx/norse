@@ -1,0 +1,54 @@
+{
+  "name": "Norse Mythology Knowledge Base",
+  "short_name": "Norse Myths",
+  "description": "Explore the rich tapestry of Norse mythology through an interactive knowledge base featuring gods, epic tales, and the Nine Realms.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#D4AF37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["education", "reference", "entertainment"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/screenshots/gods-page.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Browse animated god cards"
+    },
+    {
+      "src": "/screenshots/story-page.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Read stories with parallax effects"
+    },
+    {
+      "src": "/screenshots/realms-map.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Explore the interactive Nine Realms map"
+    }
+  ]
+}

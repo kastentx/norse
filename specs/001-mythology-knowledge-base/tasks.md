@@ -219,7 +219,7 @@
 - [X] T127 [P] Add meta tags and Open Graph data for SEO in all page.tsx files
 - [X] T128 [P] Create sitemap.xml with all routes
 - [X] T129 [P] Create robots.txt for search engine crawling
-- [ ] T130 [P] Add favicons and app icons in app/
+- [X] T130 [P] Add favicons and app icons in app/
 - [ ] T131 Run Lighthouse audit and address performance issues
 - [ ] T132 Run Lighthouse accessibility audit and fix any issues below 90 score
 - [ ] T133 Test all animations with reduced-motion enabled

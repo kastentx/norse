@@ -1,0 +1,20 @@
+ICON-192.PNG PLACEHOLDER
+
+This file should be replaced with an actual PNG file.
+
+Specifications:
+- Size: 192x192px (Android standard)
+- Format: PNG with transparency or solid background
+- Design: Norse mythology symbol matching app branding
+- Colors: Gold (#D4AF37) on dark purple (#1a1a2e) background
+- Style: Bold, clear design that scales well
+
+Purpose:
+- Android home screen icon when app is installed as PWA
+- App icon in Android app switcher
+- Referenced in web app manifest
+
+Design consistency:
+- Should match apple-touch-icon.png design
+- Slightly larger, can include more detail than favicon
+- Test visibility at various sizes (192px, 96px, 48px)

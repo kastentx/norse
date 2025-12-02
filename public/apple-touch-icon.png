@@ -1,0 +1,20 @@
+APPLE-TOUCH-ICON.PNG PLACEHOLDER
+
+This file should be replaced with an actual PNG file.
+
+Specifications:
+- Size: 180x180px (iOS standard)
+- Format: PNG with transparency
+- Design: Norse mythology symbol (Mjölnir, Valknut, or Yggdrasil)
+- Background: Can be transparent or solid color
+- Colors: Match app theme - gold (#D4AF37), deep purple (#1a1a2e)
+- Corner radius: iOS applies this automatically, design with square corners
+- Safe area: Keep important elements 10px from edges
+
+Design details:
+- Center the symbol with padding
+- High contrast for visibility on both light and dark iOS home screens
+- Consider adding subtle gradient or glow effect
+- Test on actual iOS device to verify appearance
+
+This icon appears when users add the app to their iPhone/iPad home screen.

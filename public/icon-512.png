@@ -1,0 +1,22 @@
+ICON-512.PNG PLACEHOLDER
+
+This file should be replaced with an actual PNG file.
+
+Specifications:
+- Size: 512x512px (Android maskable icon standard)
+- Format: PNG with transparency or solid background
+- Design: Norse mythology symbol with safe area consideration
+- Colors: Gold (#D4AF37) on dark purple (#1a1a2e) background
+- Safe area: Keep important elements within center 80% circle (adaptive icons)
+
+Purpose:
+- High-resolution icon for Android PWA installation
+- Splash screen display on Android devices
+- Play Store listing (if published as TWA)
+- Referenced in web app manifest
+
+Maskable icon design:
+- Android can crop this into various shapes (circle, squircle, rounded square)
+- Ensure key elements stay within safe zone circle
+- Can extend decorative elements to edges
+- Test with https://maskable.app/ to verify safe area

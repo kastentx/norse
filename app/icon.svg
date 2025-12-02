@@ -1,0 +1,41 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Norse mythology icon: Stylized Valknut (three interlocked triangles) -->
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#1a1a2e"/>
+  
+  <!-- Valknut symbol in gold -->
+  <g transform="translate(256, 256)">
+    <!-- First triangle (top) -->
+    <path d="M 0,-120 L 104,60 L -104,60 Z" 
+          fill="none" 
+          stroke="#D4AF37" 
+          stroke-width="20" 
+          stroke-linejoin="round"/>
+    
+    <!-- Second triangle (bottom left) -->
+    <path d="M -90,-30 L 14,150 L -194,150 Z" 
+          fill="none" 
+          stroke="#D4AF37" 
+          stroke-width="20" 
+          stroke-linejoin="round"/>
+    
+    <!-- Third triangle (bottom right) -->
+    <path d="M 90,-30 L 194,150 L -14,150 Z" 
+          fill="none" 
+          stroke="#D4AF37" 
+          stroke-width="20" 
+          stroke-linejoin="round"/>
+    
+    <!-- Center interlocking detail -->
+    <circle cx="0" cy="20" r="15" fill="#D4AF37"/>
+  </g>
+  
+  <!-- Subtle gradient overlay for depth -->
+  <defs>
+    <radialGradient id="shine" cx="50%" cy="30%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="url(#shine)"/>
+</svg>

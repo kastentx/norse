@@ -24,6 +24,19 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Norse Mythology Knowledge Base" }],
   creator: "Norse Mythology Knowledge Base",
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Norse Myths",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

@@ -1,0 +1,17 @@
+FAVICON.ICO PLACEHOLDER
+
+This file should be replaced with an actual .ico file containing:
+- 16x16px icon
+- 32x32px icon
+- 48x48px icon
+
+Design specification for Norse mythology favicon:
+- Symbol: Mjölnir (Thor's hammer) or Valknut (three interlocked triangles)
+- Colors: Gold (#D4AF37) on dark background (#1a1a2e) or transparent
+- Style: Simple, bold lines that work at small sizes
+- Format: ICO with multiple resolutions embedded
+
+Tools to create:
+- Online: https://favicon.io/ or https://realfavicongenerator.net/
+- Design in Figma/Sketch and export as ICO
+- Use ImageMagick: convert icon.png -define icon:auto-resize=48,32,16 favicon.ico
