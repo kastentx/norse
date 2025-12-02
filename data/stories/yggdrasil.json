@@ -1,0 +1,103 @@
+{
+  "id": "yggdrasil",
+  "slug": "yggdrasil",
+  "title": "Yggdrasil: The World Tree",
+  "summary": "The immense cosmic ash tree that connects and supports all Nine Realms of Norse cosmology, serving as the axis mundi of the entire universe.",
+  "difficulty": "beginner",
+  "readingTime": 8,
+  "themes": ["cosmology", "nature", "interconnection", "mythology-basics"],
+  "characters": ["odin"],
+  "realms": ["asgard", "midgard", "niflheim", "jotunheim"],
+  "imageUrl": "/images/stories/yggdrasil-full.jpg",
+  "metadata": {
+    "featured": true,
+    "publishedDate": "2025-01-02T00:00:00.000Z",
+    "lastUpdated": "2025-01-02T00:00:00.000Z"
+  },
+  "content": [
+    {
+      "id": "intro",
+      "type": "text",
+      "heading": "The Cosmic Tree",
+      "text": "At the center of Norse cosmology stands Yggdrasil, the World Tree—an immense ash tree that connects all Nine Realms of existence. Its branches extend high into the heavens, sheltering the realm of the gods, while its roots reach deep into the underworld. Yggdrasil is more than just a tree; it is the very framework of reality, the axis upon which all worlds turn.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "image-1",
+      "type": "illustration",
+      "imageUrl": "/images/stories/yggdrasil-full.jpg",
+      "text": "Yggdrasil connecting the Nine Realms"
+    },
+    {
+      "id": "structure",
+      "type": "text",
+      "heading": "The Tree's Structure",
+      "text": "Yggdrasil has three main roots, each extending to a different realm and drawing sustenance from different wells. The first root reaches into Asgard, the realm of the Æsir gods, where it draws from the Well of Urd. The second extends to Jotunheim, the land of the giants, where it drinks from Mimir's Well of wisdom. The third delves into Niflheim, the realm of ice and mist, where it draws from the spring of Hvergelmir, the source of many rivers.",
+      "parallaxIntensity": 0.3
+    },
+    {
+      "id": "quote-1",
+      "type": "quote",
+      "text": "I know that I hung on a windy tree nine long nights, wounded with a spear, dedicated to Odin, myself to myself, on that tree of which no man knows from where its roots run."
+    },
+    {
+      "id": "inhabitants",
+      "type": "text",
+      "heading": "Creatures of the Tree",
+      "text": "Yggdrasil is home to many creatures. At its crown perches a great eagle, possessing vast knowledge and observing all that happens in the Nine Realms. Between the eagle's eyes sits a hawk named Veðrfölnir. At the tree's roots lurks the dragon Níðhöggr, who gnaws constantly at the roots, attempting to kill the tree. A squirrel named Ratatoskr runs up and down the trunk, carrying insults between the eagle and the dragon, fostering their ancient enmity.",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "image-2",
+      "type": "illustration",
+      "imageUrl": "/images/stories/yggdrasil-creatures.jpg",
+      "text": "The creatures dwelling in Yggdrasil"
+    },
+    {
+      "id": "wells",
+      "type": "text",
+      "heading": "The Sacred Wells",
+      "text": "The Well of Urd lies beneath Yggdrasil's roots in Asgard, tended by the three Norns—the weavers of fate. Each day, these ancient beings draw water from the well and mix it with soil to pour over Yggdrasil's roots, keeping the great tree healthy. Near this well, the gods hold their councils, making decisions that affect all the realms. Mimir's Well, beneath another root, holds the waters of wisdom. Odin sacrificed his eye to drink from this well and gain profound knowledge.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "stags",
+      "type": "text",
+      "heading": "The Four Stags",
+      "text": "Four stags named Dáinn, Dvalinn, Duneyrr, and Duraþrór run through Yggdrasil's branches, feeding on its leaves and bark. Their movement through the tree represents the passage of time and the changing of seasons. As they leap from branch to branch, dew falls from their antlers down to the valleys below, becoming the source of all rivers in Midgard.",
+      "parallaxIntensity": 0.3
+    },
+    {
+      "id": "image-3",
+      "type": "illustration",
+      "imageUrl": "/images/stories/yggdrasil-stags.jpg",
+      "text": "The four stags among Yggdrasil's branches"
+    },
+    {
+      "id": "trembling",
+      "type": "text",
+      "heading": "The Tree Trembles",
+      "text": "Despite its cosmic strength, Yggdrasil suffers constant tribulation. Níðhöggr and other serpents gnaw at its roots, the four stags consume its bark and leaves, and rot threatens its trunk. Yet the tree endures, sustained by the care of the Norns and its own inherent vitality. When Ragnarök approaches, Yggdrasil will shake and tremble, signaling that the end times are near, though the tree itself will survive the destruction of the worlds.",
+      "parallaxIntensity": 0.6
+    },
+    {
+      "id": "quote-2",
+      "type": "quote",
+      "text": "I know an ash tree, Yggdrasil it's called, a tall tree sprinkled with white mud; from there come the dews that fall in the valleys, green by Urd's well it stands forever."
+    },
+    {
+      "id": "symbol",
+      "type": "text",
+      "heading": "Symbol of Connection",
+      "text": "Yggdrasil represents the interconnection of all things in Norse cosmology. Every realm, every being, every event is connected through this cosmic tree. The gods travel along its trunk and branches to visit other realms, and its health affects all of existence. When the tree suffers, the worlds suffer with it. When it is tended and cared for, all realms prosper. It reminds us that all things in the universe are bound together in a web of mutual dependence.",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "conclusion",
+      "type": "text",
+      "heading": "Eternal and Ever-Green",
+      "text": "Even after Ragnarök, when the old world is destroyed and reborn, Yggdrasil will remain standing. Two humans, Líf and Lífþrasir, will survive the apocalypse by hiding in the tree itself, protected by its branches. They will emerge to repopulate the new earth, and Yggdrasil will continue to stand as the eternal axis of existence, connecting the reborn realms as it connected the old. The World Tree is not just a structure—it is the living embodiment of the cosmos itself.",
+      "parallaxIntensity": 0.5
+    }
+  ]
+}

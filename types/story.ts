@@ -6,6 +6,7 @@ export type SectionType = "text" | "quote" | "illustration";
 
 // Story section interface
 export interface StorySection {
+  id?: string;
   type: SectionType;
   heading?: string;
   text: string;
@@ -41,6 +42,7 @@ export interface Story {
 export const SectionTypeSchema = z.enum(["text", "quote", "illustration"]);
 
 export const StorySectionSchema = z.object({
+  id: z.string().optional(),
   type: SectionTypeSchema,
   heading: z.string().optional(),
   text: z.string(),

@@ -1,0 +1,115 @@
+{
+  "id": "ragnarok",
+  "slug": "ragnarok",
+  "title": "Ragnarök: The Twilight of the Gods",
+  "summary": "The apocalyptic battle that brings about the end of the world and the death of many gods, followed by the world's rebirth and the survival of two human beings who repopulate the earth.",
+  "difficulty": "advanced",
+  "readingTime": 12,
+  "themes": ["apocalypse", "fate", "rebirth", "prophecy", "cosmic-cycle"],
+  "characters": ["odin", "thor", "loki", "freyr", "heimdall"],
+  "realms": ["asgard", "midgard", "muspelheim", "niflheim"],
+  "imageUrl": "/images/stories/ragnarok-hero.svg",
+  "metadata": {
+    "featured": true,
+    "publishedDate": "2025-01-02T00:00:00.000Z",
+    "lastUpdated": "2025-01-02T00:00:00.000Z"
+  },
+  "content": [
+    {
+      "id": "intro",
+      "type": "text",
+      "heading": "The Prophecy of Doom",
+      "text": "Ragnarök, meaning 'Fate of the Gods,' represents the ultimate destiny of the Norse cosmos. This cataclysmic event was foretold long before its occurrence, and the gods themselves were aware of their inevitable doom. The prophecy describes a series of catastrophic events that will shake the very foundations of the Nine Realms.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "signs",
+      "type": "text",
+      "heading": "The Three Winters",
+      "text": "The coming of Ragnarök will be heralded by Fimbulvetr, the great winter that lasts for three years without respite. Snow will fall from all directions, frost will bite deeper than ever before, and the sun will provide no warmth. During this time, morality will collapse—brother will fight brother, father will turn against son, and all bonds of kinship will be broken.",
+      "parallaxIntensity": 0.3
+    },
+    {
+      "id": "image-1",
+      "type": "illustration",
+      "imageUrl": "/images/stories/ragnarok-winter.jpg",
+      "caption": "The endless winter of Fimbulvetr engulfs the realms",
+      "alt": "A dark, frozen landscape representing the three winters before Ragnarök"
+    },
+    {
+      "id": "wolves",
+      "type": "text",
+      "heading": "The Wolves of Heaven",
+      "text": "Two cosmic wolves, Sköll and Hati, who have chased the sun and moon since the beginning of time, will finally catch their prey. The sun will be devoured by Sköll, and Hati will consume the moon. The stars will vanish from the sky, plunging the cosmos into darkness. At the same time, the great wolf Fenrir will break free from his magical chains, and his sons will join him in his rampage.",
+      "parallaxIntensity": 0.6
+    },
+    {
+      "id": "quote-1",
+      "type": "quote",
+      "text": "Brothers will fight and kill each other, sisters' children will defile kinship. It is harsh in the world, whoredom rife—an axe age, a sword age—shields are riven—a wind age, a wolf age—before the world goes headlong.",
+      "attribution": "Völuspá (The Prophecy of the Seeress)"
+    },
+    {
+      "id": "serpent",
+      "type": "text",
+      "heading": "Jörmungandr Rises",
+      "text": "The Midgard Serpent, Jörmungandr, will rise from the ocean depths, causing tidal waves that will flood the lands. As the serpent writhes onto the shore, it will spew venom into the air and across the land, poisoning the sky itself. The venom will rain down upon the earth, and the seas will surge onto the land as Jörmungandr makes his way toward the plain of Vigrid, where the final battle will take place.",
+      "parallaxIntensity": 0.4
+    },
+    {
+      "id": "image-2",
+      "type": "illustration",
+      "imageUrl": "/images/stories/ragnarok-serpent.jpg",
+      "caption": "Jörmungandr emerges from the depths",
+      "alt": "The massive World Serpent rising from the ocean during Ragnarök"
+    },
+    {
+      "id": "army",
+      "type": "text",
+      "heading": "The Army of the Dead",
+      "text": "Loki, freed from his bonds beneath the earth, will take command of the giants and sail toward Vigrid on the ship Naglfar, made from the fingernails of the dead. From Muspelheim, the fire giant Surtr will lead his legions, his flaming sword blazing brighter than the sun. The rainbow bridge Bifröst will shatter under the weight of these armies as they march toward Asgard.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "battle",
+      "type": "text",
+      "heading": "The Final Battle",
+      "text": "On the plain of Vigrid, the gods and their enemies will meet in the greatest battle ever fought. Odin will face Fenrir, wielding his spear Gungnir, but the great wolf will ultimately swallow the All-Father. Thor will battle Jörmungandr, and though he will slay the serpent with his hammer Mjölnir, he will take only nine steps before falling dead from the monster's venom. Freyr will fight Surtr but will fall because he lacks his magical sword, which he once gave away for love. Heimdall and Loki will slay each other.",
+      "parallaxIntensity": 0.7
+    },
+    {
+      "id": "image-3",
+      "type": "illustration",
+      "imageUrl": "/images/stories/ragnarok-battle.jpg",
+      "caption": "The gods face their final destiny at Vigrid",
+      "alt": "Epic battle scene showing the gods fighting their destined enemies at Ragnarök"
+    },
+    {
+      "id": "destruction",
+      "type": "text",
+      "heading": "The End of All Things",
+      "text": "After the gods have fallen, Surtr will fling fire across the Nine Realms. Yggdrasil, the World Tree, will tremble, and the very fabric of reality will begin to unravel. The earth will sink into the sea, and the stars will fall from the sky. Everything that once was will be consumed by flame and water, returning to the void from which it emerged.",
+      "parallaxIntensity": 0.3
+    },
+    {
+      "id": "rebirth",
+      "type": "text",
+      "heading": "The World Reborn",
+      "text": "Yet this is not the true end. After the flames subside and the floods recede, the earth will rise again from the sea, green and fertile. The surviving gods—Víðarr, Váli, Móði, Magni, and Baldr (returned from Hel)—will gather at Iðavöllr, where Asgard once stood. They will find the golden game pieces that the Æsir used to play with, remnants of the old world. Two humans, Líf and Lífþrasir, will emerge from their hiding place in Hoddmímis holt and repopulate the new earth. A new sun, daughter of the old, will illuminate the sky.",
+      "parallaxIntensity": 0.5
+    },
+    {
+      "id": "quote-2",
+      "type": "quote",
+      "text": "Now do I see the earth anew rise all green from the waves again. The cataracts fall, and the eagle flies, and fish he catches beneath the cliffs.",
+      "attribution": "Völuspá (The Prophecy of the Seeress)"
+    },
+    {
+      "id": "conclusion",
+      "type": "text",
+      "heading": "The Eternal Cycle",
+      "text": "Ragnarök represents not just an ending, but a transformation—the death of the old world and the birth of the new. It reflects the Norse understanding of time as cyclical rather than linear, where destruction is necessary for renewal. The story reminds us that even the mightiest must face their doom, yet from the ashes of the old, new life will always emerge.",
+      "parallaxIntensity": 0.4
+    }
+  ]
+}

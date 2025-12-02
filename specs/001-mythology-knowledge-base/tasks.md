@@ -144,27 +144,27 @@
 
 ### Implementation for User Story 2
 
-- [ ] T077 [P] [US2] Create sample Story JSON data files (Ragnarok, Yggdrasil) in data/stories/
-- [ ] T078 [US2] Create stories route group directory structure: app/(stories)/stories/
-- [ ] T079 [US2] Create stories listing page (Server Component) in app/(stories)/stories/page.tsx
-- [ ] T080 [US2] Create story detail dynamic route in app/(stories)/stories/[slug]/page.tsx
-- [ ] T081 [US2] Implement generateStaticParams for story routes in app/(stories)/stories/[slug]/page.tsx
-- [ ] T082 [P] [US2] Create StoryHero component (Client Component) with parallax effect in components/stories/StoryHero.tsx
-- [ ] T083 [P] [US2] Create StorySection component (Client Component) with scroll animations in components/stories/StorySection.tsx
-- [ ] T084 [P] [US2] Create StoryNav component for story navigation in components/stories/StoryNav.tsx
-- [ ] T085 [US2] Implement useScroll hook for parallax scrolling in StoryHero component
-- [ ] T086 [US2] Implement useTransform hook for parallax value mapping in StoryHero component
-- [ ] T087 [US2] Implement useInView hook for illustration animations in StorySection component
-- [ ] T088 [US2] Add character-by-character text animation for section titles in StorySection component
-- [ ] T089 [US2] Implement page transition animations between stories using AnimatePresence
-- [ ] T090 [US2] Add reduced-motion variants (disable parallax, simple fades) for stories
-- [ ] T091 [US2] Optimize parallax performance for low-end devices
-- [ ] T092 [P] [US2] Add story illustration images to public/images/stories/
-- [ ] T093 [P] [US2] Optimize story images with Next.js Image and blur placeholders
-- [ ] T094 [US2] Add reading time estimate display in story header
-- [ ] T095 [US2] Add related stories section with links at story end
-- [ ] T096 [US2] Create stories section layout in app/(stories)/layout.tsx
-- [ ] T097 [US2] Add loading Suspense boundary for story content
+- [X] T077 [P] [US2] Create sample Story JSON data files (Ragnarok, Yggdrasil) in data/stories/
+- [X] T078 [US2] Create stories route group directory structure: app/(stories)/stories/
+- [X] T079 [US2] Create stories listing page (Server Component) in app/(stories)/stories/page.tsx
+- [X] T080 [US2] Create story detail dynamic route in app/(stories)/stories/[slug]/page.tsx
+- [X] T081 [US2] Implement generateStaticParams for story routes in app/(stories)/stories/[slug]/page.tsx
+- [X] T082 [P] [US2] Create StoryHero component (Client Component) with parallax effect in components/stories/StoryHero.tsx
+- [X] T083 [P] [US2] Create StorySection component (Client Component) with scroll animations in components/stories/StorySection.tsx
+- [X] T084 [P] [US2] Create StoryNav component for story navigation in components/stories/StoryNav.tsx
+- [X] T085 [US2] Implement useScroll hook for parallax scrolling in StoryHero component
+- [X] T086 [US2] Implement useTransform hook for parallax value mapping in StoryHero component
+- [X] T087 [US2] Implement useInView hook for illustration animations in StorySection component
+- [X] T088 [US2] Add character-by-character text animation for section titles in StorySection component
+- [X] T089 [US2] Implement page transition animations between stories using AnimatePresence
+- [X] T090 [US2] Add reduced-motion variants (disable parallax, simple fades) for stories
+- [X] T091 [US2] Optimize parallax performance for low-end devices
+- [X] T092 [P] [US2] Add story illustration images to public/images/stories/
+- [X] T093 [P] [US2] Optimize story images with Next.js Image and blur placeholders
+- [X] T094 [US2] Add reading time estimate display in story header
+- [X] T095 [US2] Add related stories section with links at story end
+- [X] T096 [US2] Create stories section layout in app/(stories)/layout.tsx
+- [X] T097 [US2] Add loading Suspense boundary for story content
 
 **Checkpoint**: Stories with parallax effects fully functional and accessible
 
