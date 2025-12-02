@@ -61,6 +61,10 @@ export class VeniceAIClient {
       // Venice.ai returns data array with b64_json or url
       const imageData = response.data.data?.[0];
       
+      if (!imageData) {
+        throw new Error('No image data returned from Venice.ai');
+      }
+      
       if (imageData.b64_json) {
         // Convert base64 to buffer
         return Buffer.from(imageData.b64_json, 'base64');
@@ -71,7 +75,7 @@ export class VeniceAIClient {
         });
         return Buffer.from(imageResponse.data);
       } else {
-        throw new Error('No image data returned from Venice.ai');
+        throw new Error('No image data (b64_json or url) returned from Venice.ai');
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
