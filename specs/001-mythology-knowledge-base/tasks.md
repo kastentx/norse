@@ -215,7 +215,7 @@
 - [ ] T123 [P] Add symbol icon images to public/images/symbols/
 - [X] T124 Implement related content cross-linking (gods ↔ stories ↔ realms)
 - [X] T125 Add breadcrumb navigation across all pages
-- [ ] T126 [P] Optimize bundle size with dynamic imports for heavy components
+- [X] T126 [P] Optimize bundle size with dynamic imports for heavy components
 - [X] T127 [P] Add meta tags and Open Graph data for SEO in all page.tsx files
 - [X] T128 [P] Create sitemap.xml with all routes
 - [X] T129 [P] Create robots.txt for search engine crawling
@@ -230,7 +230,7 @@
 - [ ] T138 Verify all images have descriptive alt text
 - [ ] T139 Test loading states and skeleton animations
 - [ ] T140 Validate all JSON data files against Zod schemas
-- [ ] T141 Add error boundaries for component error handling
+- [X] T141 Add error boundaries for component error handling
 - [ ] T142 Test browser tab inactive behavior during animations
 - [ ] T143 Add analytics or tracking (optional, per requirements)
 - [ ] T144 Create README.md with project overview and setup instructions

@@ -2,12 +2,34 @@
 
 import { useState, useEffect, useTransition, useDeferredValue } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { SearchBar } from "@/components/search/SearchBar";
-import { FilterGroup } from "@/components/search/FilterGroup";
-import { SearchResults } from "@/components/search/SearchResults";
+import dynamic from "next/dynamic";
+import { SearchErrorBoundary } from "@/components/search/SearchErrorBoundary";
 import type { GodType } from "@/types/god";
 import type { StoryDifficulty } from "@/types/story";
 import type { RealmLevel } from "@/types/realm";
+
+// Dynamic imports for search components to reduce initial bundle
+const SearchBar = dynamic(() => import("@/components/search/SearchBar").then((mod) => ({ default: mod.SearchBar })), {
+  loading: () => (
+    <div className="mb-8 h-14 animate-pulse rounded-lg bg-norse-gray-800"></div>
+  ),
+});
+
+const FilterGroup = dynamic(() => import("@/components/search/FilterGroup").then((mod) => ({ default: mod.FilterGroup })), {
+  loading: () => (
+    <div className="mb-8 h-32 animate-pulse rounded-lg bg-norse-gray-800"></div>
+  ),
+});
+
+const SearchResults = dynamic(() => import("@/components/search/SearchResults").then((mod) => ({ default: mod.SearchResults })), {
+  loading: () => (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {[...Array(6)].map((_, i) => (
+        <div key={i} className="h-64 animate-pulse rounded-lg bg-norse-gray-800"></div>
+      ))}
+    </div>
+  ),
+});
 
 interface SearchResult {
   type: "god" | "story" | "realm";
@@ -24,7 +46,7 @@ interface ContentFilters {
   realmLevels?: RealmLevel[];
 }
 
-export default function SearchPage() {
+function SearchPageContent() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -211,5 +233,13 @@ export default function SearchPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <SearchErrorBoundary>
+      <SearchPageContent />
+    </SearchErrorBoundary>
   );
 }

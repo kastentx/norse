@@ -1,12 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { God } from "@/types/god";
-import { GodGrid } from "@/components/gods/GodGrid";
-import { GodDetailPanel } from "@/components/gods/GodDetailPanel";
 import { GodSkeleton } from "@/components/gods/GodSkeleton";
+import { GodsErrorBoundary } from "@/components/gods/GodsErrorBoundary";
 
-export default function GodsPage() {
+// Dynamic imports for god components to improve initial load time
+const GodGrid = dynamic(() => import("@/components/gods/GodGrid").then((mod) => ({ default: mod.GodGrid })), {
+  loading: () => (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {[...Array(6)].map((_, i) => (
+        <GodSkeleton key={i} />
+      ))}
+    </div>
+  ),
+});
+
+const GodDetailPanel = dynamic(() => import("@/components/gods/GodDetailPanel").then((mod) => ({ default: mod.GodDetailPanel })), {
+  ssr: false,
+});
+
+function GodsPageContent() {
   const [gods, setGods] = useState<God[]>([]);
   const [selectedGod, setSelectedGod] = useState<God | null>(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
@@ -65,5 +80,13 @@ export default function GodsPage() {
         onClose={handleClosePanel}
       />
     </div>
+  );
+}
+
+export default function GodsPage() {
+  return (
+    <GodsErrorBoundary>
+      <GodsPageContent />
+    </GodsErrorBoundary>
   );
 }

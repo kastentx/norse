@@ -1,14 +1,31 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { getAllRealms } from "@/lib/data/realms";
 import { Realm } from "@/types/realm";
-import RealmMap from "@/components/realms/RealmMap";
-import RealmDetail from "@/components/realms/RealmDetail";
+import { RealmsErrorBoundary } from "@/components/realms/RealmsErrorBoundary";
+
+// Dynamic imports for heavy components to reduce initial bundle size
+const RealmMap = dynamic(() => import("@/components/realms/RealmMap"), {
+  loading: () => (
+    <div className="flex h-[600px] items-center justify-center">
+      <div className="text-center">
+        <div className="mb-4 h-12 w-12 animate-spin rounded-full border-4 border-norse-gold border-t-transparent"></div>
+        <p className="text-norse-gray-400">Loading Nine Realms Map...</p>
+      </div>
+    </div>
+  ),
+  ssr: false,
+});
+
+const RealmDetail = dynamic(() => import("@/components/realms/RealmDetail"), {
+  ssr: false,
+});
 
 // Metadata is set in layout since this is a Client Component
 
-export default function RealmsPage() {
+function RealmsPageContent() {
   const realms = getAllRealms();
   const [selectedRealm, setSelectedRealm] = useState<Realm | null>(null);
 
@@ -84,5 +101,13 @@ export default function RealmsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function RealmsPage() {
+  return (
+    <RealmsErrorBoundary>
+      <RealmsPageContent />
+    </RealmsErrorBoundary>
   );
 }

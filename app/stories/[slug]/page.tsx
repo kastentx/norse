@@ -1,13 +1,38 @@
 import { getStoryBySlug, getAllStories } from "@/lib/data/stories";
-import { StoryHero } from "@/components/stories/StoryHero";
-import { StorySection } from "@/components/stories/StorySection";
+import dynamic from "next/dynamic";
 import { StoryNav } from "@/components/stories/StoryNav";
 import { RelatedContent } from "@/components/shared/RelatedContent";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { StoriesErrorBoundary } from "@/components/stories/StoriesErrorBoundary";
 import { getAllGods } from "@/lib/data/gods";
 import { getAllRealms } from "@/lib/data/realms";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+
+// Dynamic imports for heavy animated components
+const StoryHero = dynamic(
+  () => import("@/components/stories/StoryHero").then((mod) => ({ default: mod.StoryHero })),
+  {
+    loading: () => (
+      <div className="relative h-[70vh] animate-pulse bg-gradient-to-b from-black via-norse-gray-900 to-black" />
+    ),
+  }
+);
+
+const StorySection = dynamic(
+  () => import("@/components/stories/StorySection").then((mod) => ({ default: mod.StorySection })),
+  {
+    loading: () => (
+      <div className="mx-auto max-w-4xl animate-pulse">
+        <div className="mb-4 h-8 w-3/4 rounded bg-norse-gray-800"></div>
+        <div className="space-y-2">
+          <div className="h-4 w-full rounded bg-norse-gray-800"></div>
+          <div className="h-4 w-5/6 rounded bg-norse-gray-800"></div>
+        </div>
+      </div>
+    ),
+  }
+);
 
 interface StoryPageProps {
   params: Promise<{
@@ -51,7 +76,7 @@ export async function generateMetadata({ params }: StoryPageProps): Promise<Meta
   };
 }
 
-export default async function StoryPage({ params }: StoryPageProps) {
+async function StoryPageContent({ params }: StoryPageProps) {
   const { slug } = await params;
   const story = await getStoryBySlug(slug);
 
@@ -148,5 +173,13 @@ export default async function StoryPage({ params }: StoryPageProps) {
         )}
       </div>
     </main>
+  );
+}
+
+export default async function StoryPage({ params }: StoryPageProps) {
+  return (
+    <StoriesErrorBoundary>
+      <StoryPageContent params={params} />
+    </StoriesErrorBoundary>
   );
 }
