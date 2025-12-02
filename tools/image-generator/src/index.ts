@@ -218,9 +218,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         );
         
         const imageData = await veniceClient.generateImage(prompt, {
-          width: 768,
-          height: 1024,
-          style: 'fantasy portrait',
+          size: '1024x1536',
+          model: 'fluently-xl',
         });
         
         await imageProcessor.saveImage(imageData, params.outputPath, ['webp', 'avif']);
@@ -244,9 +243,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         );
         
         const imageData = await veniceClient.generateImage(prompt, {
-          width: 1920,
-          height: 1080,
-          style: 'fantasy illustration',
+          size: '1536x1024',
+          model: 'fluently-xl',
         });
         
         await imageProcessor.saveImage(imageData, params.outputPath, ['webp', 'avif']);
@@ -270,9 +268,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         );
         
         const imageData = await veniceClient.generateImage(prompt, {
-          width: 1920,
-          height: 1080,
-          style: 'fantasy landscape',
+          size: '1536x1024',
+          model: 'fluently-xl',
         });
         
         await imageProcessor.saveImage(imageData, params.outputPath, ['webp', 'avif']);
@@ -296,9 +293,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         );
         
         const imageData = await veniceClient.generateImage(prompt, {
-          width: 512,
-          height: 512,
-          style: 'icon design',
+          size: '1024x1024',
+          model: 'fluently-xl',
         });
         
         await imageProcessor.saveImage(imageData, params.outputPath, ['webp', 'svg']);

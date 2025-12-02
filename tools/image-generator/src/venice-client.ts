@@ -1,15 +1,16 @@
 import axios, { AxiosInstance } from 'axios';
 
 export interface VeniceImageOptions {
-  width?: number;
-  height?: number;
-  style?: string;
-  negativePrompt?: string;
+  size?: string; // e.g., "1024x1024", "768x1024", "1536x1024"
+  model?: string;
+  outputFormat?: 'jpeg' | 'png' | 'webp';
+  responseFormat?: 'b64_json' | 'url';
   numImages?: number;
 }
 
 export interface VeniceImageResponse {
-  images: Array<{
+  created: number;
+  data: Array<{
     url?: string;
     b64_json?: string;
   }>;
@@ -22,12 +23,12 @@ export class VeniceAIClient {
   constructor(apiKey: string) {
     this.apiKey = apiKey;
     this.client = axios.create({
-      baseURL: 'https://api.venice.ai/v1',
+      baseURL: 'https://api.venice.ai/api/v1',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
-      timeout: 60000, // 60 second timeout for image generation
+      timeout: 120000, // 120 second timeout for image generation
     });
   }
 
@@ -39,25 +40,26 @@ export class VeniceAIClient {
     options: VeniceImageOptions = {}
   ): Promise<Buffer> {
     const {
-      width = 1024,
-      height = 1024,
-      style = 'fantasy',
-      negativePrompt = 'low quality, blurry, distorted, watermark, text, signature',
+      size = '1024x1024',
+      model = process.env.VENICE_AI_MODEL || 'fluently-xl',
+      outputFormat = 'png',
+      responseFormat = 'b64_json',
       numImages = 1,
     } = options;
 
     try {
-      const response = await this.client.post<VeniceImageResponse>('/images/generate', {
-        prompt: `${prompt}\nStyle: ${style}`,
-        width,
-        height,
-        num_images: numImages,
-        negative_prompt: negativePrompt,
-        // Add any Venice-specific parameters here
+      const response = await this.client.post<VeniceImageResponse>('/images/generations', {
+        model,
+        prompt,
+        size,
+        output_format: outputFormat,
+        response_format: responseFormat,
+        n: numImages,
+        moderation: 'low', // Disable content filtering for Norse mythology
       });
 
-      // Venice.ai returns either URL or base64
-      const imageData = response.data.images[0];
+      // Venice.ai returns data array with b64_json or url
+      const imageData = response.data.data?.[0];
       
       if (imageData.b64_json) {
         // Convert base64 to buffer
@@ -73,8 +75,10 @@ export class VeniceAIClient {
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        const message = error.response?.data?.error?.message || error.message;
-        throw new Error(`Venice.ai API error: ${message}`);
+        const errorData = error.response?.data;
+        const message = errorData?.error?.message || errorData?.error || error.message;
+        const details = JSON.stringify(errorData, null, 2);
+        throw new Error(`Venice.ai API error: ${message}\nDetails: ${details}`);
       }
       throw error;
     }
