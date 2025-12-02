@@ -168,7 +168,7 @@ export function GodDetailPanel({ god, isOpen, onClose }: GodDetailPanelProps) {
                   src={god.imageUrl}
                   alt={`${god.name} - ${god.title || "Norse deity"}`}
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   priority
                   sizes="(max-width: 640px) 100vw, 600px"
                 />
