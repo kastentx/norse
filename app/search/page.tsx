@@ -5,11 +5,24 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { SearchBar } from "@/components/search/SearchBar";
 import { FilterGroup } from "@/components/search/FilterGroup";
 import { SearchResults } from "@/components/search/SearchResults";
-import { searchAll, filterContent } from "@/lib/data/search";
-import type { SearchResult, ContentFilters } from "@/lib/data/search";
 import type { GodType } from "@/types/god";
 import type { StoryDifficulty } from "@/types/story";
 import type { RealmLevel } from "@/types/realm";
+
+interface SearchResult {
+  type: "god" | "story" | "realm";
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  metadata?: Record<string, string | number | boolean>;
+}
+
+interface ContentFilters {
+  godTypes?: GodType[];
+  storyDifficulty?: StoryDifficulty[];
+  realmLevels?: RealmLevel[];
+}
 
 export default function SearchPage() {
   const router = useRouter();
@@ -62,108 +75,33 @@ export default function SearchPage() {
     router.replace(newUrl, { scroll: false });
   }, [deferredQuery, filters, pathname, router]);
 
-  // Perform search
+  // Perform search via API
   useEffect(() => {
     async function performSearch() {
       setIsLoading(true);
       
       try {
-        let searchResults: SearchResult[] = [];
-        
+        // Build query params
+        const params = new URLSearchParams();
         if (deferredQuery.trim()) {
-          // Search all content
-          searchResults = await searchAll(deferredQuery);
-        } else {
-          // No query, show filtered content or all content
-          const hasActiveFilters =
-            (filters.godTypes && filters.godTypes.length > 0) ||
-            (filters.storyDifficulty && filters.storyDifficulty.length > 0) ||
-            (filters.realmLevels && filters.realmLevels.length > 0);
-          
-          if (hasActiveFilters) {
-            // Apply filters to all content
-            const filtered = await filterContent(filters);
-            searchResults = [
-              ...filtered.gods.map((god) => ({
-                type: "god" as const,
-                id: god.id,
-                title: god.title ? `${god.name} - ${god.title}` : god.name,
-                description: god.description.substring(0, 150) + "...",
-                url: `/gods/${god.id}`,
-                metadata: {
-                  type: god.type,
-                  popularity: god.metadata.popularity,
-                },
-              })),
-              ...filtered.stories.map((story) => ({
-                type: "story" as const,
-                id: story.slug,
-                title: story.title,
-                description: story.summary,
-                url: `/stories/${story.slug}`,
-                metadata: {
-                  difficulty: story.difficulty,
-                  readingTime: story.readingTime,
-                },
-              })),
-              ...filtered.realms.map((realm) => ({
-                type: "realm" as const,
-                id: realm.id,
-                title: realm.name,
-                description: realm.description.substring(0, 150) + "...",
-                url: `/realms/${realm.id}`,
-                metadata: {
-                  level: realm.location.level,
-                },
-              })),
-            ];
-          } else {
-            // Show all content
-            const [gods, stories, realms] = await Promise.all([
-              import("@/lib/data/gods").then((m) => m.getAllGods()),
-              import("@/lib/data/stories").then((m) => m.getAllStories()),
-              import("@/lib/data/realms").then((m) => m.getAllRealms()),
-            ]);
-            
-            searchResults = [
-              ...gods.map((god) => ({
-                type: "god" as const,
-                id: god.id,
-                title: god.title ? `${god.name} - ${god.title}` : god.name,
-                description: god.description.substring(0, 150) + "...",
-                url: `/gods/${god.id}`,
-                metadata: {
-                  type: god.type,
-                  popularity: god.metadata.popularity,
-                },
-              })),
-              ...stories.map((story) => ({
-                type: "story" as const,
-                id: story.slug,
-                title: story.title,
-                description: story.summary,
-                url: `/stories/${story.slug}`,
-                metadata: {
-                  difficulty: story.difficulty,
-                  readingTime: story.readingTime,
-                },
-              })),
-              ...realms.map((realm) => ({
-                type: "realm" as const,
-                id: realm.id,
-                title: realm.name,
-                description: realm.description.substring(0, 150) + "...",
-                url: `/realms/${realm.id}`,
-                metadata: {
-                  level: realm.location.level,
-                },
-              })),
-            ];
-          }
+          params.set("q", deferredQuery);
         }
+        if (filters.godTypes && filters.godTypes.length > 0) {
+          params.set("godTypes", filters.godTypes.join(","));
+        }
+        if (filters.storyDifficulty && filters.storyDifficulty.length > 0) {
+          params.set("difficulties", filters.storyDifficulty.join(","));
+        }
+        if (filters.realmLevels && filters.realmLevels.length > 0) {
+          params.set("realms", filters.realmLevels.join(","));
+        }
+
+        // Fetch from API
+        const response = await fetch(`/api/search?${params.toString()}`);
+        const data = await response.json();
         
         startTransition(() => {
-          setResults(searchResults);
+          setResults(data.results || []);
         });
       } catch (error) {
         console.error("Search error:", error);
