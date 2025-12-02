@@ -1,0 +1,28 @@
+{
+  "id": "thor",
+  "name": "Thor",
+  "type": "Aesir",
+  "domain": ["thunder", "lightning", "strength", "protection"],
+  "title": "God of Thunder",
+  "description": "Thor is one of the most prominent figures in Norse mythology, the god of thunder, lightning, storms, oak trees, strength, the protection of mankind, and fertility. He is the son of Odin and the earth goddess Fjörgyn. Thor wields the hammer Mjölnir, one of the most powerful weapons in Norse mythology, capable of leveling mountains. He is portrayed as a fierce warrior with immense strength, yet also as a protector of both gods and humans. Thor rides a chariot pulled by two goats, Tanngrisnir and Tanngnjóstr, and is known for his epic battles against giants. Despite his strength, he is also depicted as having a good-natured and somewhat simple personality.",
+  "symbols": ["mjolnir"],
+  "realm": "asgard",
+  "family": {
+    "parents": ["odin"],
+    "spouse": "sif",
+    "children": ["magni", "modi", "thrud"]
+  },
+  "attributes": {
+    "appearance": "Massive, red-bearded warrior with fierce eyes, wearing iron gloves and the belt Megingjörð that doubles his strength",
+    "personality": "Brave, straightforward, protective, quick to anger but also quick to forgive, loves feasting and drinking",
+    "powers": ["superhuman strength", "weather control", "thunder generation", "near invulnerability"]
+  },
+  "stories": ["ragnarok", "thors-fishing-trip", "thors-journey-to-utgard"],
+  "imageUrl": "/images/gods/thor.webp",
+  "iconUrl": "/images/gods/icons/thor.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 95,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

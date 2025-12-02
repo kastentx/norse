@@ -1,0 +1,27 @@
+{
+  "id": "odin",
+  "name": "Odin",
+  "type": "Aesir",
+  "domain": ["wisdom", "war", "poetry", "death"],
+  "title": "All-Father",
+  "description": "Odin is the chief god in Norse mythology, known as the All-Father. He is a complex deity associated with wisdom, healing, death, royalty, the gallows, knowledge, war, battle, victory, sorcery, poetry, frenzy, and the runic alphabet. Odin is often depicted as a one-eyed, long-bearded man wearing a cloak and a wide-brimmed hat. He sacrificed his eye at Mimir's well in exchange for wisdom and hung himself on the world tree Yggdrasil for nine days and nights to gain knowledge of the runes. He rules from his throne Hlidskjalf in Asgard, where he can observe all the nine realms.",
+  "symbols": ["gungnir", "sleipnir", "huginn-muninn"],
+  "realm": "asgard",
+  "family": {
+    "spouse": "frigg",
+    "children": ["thor", "baldur", "hodr", "vidar", "vali"]
+  },
+  "attributes": {
+    "appearance": "One-eyed elder with long grey beard, wearing a blue cloak and wide-brimmed hat, often accompanied by two ravens and two wolves",
+    "personality": "Wise, cunning, knowledge-seeking, mysterious, willing to make great sacrifices for wisdom",
+    "powers": ["shapeshifting", "rune magic", "prophecy", "necromancy", "battle frenzy"]
+  },
+  "stories": ["ragnarok", "creation-of-world", "odins-sacrifice"],
+  "imageUrl": "/images/gods/odin.webp",
+  "iconUrl": "/images/gods/icons/odin.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 100,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}

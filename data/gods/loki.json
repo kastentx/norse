@@ -1,0 +1,27 @@
+{
+  "id": "loki",
+  "name": "Loki",
+  "type": "Jotun",
+  "domain": ["mischief", "trickery", "fire", "chaos"],
+  "title": "The Trickster God",
+  "description": "Loki is one of the most complex figures in Norse mythology, a shape-shifting trickster god who is both a companion and an adversary to the Aesir gods. Born a giant (Jotun) but accepted into Asgard as Odin's blood brother, Loki embodies the principles of chaos, change, and unpredictability. He is clever, eloquent, and often helps the gods out of difficult situations with his wit and cunning, though his methods are frequently questionable. However, Loki is also responsible for many of their troubles. His mischievous nature eventually becomes more malevolent, culminating in his role in the death of Baldur and his opposition to the gods during Ragnarök, the end of the world.",
+  "symbols": ["none"],
+  "realm": "asgard",
+  "family": {
+    "spouse": "sigyn",
+    "children": ["fenrir", "jormungandr", "hel", "narfi", "vali"]
+  },
+  "attributes": {
+    "appearance": "Handsome with sharp features, sometimes depicted with flame-red hair, often with a mischievous smirk",
+    "personality": "Cunning, unpredictable, charismatic, selfish, vengeful when wronged, thrives on chaos and change",
+    "powers": ["shapeshifting", "illusion magic", "persuasion", "cunning intellect"]
+  },
+  "stories": ["ragnarok", "death-of-baldur", "lokis-punishment", "theft-of-iduns-apples"],
+  "imageUrl": "/images/gods/loki.webp",
+  "iconUrl": "/images/gods/icons/loki.svg",
+  "metadata": {
+    "featured": true,
+    "popularity": 90,
+    "lastUpdated": "2025-12-02T00:00:00Z"
+  }
+}
