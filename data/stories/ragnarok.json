@@ -32,7 +32,7 @@
     {
       "id": "image-1",
       "type": "illustration",
-      "imageUrl": "/images/stories/ragnarok-winter.jpg",
+      "imageUrl": "/images/stories/ragnarok-winter.svg",
       "caption": "The endless winter of Fimbulvetr engulfs the realms",
       "alt": "A dark, frozen landscape representing the three winters before Ragnarök"
     },
@@ -59,7 +59,7 @@
     {
       "id": "image-2",
       "type": "illustration",
-      "imageUrl": "/images/stories/ragnarok-serpent.jpg",
+      "imageUrl": "/images/stories/ragnarok-serpent.svg",
       "caption": "Jörmungandr emerges from the depths",
       "alt": "The massive World Serpent rising from the ocean during Ragnarök"
     },
@@ -80,7 +80,7 @@
     {
       "id": "image-3",
       "type": "illustration",
-      "imageUrl": "/images/stories/ragnarok-battle.jpg",
+      "imageUrl": "/images/stories/ragnarok-battle.svg",
       "caption": "The gods face their final destiny at Vigrid",
       "alt": "Epic battle scene showing the gods fighting their destined enemies at Ragnarök"
     },
