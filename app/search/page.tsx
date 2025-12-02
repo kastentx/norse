@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useTransition, useDeferredValue } from "react";
+import { useState, useEffect, useTransition, useDeferredValue, Suspense } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import { SearchErrorBoundary } from "@/components/search/SearchErrorBoundary";
@@ -239,7 +239,23 @@ function SearchPageContent() {
 export default function SearchPage() {
   return (
     <SearchErrorBoundary>
-      <SearchPageContent />
+      <Suspense fallback={
+        <div className="min-h-screen bg-gray-50 py-8">
+          <div className="container mx-auto px-4">
+            <div className="mb-8">
+              <h1 className="text-4xl font-bold text-gray-900 mb-2">
+                Search Norse Mythology
+              </h1>
+              <p className="text-lg text-gray-600">
+                Find gods, stories, and realms across the Nine Worlds
+              </p>
+            </div>
+            <div className="mb-6 h-14 animate-pulse rounded-lg bg-norse-gray-800"></div>
+          </div>
+        </div>
+      }>
+        <SearchPageContent />
+      </Suspense>
     </SearchErrorBoundary>
   );
 }
