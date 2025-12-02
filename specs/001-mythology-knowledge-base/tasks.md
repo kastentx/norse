@@ -178,7 +178,7 @@
 
 ### Implementation for User Story 3
 
-- [ ] T098 [US3] Create Nine Realms JSON data file with all 9 realms in data/realms/nine-realms.json
+- [X] T098 [US3] Create Nine Realms JSON data file with all 9 realms in data/realms/nine-realms.json
 - [ ] T099 [US3] Create realms route group directory structure: app/(realms)/realms/
 - [ ] T100 [US3] Create realms map page (Client Component) in app/(realms)/realms/page.tsx
 - [ ] T101 [P] [US3] Create RealmMap component (Client Component) with SVG in components/realms/RealmMap.tsx
