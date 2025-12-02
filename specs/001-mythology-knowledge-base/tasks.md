@@ -130,7 +130,7 @@
 - [X] T073 [US4] Implement keyboard navigation (Tab, Arrow keys) for filter options
 - [X] T074 [US4] Add ARIA live region for search result announcements
 - [X] T075 [US4] Add reduced-motion variants for search result animations
-- [ ] T076 [US4] Integrate search bar into Header component for global access
+- [X] T076 [US4] Integrate search bar into Header component for global access
 
 **Checkpoint**: Search and filtering fully functional across all content types
 
@@ -213,12 +213,12 @@
 - [ ] T121 [P] Add all realm visualization images (WebP/AVIF) in public/images/realms/
 - [ ] T122 [P] Create Symbol entity JSON data files in data/symbols/
 - [ ] T123 [P] Add symbol icon images to public/images/symbols/
-- [ ] T124 Implement related content cross-linking (gods ↔ stories ↔ realms)
-- [ ] T125 Add breadcrumb navigation across all pages
+- [X] T124 Implement related content cross-linking (gods ↔ stories ↔ realms)
+- [X] T125 Add breadcrumb navigation across all pages
 - [ ] T126 [P] Optimize bundle size with dynamic imports for heavy components
-- [ ] T127 [P] Add meta tags and Open Graph data for SEO in all page.tsx files
-- [ ] T128 [P] Create sitemap.xml with all routes
-- [ ] T129 [P] Create robots.txt for search engine crawling
+- [X] T127 [P] Add meta tags and Open Graph data for SEO in all page.tsx files
+- [X] T128 [P] Create sitemap.xml with all routes
+- [X] T129 [P] Create robots.txt for search engine crawling
 - [ ] T130 [P] Add favicons and app icons in app/
 - [ ] T131 Run Lighthouse audit and address performance issues
 - [ ] T132 Run Lighthouse accessibility audit and fix any issues below 90 score

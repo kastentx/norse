@@ -1,4 +1,17 @@
+import { Metadata } from "next";
 import { Navigation } from "@/components/layout/Navigation";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Explore the legends of Norse mythology through interactive storytelling. Discover gods, heroes, epic tales, and the Nine Realms with stunning visuals and animations.",
+  openGraph: {
+    title: "Norse Mythology Knowledge Base - Interactive Learning",
+    description:
+      "Immerse yourself in Norse mythology with interactive animations, parallax storytelling, and detailed explorations of gods, stories, and realms.",
+    type: "website",
+  },
+};
 
 export default function HomePage() {
   return (

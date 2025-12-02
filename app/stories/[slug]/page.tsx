@@ -2,6 +2,10 @@ import { getStoryBySlug, getAllStories } from "@/lib/data/stories";
 import { StoryHero } from "@/components/stories/StoryHero";
 import { StorySection } from "@/components/stories/StorySection";
 import { StoryNav } from "@/components/stories/StoryNav";
+import { RelatedContent } from "@/components/shared/RelatedContent";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { getAllGods } from "@/lib/data/gods";
+import { getAllRealms } from "@/lib/data/realms";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -63,8 +67,39 @@ export default async function StoryPage({ params }: StoryPageProps) {
       title: section.heading || "",
     }));
 
+  // Fetch related content
+  const allGods = await getAllGods();
+  const relatedGods = allGods
+    .filter((god) => story.characters.includes(god.id))
+    .map((god) => ({
+      id: god.id,
+      name: god.name,
+      imageUrl: god.imageUrl,
+      type: "god" as const,
+    }));
+
+  const allRealms = getAllRealms();
+  const relatedRealms = allRealms
+    .filter((realm) => story.realms.includes(realm.id))
+    .map((realm) => ({
+      id: realm.id,
+      name: realm.name,
+      imageUrl: realm.imageUrl,
+      type: "realm" as const,
+    }));
+
   return (
     <main className="relative bg-white dark:bg-gray-950">
+      {/* Breadcrumbs */}
+      <div className="container mx-auto px-4 pt-6">
+        <Breadcrumbs
+          items={[
+            { label: "Stories", href: "/stories" },
+            { label: story.title, href: `/stories/${story.slug}` },
+          ]}
+        />
+      </div>
+
       {/* Hero Section with Parallax */}
       <StoryHero
         title={story.title}
@@ -94,27 +129,24 @@ export default async function StoryPage({ params }: StoryPageProps) {
         ))}
       </article>
 
-      {/* Related Stories Section */}
-      {story.relatedStories && story.relatedStories.length > 0 && (
-        <section className="max-w-4xl mx-auto px-4 py-16 border-t border-gray-200 dark:border-gray-800">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-            Related Stories
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {story.relatedStories.map((relatedSlug) => (
-              <div
-                key={relatedSlug}
-                className="p-4 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-norse-gold dark:hover:border-norse-gold transition-colors"
-              >
-                {/* Related story cards will be implemented when we have the data */}
-                <span className="text-sm text-gray-600 dark:text-gray-400">
-                  {relatedSlug}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      {/* Related Content Sections */}
+      <div className="max-w-6xl mx-auto px-4 py-16 space-y-16">
+        {/* Related Characters */}
+        {relatedGods.length > 0 && (
+          <RelatedContent
+            items={relatedGods}
+            title="Characters in This Story"
+          />
+        )}
+
+        {/* Related Realms */}
+        {relatedRealms.length > 0 && (
+          <RelatedContent
+            items={relatedRealms}
+            title="Realms Featured in This Story"
+          />
+        )}
+      </div>
     </main>
   );
 }

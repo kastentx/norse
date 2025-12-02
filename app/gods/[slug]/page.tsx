@@ -4,6 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { getGodById, getAllGods } from "@/lib/data/gods";
 import { Button } from "@/components/ui/Button";
+import { RelatedContent } from "@/components/shared/RelatedContent";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { getAllStories } from "@/lib/data/stories";
+import { getRealmById } from "@/lib/data/realms";
 
 interface GodDetailPageProps {
   params: Promise<{
@@ -56,16 +60,40 @@ export default async function GodDetailPage({ params }: GodDetailPageProps) {
     notFound();
   }
 
+  // Fetch related content
+  const allStories = await getAllStories();
+  const relatedStories = allStories
+    .filter((story) => god.stories.includes(story.id))
+    .map((story) => ({
+      id: story.id,
+      title: story.title,
+      imageUrl: story.imageUrl,
+      type: "story" as const,
+    }));
+
+  const realm = god.realm ? getRealmById(god.realm) : undefined;
+  const relatedRealm = realm
+    ? [
+        {
+          id: realm.id,
+          name: realm.name,
+          imageUrl: realm.imageUrl,
+          type: "realm" as const,
+        },
+      ]
+    : [];
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-white">
         <div className="container mx-auto px-4 py-8">
-          <Link href="/gods">
-            <Button variant="ghost" className="mb-4 text-white hover:text-gray-300">
-              ← Back to Gods
-            </Button>
-          </Link>
+          <Breadcrumbs
+            items={[
+              { label: "Gods", href: "/gods" },
+              { label: god.name, href: `/gods/${god.id}` },
+            ]}
+          />
 
           <div className="grid gap-8 md:grid-cols-[300px_1fr]">
             {/* God Image */}
@@ -259,27 +287,20 @@ export default async function GodDetailPage({ params }: GodDetailPageProps) {
           </section>
 
           {/* Stories */}
-          <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Featured In
-            </h2>
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border-2 border-gray-300 p-6">
-              <p className="text-gray-600 mb-3">
-                {god.name} appears in {god.stories.length} mythological{" "}
-                {god.stories.length === 1 ? "story" : "stories"}:
-              </p>
-              <ul className="space-y-2">
-                {god.stories.map((story) => (
-                  <li key={story} className="flex items-center gap-2">
-                    <span className="text-norse-gold">📖</span>
-                    <span className="text-gray-900 capitalize">
-                      {story.replace(/-/g, " ")}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
+          {relatedStories.length > 0 && (
+            <RelatedContent
+              items={relatedStories}
+              title="Featured In These Stories"
+            />
+          )}
+
+          {/* Realm */}
+          {relatedRealm.length > 0 && (
+            <RelatedContent
+              items={relatedRealm}
+              title="Realm of Residence"
+            />
+          )}
 
           {/* Back Button */}
           <div className="flex justify-center pt-8">
