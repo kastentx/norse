@@ -48,3 +48,4 @@ Thumbs.db
 next-env.d.ts
 lighthouse-*.report.*
 lighthouse-*
+.vercel
