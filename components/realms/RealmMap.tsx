@@ -186,6 +186,12 @@ export default function RealmMap({
               <stop offset="100%" stopColor="#3E2723" stopOpacity="0.3" />
             </linearGradient>
 
+            {/* Gradient for text readability inside circles */}
+            <linearGradient id="text-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="black" stopOpacity="0" />
+              <stop offset="100%" stopColor="black" stopOpacity="0.7" />
+            </linearGradient>
+
             {/* Glow filters for each realm */}
             {realms.map((realm) => (
               <filter
@@ -210,60 +216,97 @@ export default function RealmMap({
             const isHovered = hoveredRealm?.id === realm.id;
             const isSelected = selectedRealm?.id === realm.id;
             const isFocused = focusedRealmId === realm.id;
+            const { x, y } = realm.location.coordinates;
+            const radius = 11; // Smaller circle radius to fit container
 
             return (
-              <g key={realm.id}>
-                {/* Realm path */}
-                <motion.path
-                  d={realm.mapRegion.path}
-                  fill={realm.mapRegion.color}
+              <motion.g 
+                key={realm.id}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ 
+                  scale: isHovered && !prefersReducedMotion ? 1.08 : 1, 
+                  opacity: 1 
+                }}
+                transition={{
+                  scale: { duration: 0.15, ease: "easeOut" },
+                  opacity: { duration: 0.3, delay: index * 0.05 },
+                }}
+                style={{ 
+                  transformOrigin: `${x}px ${y}px`,
+                  cursor: "pointer",
+                }}
+                onMouseEnter={() => setHoveredRealm(realm)}
+                onMouseLeave={() => setHoveredRealm(null)}
+                onClick={() => handleRealmClick(realm)}
+                onFocus={() => setFocusedRealmId(realm.id)}
+                onBlur={() => setFocusedRealmId(null)}
+                onKeyDown={(e) => handleKeyDown(e, realm)}
+                tabIndex={0}
+                role="button"
+                aria-label={`${realm.name} - ${realm.description.substring(0, 100)}...`}
+                aria-pressed={isSelected}
+              >
+                {/* Define clip path for circular realm */}
+                <defs>
+                  <clipPath id={`clip-${realm.id}`}>
+                    <circle cx={x} cy={y} r={radius} />
+                  </clipPath>
+                </defs>
+
+                {/* Realm circle with image fill */}
+                <g clipPath={`url(#clip-${realm.id})`}>
+                  {/* Background image that fills the circle */}
+                  <image
+                    href={realm.imageUrl}
+                    x={x - radius}
+                    y={y - radius}
+                    width={radius * 2}
+                    height={radius * 2}
+                    preserveAspectRatio="xMidYMid slice"
+                  />
+                  {/* Dark gradient overlay for text readability */}
+                  <rect
+                    x={x - radius}
+                    y={y + radius * 0.3}
+                    width={radius * 2}
+                    height={radius * 0.7}
+                    fill="url(#text-gradient)"
+                  />
+                </g>
+
+                {/* Border circle */}
+                <circle
+                  cx={x}
+                  cy={y}
+                  r={radius}
+                  fill="none"
                   stroke={realm.mapRegion.glowColor}
-                  strokeWidth={isSelected ? "0.5" : "0.2"}
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  custom={index}
-                  animate={controls}
-                  whileHover={
-                    prefersReducedMotion
-                      ? {}
-                      : {
-                          scale: 1.05,
-                          filter: `drop-shadow(0 0 8px ${realm.mapRegion.glowColor})`,
-                        }
-                  }
+                  strokeWidth={isHovered || isSelected || isFocused ? 1 : 0.5}
                   style={{
-                    cursor: "pointer",
-                    transformOrigin: `${realm.location.coordinates.x}% ${realm.location.coordinates.y}%`,
                     filter: isHovered || isSelected || isFocused
-                      ? `drop-shadow(0 0 8px ${realm.mapRegion.glowColor})`
+                      ? `drop-shadow(0 0 3px ${realm.mapRegion.glowColor})`
                       : "none",
-                    opacity: prefersReducedMotion ? 1 : undefined,
-                    pathLength: prefersReducedMotion ? 1 : undefined,
+                    transition: "stroke-width 0.15s ease, filter 0.15s ease",
                   }}
-                  onClick={() => handleRealmClick(realm)}
-                  onMouseEnter={() => setHoveredRealm(realm)}
-                  onMouseLeave={() => setHoveredRealm(null)}
-                  onFocus={() => setFocusedRealmId(realm.id)}
-                  onBlur={() => setFocusedRealmId(null)}
-                  onKeyDown={(e) => handleKeyDown(e, realm)}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`${realm.name} - ${realm.description.substring(0, 100)}...`}
-                  aria-pressed={isSelected}
                 />
 
-                {/* Realm label */}
+                {/* Realm label inside circle at bottom */}
                 <text
-                  x={realm.location.coordinates.x}
-                  y={realm.location.coordinates.y}
+                  x={x}
+                  y={y + radius * 0.55}
                   textAnchor="middle"
-                  className="pointer-events-none select-none font-norse text-[2px] fill-white"
+                  dominantBaseline="middle"
+                  fill="white"
+                  fontSize="2.4"
+                  fontWeight="bold"
+                  className="pointer-events-none select-none"
                   style={{
-                    textShadow: `0 0 4px ${realm.mapRegion.glowColor}`,
+                    filter: `drop-shadow(0 1px 1px rgba(0,0,0,0.9))`,
                   }}
                 >
                   {realm.name}
                 </text>
-              </g>
+              </motion.g>
             );
           })}
         </svg>

@@ -20,7 +20,7 @@
     "connections": ["midgard", "vanaheim"],
     "imageUrl": "/images/realms/asgard.webp",
     "mapRegion": {
-      "path": "M 50 10 L 70 20 L 65 35 L 50 40 L 35 35 L 30 20 Z",
+      "path": "M 50 12 L 65 20 L 62 32 L 50 36 L 38 32 L 35 20 Z",
       "color": "#D4AF37",
       "glowColor": "#FFD700"
     }
@@ -31,7 +31,7 @@
     "description": "The realm of the Vanir gods, masters of magic, fertility, and prosperity. Vanaheim is a lush, verdant world of natural beauty and abundant resources. The Vanir are associated with nature, fertility, wisdom, and the ability to see the future. After the Æsir-Vanir War, the two pantheons exchanged hostages to ensure peace.",
     "location": {
       "level": "upper",
-      "coordinates": { "x": 20, "y": 25 }
+      "coordinates": { "x": 22, "y": 25 }
     },
     "inhabitants": {
       "primaryTypes": ["Vanir Gods", "Nature Spirits"],
@@ -57,7 +57,7 @@
     "description": "The realm of the Light Elves, beings of ethereal beauty and magical prowess. Alfheim is a luminous world of perpetual twilight, filled with enchanted forests and crystalline structures. The Light Elves are closely associated with the Vanir and are considered benevolent beings who bring beauty and light to the cosmos.",
     "location": {
       "level": "upper",
-      "coordinates": { "x": 80, "y": 25 }
+      "coordinates": { "x": 78, "y": 25 }
     },
     "inhabitants": {
       "primaryTypes": ["Light Elves", "Magical Beings"],
@@ -98,7 +98,7 @@
     "connections": ["asgard", "jotunheim", "svartalfheim"],
     "imageUrl": "/images/realms/midgard.webp",
     "mapRegion": {
-      "path": "M 30 45 L 70 45 L 70 55 L 50 65 L 30 55 Z",
+      "path": "M 35 47 L 65 47 L 65 55 L 50 62 L 35 55 Z",
       "color": "#8B4513",
       "glowColor": "#A0522D"
     }
@@ -109,7 +109,7 @@
     "description": "The realm of the giants (Jötnar), beings of immense size and power who often oppose the gods. Jotunheim is a harsh, mountainous world of extreme conditions and untamed wilderness. The giants represent the chaotic forces of nature and are both enemies and occasional allies of the gods. Many gods have giant ancestry.",
     "location": {
       "level": "middle",
-      "coordinates": { "x": 85, "y": 55 }
+      "coordinates": { "x": 88, "y": 50 }
     },
     "inhabitants": {
       "primaryTypes": ["Giants (Jötnar)", "Frost Giants", "Mountain Giants"],
@@ -135,7 +135,7 @@
     "description": "The realm of the Dwarves (also called Dark Elves), master craftsmen and smiths. Svartalfheim is a subterranean world of vast caverns, underground forges, and mineral wealth. The dwarves created many of the gods' most powerful artifacts, including Thor's hammer Mjölnir, Odin's spear Gungnir, and Freyr's ship Skíðblaðnir.",
     "location": {
       "level": "middle",
-      "coordinates": { "x": 15, "y": 55 }
+      "coordinates": { "x": 12, "y": 50 }
     },
     "inhabitants": {
       "primaryTypes": ["Dwarves", "Dark Elves"],
@@ -161,7 +161,7 @@
     "description": "The realm of fire, ruled by the fire giant Surtr. Muspelheim is a scorching world of eternal flames, molten rock, and unbearable heat. It existed before the creation of the cosmos and will play a crucial role in its destruction during Ragnarök, when Surtr leads his legions to burn the Nine Realms. It is the opposite of icy Niflheim.",
     "location": {
       "level": "lower",
-      "coordinates": { "x": 80, "y": 80 }
+      "coordinates": { "x": 78, "y": 75 }
     },
     "inhabitants": {
       "primaryTypes": ["Fire Giants", "Fire Demons"],
@@ -187,7 +187,7 @@
     "description": "The primordial realm of ice, mist, and darkness. Niflheim is a frozen wasteland of eternal winter, existing since before the creation of the cosmos. Within Niflheim lies the well Hvergelmir, the source of many rivers, and it is closely associated with Helheim. The meeting of fire from Muspelheim and ice from Niflheim in the void of Ginnungagap sparked the creation of the cosmos.",
     "location": {
       "level": "lower",
-      "coordinates": { "x": 20, "y": 80 }
+      "coordinates": { "x": 22, "y": 75 }
     },
     "inhabitants": {
       "primaryTypes": ["Ice Beings", "Frost Creatures"],
