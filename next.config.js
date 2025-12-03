@@ -7,10 +7,6 @@ const nextConfig = {
     remotePatterns: [],
   },
   reactStrictMode: true,
-  // Disable Turbopack for production builds (known issue with Next.js 16)
-  experimental: {
-    turbo: undefined,
-  },
   async headers() {
     return [
       {
