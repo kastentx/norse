@@ -1,49 +1,75 @@
-import { promises as fs } from "fs";
-import path from "path";
-import { UserFavorites, UserFavoritesSchema, DEFAULT_FAVORITES } from "@/types/user";
-
-const USERS_DIR = path.join(process.cwd(), "data", "users");
+import { supabase, UserFavoritesRow } from "@/lib/supabase/client";
+import { UserFavorites, DEFAULT_FAVORITES } from "@/types/user";
 
 /**
- * Get a user's favorites
- * Returns default empty favorites if user has no data yet
+ * Convert database row to UserFavorites type
  */
-export async function getUserFavorites(userId: string): Promise<UserFavorites> {
-  try {
-    // Sanitize userId to prevent path traversal
-    const safeUserId = userId.replace(/[^a-zA-Z0-9-_]/g, "");
-    const filePath = path.join(USERS_DIR, `${safeUserId}.json`);
-    const content = await fs.readFile(filePath, "utf-8");
-    return UserFavoritesSchema.parse(JSON.parse(content));
-  } catch (error) {
-    // Return empty favorites for new users
+function rowToFavorites(row: UserFavoritesRow | null): UserFavorites {
+  if (!row) {
     return { ...DEFAULT_FAVORITES };
   }
+  return {
+    favoriteGods: row.favorite_gods || [],
+    favoriteRealms: row.favorite_realms || [],
+    updatedAt: row.updated_at,
+  };
 }
 
 /**
- * Update a user's favorites
+ * Get a user's favorites from Supabase
+ * Returns default empty favorites if user has no data yet
+ */
+export async function getUserFavorites(userId: string): Promise<UserFavorites> {
+  const { data, error } = await supabase
+    .from("user_favorites")
+    .select("*")
+    .eq("user_id", userId)
+    .single();
+
+  if (error && error.code !== "PGRST116") {
+    // PGRST116 = no rows returned, which is fine for new users
+    console.error("Error fetching favorites:", error);
+  }
+
+  return rowToFavorites(data);
+}
+
+/**
+ * Update a user's favorites in Supabase
+ * Uses upsert to create or update
  */
 export async function updateUserFavorites(
   userId: string,
   favorites: Partial<UserFavorites>
 ): Promise<UserFavorites> {
   const current = await getUserFavorites(userId);
-  const updated: UserFavorites = {
-    ...current,
-    ...favorites,
-    updatedAt: new Date().toISOString(),
+  
+  const updatedFavorites = {
+    favorite_gods: favorites.favoriteGods ?? current.favoriteGods,
+    favorite_realms: favorites.favoriteRealms ?? current.favoriteRealms,
   };
 
-  // Ensure directory exists
-  await fs.mkdir(USERS_DIR, { recursive: true });
+  const { data, error } = await supabase
+    .from("user_favorites")
+    .upsert(
+      {
+        user_id: userId,
+        ...updatedFavorites,
+        updated_at: new Date().toISOString(),
+      },
+      {
+        onConflict: "user_id",
+      }
+    )
+    .select()
+    .single();
 
-  // Sanitize userId
-  const safeUserId = userId.replace(/[^a-zA-Z0-9-_]/g, "");
-  const filePath = path.join(USERS_DIR, `${safeUserId}.json`);
-  await fs.writeFile(filePath, JSON.stringify(updated, null, 2));
+  if (error) {
+    console.error("Error updating favorites:", error);
+    throw new Error("Failed to update favorites");
+  }
 
-  return updated;
+  return rowToFavorites(data);
 }
 
 /**
