@@ -11,7 +11,7 @@
 ```json
 {
   "dependencies": {
-    "next": "^15.0.0",
+    "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwindcss": "^4.0.0",
@@ -35,7 +35,7 @@
     "jsdom": "^25.0.0",
     "@playwright/test": "^1.50.0",
     "eslint": "^9.0.0",
-    "eslint-config-next": "^15.0.0",
+    "eslint-config-next": "^16.0.0",
     "prettier": "^3.0.0"
   }
 }
@@ -824,7 +824,7 @@ Button.displayName = "Button";
 
 ---
 
-## � Authentication Pattern (Auth.js v5)
+## 🔐 Authentication Pattern (Auth.js v5)
 
 ### 1. Auth Configuration (`auth.ts`)
 
@@ -927,7 +927,7 @@ AUTH_GITHUB_SECRET="your-github-client-secret"
 
 ---
 
-## �🔍 SEO Files
+## 🔍 SEO Files
 
 ### Robots (`app/robots.ts`)
 
