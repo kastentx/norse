@@ -930,9 +930,17 @@ declare module "next-auth/jwt" {
 AUTH_SECRET="generate-with-openssl-rand-base64-32"
 AUTH_URL="http://localhost:3000"
 
-# GitHub OAuth
+# Google OAuth (Primary - most users have Google accounts)
+AUTH_GOOGLE_ID="your-google-client-id"
+AUTH_GOOGLE_SECRET="your-google-client-secret"
+
+# GitHub OAuth (Optional - good for developers)
 AUTH_GITHUB_ID="your-github-client-id"
 AUTH_GITHUB_SECRET="your-github-client-secret"
+
+# Discord OAuth (Optional - good for gaming/community audiences)
+AUTH_DISCORD_ID="your-discord-client-id"
+AUTH_DISCORD_SECRET="your-discord-client-secret"
 ```
 
 ---

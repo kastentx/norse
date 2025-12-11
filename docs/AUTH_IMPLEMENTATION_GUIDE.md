@@ -20,7 +20,7 @@
 ## 🎯 What We're Building
 
 ### Features
-- **OAuth Login**: Sign in with GitHub (can add Google, Discord, etc.)
+- **OAuth Login**: Sign in with Google, GitHub, or Discord (user's choice)
 - **User Profile Page**: View and manage account settings
 - **Favorites System**: Save favorite gods and realms
 - **Landing Page Integration**: Show user's favorites with quick links
@@ -31,8 +31,8 @@
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │  1. User visits site → Sees "Sign In" button in header          │
-│  2. Clicks "Sign In" → Redirected to GitHub OAuth               │
-│  3. Authorizes app → Redirected back with session               │
+│  2. Clicks "Sign In" → Sees provider selection (Google/GitHub/Discord) │
+│  3. Chooses provider → Authorizes → Redirected back with session │
 │  4. Landing page shows favorites section (empty initially)      │
 │  5. User browses gods/realms → Clicks "♡" to favorite           │
 │  6. Returns to landing page → Sees favorite god/realm cards     │
@@ -48,12 +48,12 @@
 
 ```
 ┌──────────┐                                    ┌──────────────┐
-│  User's  │                                    │   GitHub     │
-│  Browser │                                    │   (OAuth     │
-│          │                                    │   Provider)  │
+│  User's  │                                    │   OAuth      │
+│  Browser │                                    │   Provider   │
+│          │                                    │ (Google/etc) │
 └────┬─────┘                                    └──────┬───────┘
      │                                                  │
-     │  1. Click "Sign in with GitHub"                  │
+     │  1. Click "Sign In" → Select provider            │
      │─────────────────────────────────────────────────>│
      │                                                  │
      │  2. GitHub shows login/consent screen            │
@@ -219,9 +219,17 @@ Create `.env.local`:
 AUTH_SECRET="your-random-secret-at-least-32-characters"
 AUTH_URL="http://localhost:3000"
 
-# GitHub OAuth
+# Google OAuth (Primary)
+AUTH_GOOGLE_ID="your-google-client-id"
+AUTH_GOOGLE_SECRET="your-google-client-secret"
+
+# GitHub OAuth (Optional)
 AUTH_GITHUB_ID="your-github-client-id"
 AUTH_GITHUB_SECRET="your-github-client-secret"
+
+# Discord OAuth (Optional)
+AUTH_DISCORD_ID="your-discord-client-id"
+AUTH_DISCORD_SECRET="your-discord-client-secret"
 ```
 
 **Generate AUTH_SECRET:**
@@ -234,13 +242,23 @@ openssl rand -base64 32
 ```typescript
 // auth.ts
 import NextAuth from "next-auth";
+import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
+import Discord from "next-auth/providers/discord";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
-    GitHub({
+    Google({  // Primary - most users have Google accounts
+      clientId: process.env.AUTH_GOOGLE_ID,
+      clientSecret: process.env.AUTH_GOOGLE_SECRET,
+    }),
+    GitHub({  // For developers
       clientId: process.env.AUTH_GITHUB_ID,
       clientSecret: process.env.AUTH_GITHUB_SECRET,
+    }),
+    Discord({ // For gaming/community audiences
+      clientId: process.env.AUTH_DISCORD_ID,
+      clientSecret: process.env.AUTH_DISCORD_SECRET,
     }),
   ],
   callbacks: {
@@ -251,9 +269,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
       return session;
     },
-  },
-  pages: {
-    signIn: "/auth/signin",  // Custom sign-in page (optional)
   },
 });
 ```
@@ -371,7 +386,7 @@ export function SignInButton() {
 
   return (
     <button
-      onClick={() => signIn("github")}
+      onClick={() => signIn()}  // Shows provider selection page
       className="px-4 py-2 text-sm bg-norse-gold text-norse-night rounded-lg hover:bg-norse-gold/90"
     >
       Sign In
@@ -714,19 +729,26 @@ User clicks "Sign In"
         │
         v
 ┌───────────────────┐
-│ signIn("github")  │ (next-auth/react)
+│ signIn()          │ (next-auth/react)
 └─────────┬─────────┘
           │
           v
 ┌───────────────────┐
 │ /api/auth/signin  │ (Auth.js route)
-│ → Redirect to     │
-│   GitHub OAuth    │
+│ → Shows provider  │
+│   selection page  │
 └─────────┬─────────┘
           │
           v
 ┌───────────────────┐
-│ GitHub Login Page │
+│ User selects      │
+│ Google/GitHub/    │
+│ Discord           │
+└─────────┬─────────┘
+          │
+          v
+┌───────────────────┐
+│ OAuth Login Page  │
 │ User authorizes   │
 └─────────┬─────────┘
           │
