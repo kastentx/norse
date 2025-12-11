@@ -11,7 +11,7 @@
 | **Tailwind CSS 4** | 4.1.17 | Utility-first CSS framework |
 | **Framer Motion** | 12.x | Animation library |
 | **Zod** | 4.x | Runtime schema validation |
-| **Auth.js** | 5.0.0-beta.30 | OAuth authentication (GitHub) |
+| **Auth.js** | 5.0.0-beta.30 | OAuth authentication (Google, GitHub, Discord) |
 ---
 
 ## 🏗️ **Architecture Patterns**
@@ -310,15 +310,21 @@ export function useScrollAnimation(options = { threshold: 0.1, triggerOnce: true
 
 ### 1. **OAuth Flow with GitHub**
 
-The project uses Auth.js v5 (NextAuth.js) for authentication:
+The project uses Auth.js v5 (NextAuth.js) for authentication with multiple providers:
 
 ```tsx
 // auth.ts - Main configuration
 import NextAuth from "next-auth";
+import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
+import Discord from "next-auth/providers/discord";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  providers: [GitHub],
+  providers: [
+    Google,   // Primary - most users have Google accounts
+    GitHub,   // For developers  
+    Discord,  // For gaming/community audiences
+  ],
   session: { strategy: "jwt" },
   callbacks: {
     jwt({ token, user }) {
@@ -517,7 +523,7 @@ export default defineConfig({
 > "It follows **colocation** principles: components with their feature folders, data fetching logic in `lib/data`, shared types in `types/`, and animation utilities in `lib/animations`. This makes it easy to find related code."
 
 ### "How did you implement authentication?"
-> "I used **Auth.js v5** with GitHub OAuth. The main config lives in `auth.ts` at the root, exporting `{ handlers, auth, signIn, signOut }`. Protected routes like `/profile` are secured via middleware that checks the session at the edge. I wrap the app in a `SessionProvider` for client-side session access via `useSession()`."
+> "I used **Auth.js v5** with multiple OAuth providers - Google for general users, GitHub for developers, and Discord for gaming audiences. The main config lives in `auth.ts` at the root, exporting `{ handlers, auth, signIn, signOut }`. Users see a provider selection page when signing in. Protected routes like `/profile` are secured via middleware that checks the session at the edge."
 
 ### "Why Auth.js v5 over other auth solutions?"
 > "Auth.js is open-source with no vendor lock-in, has native App Router support in v5, and handles the complex OAuth handshake. The JWT strategy means no database needed for sessions, making it simpler to deploy."
@@ -535,7 +541,7 @@ export default defineConfig({
 | `app/gods/page.tsx` | Gods listing with dynamic imports |
 | `app/gods/[slug]/page.tsx` | God detail with SSG |
 | `app/profile/page.tsx` | User profile with favorites management |
-| `auth.ts` | Auth.js v5 configuration with GitHub OAuth |
+| `auth.ts` | Auth.js v5 configuration with Google/GitHub/Discord OAuth |
 | `middleware.ts` | Route protection for /profile |
 | `components/auth/SessionProvider.tsx` | Client-side session context |
 | `components/auth/UserMenu.tsx` | User dropdown with sign out |

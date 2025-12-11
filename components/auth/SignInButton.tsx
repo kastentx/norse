@@ -13,7 +13,7 @@ interface SignInButtonProps {
  * Sign In/Out Button
  * 
  * Shows "Sign In" when logged out, "Sign Out" when logged in.
- * Uses GitHub OAuth by default.
+ * Clicking Sign In shows the provider selection page.
  */
 export function SignInButton({ className, showIcon = true }: SignInButtonProps) {
   const { data: session, status } = useSession();
@@ -51,10 +51,10 @@ export function SignInButton({ className, showIcon = true }: SignInButtonProps) 
     );
   }
 
-  // Signed out - show sign in button
+  // Signed out - show sign in button (opens provider selection)
   return (
     <button
-      onClick={() => signIn("github")}
+      onClick={() => signIn()}
       className={cn(
         "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium",
         "bg-norse-gold text-norse-night",

@@ -908,9 +908,21 @@ console.log("Auth URL:", process.env.AUTH_URL);
 ### Prerequisites
 
 1. Node.js 18+ installed
-2. GitHub account for OAuth provider
+2. At least one OAuth provider account (Google recommended, GitHub/Discord optional)
 
-### Step 1: Create GitHub OAuth App
+### Step 1: Create OAuth App(s)
+
+#### Google (Recommended - Most users have Google accounts)
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+2. Create a new project or select existing
+3. Configure **OAuth consent screen** (External, add test users if needed)
+4. Go to **Credentials** → **Create Credentials** → **OAuth client ID**
+5. Select **Web application**
+6. Add authorized redirect URI: `http://localhost:3000/api/auth/callback/google`
+7. Copy the **Client ID** and **Client Secret**
+
+#### GitHub (Optional - Good for developers)
 
 1. Go to [GitHub Developer Settings](https://github.com/settings/developers)
 2. Click **New OAuth App**
@@ -918,9 +930,14 @@ console.log("Auth URL:", process.env.AUTH_URL);
    - **Application name**: `Norse Mythology Dev` (or any name)
    - **Homepage URL**: `http://localhost:3000`
    - **Authorization callback URL**: `http://localhost:3000/api/auth/callback/github`
-4. Click **Register application**
-5. Copy the **Client ID**
-6. Click **Generate a new client secret** and copy it
+4. Copy the **Client ID** and generate a **Client Secret**
+
+#### Discord (Optional - Good for gaming/community audiences)
+
+1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
+2. Click **New Application**
+3. Go to **OAuth2** → Add redirect: `http://localhost:3000/api/auth/callback/discord`
+4. Copy the **Client ID** and **Client Secret**
 
 ### Step 2: Configure Environment Variables
 
@@ -936,14 +953,22 @@ Add to `.env.local`:
 ```env
 # Auth.js Configuration
 AUTH_SECRET="your-generated-secret-here"
+AUTH_URL="http://localhost:3000"
 
-# GitHub OAuth (from Step 1)
+# Google OAuth (Recommended)
+AUTH_GOOGLE_ID="your-google-client-id"
+AUTH_GOOGLE_SECRET="your-google-client-secret"
+
+# GitHub OAuth (Optional)
 AUTH_GITHUB_ID="your-github-client-id"
 AUTH_GITHUB_SECRET="your-github-client-secret"
 
-# Required for production
-AUTH_URL="http://localhost:3000"
+# Discord OAuth (Optional)
+AUTH_DISCORD_ID="your-discord-client-id"
+AUTH_DISCORD_SECRET="your-discord-client-secret"
 ```
+
+> **Note:** You only need to configure the providers you want to use. Providers without credentials will not appear on the sign-in page.
 
 ### Step 3: Start the Development Server
 
@@ -955,9 +980,10 @@ Visit `http://localhost:3000` - you should see a **Sign In** button in the heade
 
 ### Step 4: Test the Flow
 
-1. Click **Sign In** → redirects to GitHub
-2. Authorize the app → redirects back
-3. You should now see your avatar in the header
+1. Click **Sign In** → shows provider selection page
+2. Choose a provider (Google, GitHub, or Discord)
+3. Authorize the app → redirects back
+4. You should now see your avatar in the header
 4. Visit `/gods` and click the heart icons to favorite
 5. Visit `/profile` to see your favorites
 
@@ -969,7 +995,7 @@ Visit `http://localhost:3000` - you should see a **Sign In** button in the heade
 
 | File | Purpose |
 |------|---------|
-| `auth.ts` | Main Auth.js configuration with GitHub OAuth, JWT strategy |
+| `auth.ts` | Main Auth.js configuration with Google/GitHub/Discord OAuth, JWT strategy |
 | `middleware.ts` | Route protection for `/profile` routes |
 | `app/api/auth/[...nextauth]/route.ts` | Auth API route handler |
 | `app/api/user/favorites/route.ts` | Favorites GET/POST API |
@@ -1020,6 +1046,6 @@ This is expected - Next.js 16 is introducing a new "proxy" convention. Auth.js w
 For production, you'll need to:
 
 1. Set `AUTH_URL` to your production domain (e.g., `https://norse.example.com`)
-2. Update the GitHub OAuth App's callback URL to match
+2. Update each OAuth provider's callback URLs to use your production domain
 3. Use a secure, randomly generated `AUTH_SECRET`
 4. Consider switching from file-based favorites storage to a database

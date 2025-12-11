@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
+import Google from "next-auth/providers/google";
 import GitHub from "next-auth/providers/github";
+import Discord from "next-auth/providers/discord";
 
 /**
  * Auth.js v5 Configuration
@@ -9,12 +11,28 @@ import GitHub from "next-auth/providers/github";
  * - auth: Function to get current session (server-side)
  * - signIn: Function to trigger sign-in
  * - signOut: Function to trigger sign-out
+ * 
+ * Providers:
+ * - Google: Most common, works for general audiences
+ * - GitHub: Good for developers
+ * - Discord: Popular with gaming/community audiences
  */
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
+    // Google - primary provider for general audiences
+    Google({
+      clientId: process.env.AUTH_GOOGLE_ID,
+      clientSecret: process.env.AUTH_GOOGLE_SECRET,
+    }),
+    // GitHub - for developers
     GitHub({
       clientId: process.env.AUTH_GITHUB_ID,
       clientSecret: process.env.AUTH_GITHUB_SECRET,
+    }),
+    // Discord - for gaming/community audiences
+    Discord({
+      clientId: process.env.AUTH_DISCORD_ID,
+      clientSecret: process.env.AUTH_DISCORD_SECRET,
     }),
   ],
 
