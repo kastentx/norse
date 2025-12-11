@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
@@ -12,6 +12,7 @@ interface FavoriteButtonProps {
   initialFavorited?: boolean;
   size?: "sm" | "md" | "lg";
   className?: string;
+  onToggle?: (isFavorite: boolean) => void;
 }
 
 /**
@@ -20,6 +21,7 @@ interface FavoriteButtonProps {
  * Heart button that toggles favorite status.
  * Uses optimistic updates for snappy UX.
  * Redirects to sign in if not authenticated.
+ * Syncs with parent state when initialFavorited prop changes.
  */
 export function FavoriteButton({
   type,
@@ -27,11 +29,18 @@ export function FavoriteButton({
   initialFavorited = false,
   size = "md",
   className,
+  onToggle,
 }: FavoriteButtonProps) {
   const { data: session, status } = useSession();
   const [isFavorite, setIsFavorite] = useState(initialFavorited);
   const [isLoading, setIsLoading] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+
+  // Sync with parent state when initialFavorited changes
+  // This ensures the button reflects the correct state after navigation
+  useEffect(() => {
+    setIsFavorite(initialFavorited);
+  }, [initialFavorited]);
 
   const handleToggle = async (e: React.MouseEvent) => {
     // Prevent bubbling to parent (e.g., card click)
@@ -64,6 +73,8 @@ export function FavoriteButton({
       const result = await response.json();
       // Sync with server state
       setIsFavorite(result.isFavorite);
+      // Notify parent of change
+      onToggle?.(result.isFavorite);
     } catch (error) {
       // Rollback on error
       console.error("Error toggling favorite:", error);

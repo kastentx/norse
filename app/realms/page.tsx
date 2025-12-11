@@ -38,13 +38,21 @@ function RealmsPageContent() {
       fetch("/api/user/favorites")
         .then((res) => res.json())
         .then((data) => {
-          if (data.realms) {
-            setFavoriteRealmIds(data.realms);
+          if (data.favoriteRealms) {
+            setFavoriteRealmIds(data.favoriteRealms);
           }
         })
         .catch((err) => console.error("Failed to fetch favorites:", err));
     }
   }, [status]);
+
+  const handleFavoriteToggle = (realmId: string, isFavorite: boolean) => {
+    setFavoriteRealmIds((prev) =>
+      isFavorite
+        ? [...prev, realmId]
+        : prev.filter((id) => id !== realmId)
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-norse-gray-900 to-black py-16">
@@ -75,6 +83,7 @@ function RealmsPageContent() {
             realm={selectedRealm}
             onClose={() => setSelectedRealm(null)}
             initialFavorited={favoriteRealmIds.includes(selectedRealm.id)}
+            onFavoriteToggle={handleFavoriteToggle}
           />
         )}
 

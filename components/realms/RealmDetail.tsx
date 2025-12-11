@@ -11,9 +11,10 @@ interface RealmDetailProps {
   realm: Realm;
   onClose: () => void;
   initialFavorited?: boolean;
+  onFavoriteToggle?: (realmId: string, isFavorite: boolean) => void;
 }
 
-export default function RealmDetail({ realm, onClose, initialFavorited = false }: RealmDetailProps) {
+export default function RealmDetail({ realm, onClose, initialFavorited = false, onFavoriteToggle }: RealmDetailProps) {
   return (
     <AnimatePresence>
       <motion.div
@@ -48,6 +49,7 @@ export default function RealmDetail({ realm, onClose, initialFavorited = false }
               initialFavorited={initialFavorited}
               size="md"
               className="bg-norse-gray-800/80 hover:bg-norse-gray-700"
+              onToggle={(isFav) => onFavoriteToggle?.(realm.id, isFav)}
             />
           </div>
 

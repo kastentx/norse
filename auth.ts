@@ -40,12 +40,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     /**
      * JWT Callback
      * Called when JWT is created (sign in) or updated (session access)
-     * We add the user ID to the token for later use
+     * We use the provider's account ID for consistent identification
      */
-    async jwt({ token, user, account }) {
-      // Initial sign in - add user ID to token
-      if (user) {
-        token.id = user.id;
+    async jwt({ token, account }) {
+      // Initial sign in - use provider's consistent account ID
+      // Without a database adapter, user.id is a random UUID each login
+      // account.providerAccountId is the consistent ID from Google/GitHub/Discord
+      if (account) {
+        token.userId = `${account.provider}:${account.providerAccountId}`;
       }
       return token;
     },
@@ -53,11 +55,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     /**
      * Session Callback
      * Called when session is checked
-     * We expose the user ID from the token to the session
+     * We expose the consistent user ID from the token to the session
      */
     async session({ session, token }) {
-      if (session.user && token.sub) {
-        session.user.id = token.sub;
+      if (session.user && token.userId) {
+        session.user.id = token.userId as string;
       }
       return session;
     },

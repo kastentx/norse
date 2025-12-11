@@ -78,6 +78,14 @@ function GodsPageContent() {
     setTimeout(() => setSelectedGod(null), 300);
   };
 
+  const handleFavoriteToggle = (godId: string, isFavorite: boolean) => {
+    setFavoriteGodIds((prev) =>
+      isFavorite
+        ? [...prev, godId]
+        : prev.filter((id) => id !== godId)
+    );
+  };
+
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -99,6 +107,7 @@ function GodsPageContent() {
           gods={gods} 
           onGodClick={handleGodClick} 
           favoriteGodIds={favoriteGodIds}
+          onFavoriteToggle={handleFavoriteToggle}
         />
       )}
 
