@@ -10,8 +10,7 @@
 | **TypeScript 5** | 5.9.3 | Static typing with strict mode |
 | **Tailwind CSS 4** | 4.1.17 | Utility-first CSS framework |
 | **Framer Motion** | 12.x | Animation library |
-| **Zod** | 4.x | Runtime schema validation |
-
+| **Zod** | 4.x | Runtime schema validation || **Auth.js** | 5.0.0-beta.30 | OAuth authentication (GitHub) |
 ---
 
 ## 🏗️ **Architecture Patterns**
@@ -21,14 +20,20 @@ Your project uses the modern **App Router** (not the legacy Pages Router):
 
 ```
 app/
-├── layout.tsx         # Root layout (wraps ALL pages)
-├── page.tsx           # Home page (/)
+├── layout.tsx         # Root layout (wraps ALL pages, includes SessionProvider)
+├── page.tsx           # Home page (/) with favorites section
 ├── gods/
 │   ├── layout.tsx     # Gods section layout
 │   ├── page.tsx       # Gods listing (/gods)
 │   └── [slug]/        # Dynamic route (/gods/odin, /gods/thor)
 │       └── page.tsx
+├── profile/           # Protected route (requires auth)
+│   └── page.tsx       # User profile with favorites
 ├── api/               # API Route Handlers
+│   ├── auth/
+│   │   └── [...nextauth]/route.ts  # Auth.js endpoints
+│   ├── user/
+│   │   └── favorites/route.ts      # User favorites CRUD
 │   └── gods/route.ts  # GET /api/gods
 ```
 
@@ -300,6 +305,101 @@ export function useScrollAnimation(options = { threshold: 0.1, triggerOnce: true
 
 ---
 
+## 🔐 **Authentication (Auth.js v5)**
+
+### 1. **OAuth Flow with GitHub**
+
+The project uses Auth.js v5 (NextAuth.js) for authentication:
+
+```tsx
+// auth.ts - Main configuration
+import NextAuth from "next-auth";
+import GitHub from "next-auth/providers/github";
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  providers: [GitHub],
+  session: { strategy: "jwt" },
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) token.id = user.id;
+      return token;
+    },
+    session({ session, token }) {
+      if (token?.id) session.user.id = token.id as string;
+      return session;
+    },
+  },
+});
+```
+
+**Key v5 differences from v4:**
+- Config in root `auth.ts` instead of API route
+- Direct exports: `{ handlers, auth, signIn, signOut }`
+- Cleaner session access: `await auth()` instead of `getServerSession(authOptions)`
+
+### 2. **Route Protection with Middleware**
+
+```tsx
+// middleware.ts
+import { auth } from "@/auth";
+import { NextResponse } from "next/server";
+
+export default auth((req) => {
+  const isProtectedRoute = req.nextUrl.pathname.startsWith("/profile");
+  
+  if (isProtectedRoute && !req.auth) {
+    const signInUrl = new URL("/api/auth/signin", req.url);
+    signInUrl.searchParams.set("callbackUrl", req.nextUrl.pathname);
+    return NextResponse.redirect(signInUrl);
+  }
+});
+```
+
+### 3. **Session Provider Pattern**
+
+```tsx
+// components/auth/SessionProvider.tsx
+"use client";
+import { SessionProvider as NextAuthSessionProvider } from "next-auth/react";
+
+export function SessionProvider({ children }: { children: React.ReactNode }) {
+  return <NextAuthSessionProvider>{children}</NextAuthSessionProvider>;
+}
+
+// app/layout.tsx - Wrap entire app
+<SessionProvider>
+  <Header />
+  <main>{children}</main>
+  <Footer />
+</SessionProvider>
+```
+
+### 4. **Favorites with Optimistic UI**
+
+```tsx
+// components/favorites/FavoriteButton.tsx
+const [isFavorited, setIsFavorited] = useState(initialFavorited);
+
+const handleToggle = async () => {
+  const previousState = isFavorited;
+  setIsFavorited(!isFavorited);  // Optimistic update
+  
+  try {
+    await fetch("/api/user/favorites", {
+      method: "POST",
+      body: JSON.stringify({ type, id }),
+    });
+  } catch {
+    setIsFavorited(previousState);  // Rollback on error
+  }
+};
+```
+
+**Interview talking point:**
+> "I implemented optimistic UI for the favorites feature. When a user clicks the heart, the UI updates immediately while the API call happens in the background. If the call fails, the state rolls back. This provides instant feedback while maintaining data integrity."
+
+---
+
 ## ♿ **Accessibility (A11y) Features**
 
 ### 1. **Semantic HTML + ARIA**
@@ -415,19 +515,36 @@ export default defineConfig({
 ### "How is the project structured?"
 > "It follows **colocation** principles: components with their feature folders, data fetching logic in `lib/data`, shared types in `types/`, and animation utilities in `lib/animations`. This makes it easy to find related code."
 
+### "How did you implement authentication?"
+> "I used **Auth.js v5** with GitHub OAuth. The main config lives in `auth.ts` at the root, exporting `{ handlers, auth, signIn, signOut }`. Protected routes like `/profile` are secured via middleware that checks the session at the edge. I wrap the app in a `SessionProvider` for client-side session access via `useSession()`."
+
+### "Why Auth.js v5 over other auth solutions?"
+> "Auth.js is open-source with no vendor lock-in, has native App Router support in v5, and handles the complex OAuth handshake. The JWT strategy means no database needed for sessions, making it simpler to deploy."
+
+### "Explain your favorites feature"
+> "I implemented **optimistic UI** - when a user clicks the heart, the UI updates immediately while the API call runs in the background. If it fails, we rollback. Favorites are stored in JSON files keyed by user ID with Zod validation. The API routes use `auth()` to get the current user."
+
 ---
 
 ## 📁 **Key Files Reference**
 
 | File | Purpose |
 |------|---------|
-| `app/layout.tsx` | Root layout with metadata, Header/Footer |
+| `app/layout.tsx` | Root layout with metadata, Header/Footer, SessionProvider |
 | `app/gods/page.tsx` | Gods listing with dynamic imports |
 | `app/gods/[slug]/page.tsx` | God detail with SSG |
-| `components/gods/GodCard.tsx` | Animated card component |
+| `app/profile/page.tsx` | User profile with favorites management |
+| `auth.ts` | Auth.js v5 configuration with GitHub OAuth |
+| `middleware.ts` | Route protection for /profile |
+| `components/auth/SessionProvider.tsx` | Client-side session context |
+| `components/auth/UserMenu.tsx` | User dropdown with sign out |
+| `components/favorites/FavoriteButton.tsx` | Optimistic UI favorite toggle |
+| `components/gods/GodCard.tsx` | Animated card component with favorite button |
 | `lib/animations/hooks.ts` | Custom animation hooks |
 | `lib/animations/variants.ts` | Framer Motion variants |
 | `lib/data/gods.ts` | Data fetching with Zod validation |
+| `lib/data/favorites.ts` | User favorites persistence layer |
 | `lib/utils/cn.ts` | Tailwind class utility |
 | `types/god.ts` | Zod schemas + TypeScript types |
+| `types/user.ts` | User favorites Zod schema |
 | `next.config.js` | Image optimization, caching |

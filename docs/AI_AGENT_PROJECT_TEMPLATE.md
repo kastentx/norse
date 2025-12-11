@@ -20,7 +20,8 @@
     "zod": "^4.0.0",
     "clsx": "^2.0.0",
     "tailwind-merge": "^3.0.0",
-    "lucide-react": "^0.400.0"
+    "lucide-react": "^0.400.0",
+    "next-auth": "^5.0.0-beta.30"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
@@ -109,22 +110,34 @@ Create the following directory structure:
 
 ```
 project-root/
+├── auth.ts                       # Auth.js v5 configuration
+├── middleware.ts                 # Route protection middleware
 ├── app/                          # Next.js App Router
 │   ├── globals.css               # Global styles with Tailwind
-│   ├── layout.tsx                # Root layout
+│   ├── layout.tsx                # Root layout (with SessionProvider)
 │   ├── page.tsx                  # Home page
 │   ├── not-found.tsx             # 404 page
 │   ├── robots.ts                 # SEO robots.txt
 │   ├── sitemap.ts                # SEO sitemap
 │   ├── api/                      # API Route Handlers
+│   │   ├── auth/
+│   │   │   └── [...nextauth]/
+│   │   │       └── route.ts      # Auth.js route handler
+│   │   ├── user/
+│   │   │   └── favorites/
+│   │   │       └── route.ts      # User favorites API
 │   │   └── [resource]/
 │   │       └── route.ts
+│   ├── profile/                  # Protected user profile
+│   │   └── page.tsx
 │   └── [feature]/                # Feature routes
 │       ├── layout.tsx
 │       ├── page.tsx
 │       └── [slug]/
 │           └── page.tsx
 ├── components/
+│   ├── auth/                     # Auth components (SessionProvider, SignInButton, UserMenu)
+│   ├── favorites/                # Favorites components (FavoriteButton, FavoritesSection)
 │   ├── layout/                   # Header, Footer, Navigation
 │   ├── shared/                   # Reusable components (Breadcrumbs, ErrorBoundary)
 │   ├── ui/                       # Primitives (Button, Card, Modal, Skeleton)
@@ -811,7 +824,110 @@ Button.displayName = "Button";
 
 ---
 
-## 🔍 SEO Files
+## � Authentication Pattern (Auth.js v5)
+
+### 1. Auth Configuration (`auth.ts`)
+
+```typescript
+import NextAuth from "next-auth";
+import GitHub from "next-auth/providers/github";
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  providers: [
+    GitHub({
+      clientId: process.env.AUTH_GITHUB_ID!,
+      clientSecret: process.env.AUTH_GITHUB_SECRET!,
+    }),
+  ],
+  session: { strategy: "jwt" },
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) token.id = user.id;
+      return token;
+    },
+    session({ session, token }) {
+      if (token?.id) session.user.id = token.id as string;
+      return session;
+    },
+  },
+});
+```
+
+### 2. Route Handler (`app/api/auth/[...nextauth]/route.ts`)
+
+```typescript
+import { handlers } from "@/auth";
+export const { GET, POST } = handlers;
+```
+
+### 3. Middleware (`middleware.ts`)
+
+```typescript
+import { auth } from "@/auth";
+import { NextResponse } from "next/server";
+
+export default auth((req) => {
+  const protectedPaths = ["/profile", "/dashboard"];
+  const isProtected = protectedPaths.some((p) => req.nextUrl.pathname.startsWith(p));
+
+  if (isProtected && !req.auth) {
+    const signInUrl = new URL("/api/auth/signin", req.url);
+    signInUrl.searchParams.set("callbackUrl", req.nextUrl.pathname);
+    return NextResponse.redirect(signInUrl);
+  }
+});
+
+export const config = {
+  matcher: ["/((?!api/auth|_next/static|_next/image|favicon.ico).*)"],
+};
+```
+
+### 4. Session Provider (`components/auth/SessionProvider.tsx`)
+
+```typescript
+"use client";
+import { SessionProvider as NextAuthSessionProvider } from "next-auth/react";
+
+export function SessionProvider({ children }: { children: React.ReactNode }) {
+  return <NextAuthSessionProvider>{children}</NextAuthSessionProvider>;
+}
+```
+
+### 5. Type Augmentation (`types/next-auth.d.ts`)
+
+```typescript
+import { DefaultSession } from "next-auth";
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+    } & DefaultSession["user"];
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    id?: string;
+  }
+}
+```
+
+### 6. Environment Variables (`.env.example`)
+
+```bash
+# Auth.js Configuration
+AUTH_SECRET="generate-with-openssl-rand-base64-32"
+AUTH_URL="http://localhost:3000"
+
+# GitHub OAuth
+AUTH_GITHUB_ID="your-github-client-id"
+AUTH_GITHUB_SECRET="your-github-client-secret"
+```
+
+---
+
+## �🔍 SEO Files
 
 ### Robots (`app/robots.ts`)
 
@@ -957,7 +1073,7 @@ When using this template, specify any of the following adjustments:
 - [ ] **Custom fonts** - Configure in layout with next/font
 
 ### Feature Additions
-- [ ] **Authentication** - NextAuth.js or Clerk
+- [x] **Authentication** - Auth.js v5 (NextAuth.js) with OAuth providers
 - [ ] **Search** - Full-text search with Algolia or Meilisearch
 - [ ] **Internationalization** - next-intl or next-i18next
 - [ ] **Analytics** - Vercel Analytics, Plausible, or Posthog
