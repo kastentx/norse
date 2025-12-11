@@ -1031,16 +1031,6 @@ Visit `http://localhost:3000` - you should see a **Sign In** button in the heade
 
 ## ⚠️ Known Issues & Notes
 
-### Next.js 16 Middleware Warning
-
-You may see this warning when running the dev server:
-
-```
-⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
-```
-
-This is expected - Next.js 16 is introducing a new "proxy" convention. Auth.js will likely update to support this in future versions. For now, the middleware works correctly.
-
 ### Production Deployment
 
 For production, you'll need to:

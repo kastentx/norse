@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { getAllRealms } from "@/lib/data/realms";
 import { Realm } from "@/types/realm";
@@ -28,6 +29,22 @@ const RealmDetail = dynamic(() => import("@/components/realms/RealmDetail"), {
 function RealmsPageContent() {
   const realms = getAllRealms();
   const [selectedRealm, setSelectedRealm] = useState<Realm | null>(null);
+  const { status } = useSession();
+  const [favoriteRealmIds, setFavoriteRealmIds] = useState<string[]>([]);
+
+  // Fetch user's favorite realms when authenticated
+  useEffect(() => {
+    if (status === "authenticated") {
+      fetch("/api/user/favorites")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.realms) {
+            setFavoriteRealmIds(data.realms);
+          }
+        })
+        .catch((err) => console.error("Failed to fetch favorites:", err));
+    }
+  }, [status]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-norse-gray-900 to-black py-16">
@@ -57,6 +74,7 @@ function RealmsPageContent() {
           <RealmDetail
             realm={selectedRealm}
             onClose={() => setSelectedRealm(null)}
+            initialFavorited={favoriteRealmIds.includes(selectedRealm.id)}
           />
         )}
 

@@ -5,13 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Realm } from "@/types/realm";
 import { X } from "lucide-react";
+import { FavoriteButton } from "@/components/favorites/FavoriteButton";
 
 interface RealmDetailProps {
   realm: Realm;
   onClose: () => void;
+  initialFavorited?: boolean;
 }
 
-export default function RealmDetail({ realm, onClose }: RealmDetailProps) {
+export default function RealmDetail({ realm, onClose, initialFavorited = false }: RealmDetailProps) {
   return (
     <AnimatePresence>
       <motion.div
@@ -37,6 +39,17 @@ export default function RealmDetail({ realm, onClose }: RealmDetailProps) {
           >
             <X size={24} />
           </button>
+
+          {/* Favorite Button */}
+          <div className="absolute right-16 top-4 z-10">
+            <FavoriteButton
+              type="realm"
+              id={realm.id}
+              initialFavorited={initialFavorited}
+              size="md"
+              className="bg-norse-gray-800/80 hover:bg-norse-gray-700"
+            />
+          </div>
 
           {/* Realm Image */}
           <div className="relative h-64 w-full overflow-hidden">

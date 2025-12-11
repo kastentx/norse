@@ -5,7 +5,7 @@
 ### Core Framework
 | Technology | Version | Purpose |
 |------------|---------|---------|
-| **Next.js 16** | 16.0.6 | React framework with App Router |
+| **Next.js 15** | 15.1.0 | React framework with App Router |
 | **React 19** | 19.2.0 | UI library with latest features |
 | **TypeScript 5** | 5.9.3 | Static typing with strict mode |
 | **Tailwind CSS 4** | 4.1.17 | Utility-first CSS framework |
