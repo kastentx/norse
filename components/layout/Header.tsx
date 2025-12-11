@@ -5,11 +5,15 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
+import { UserMenu } from "@/components/auth/UserMenu";
+import { SignInButton } from "@/components/auth/SignInButton";
+import { useSession } from "next-auth/react";
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+  const { data: session, status } = useSession();
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,6 +71,17 @@ export function Header() {
               <Search size={16} />
               <span className="hidden sm:inline">Search</span>
             </button>
+
+            {/* Auth UI */}
+            <div className="ml-2 border-l border-norse-stone/20 pl-4">
+              {status === "loading" ? (
+                <div className="w-8 h-8 rounded-full bg-norse-stone/20 animate-pulse" />
+              ) : session?.user ? (
+                <UserMenu />
+              ) : (
+                <SignInButton />
+              )}
+            </div>
           </nav>
         </div>
 

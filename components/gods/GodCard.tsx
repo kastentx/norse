@@ -9,14 +9,16 @@ import {
   scaleInVariants,
   reducedMotionVariants,
 } from "@/lib/animations/variants";
+import { FavoriteButton } from "@/components/favorites/FavoriteButton";
 
 export interface GodCardProps {
   god: God;
   index: number;
   onClick: () => void;
+  isFavorited?: boolean;
 }
 
-export function GodCard({ god, index, onClick }: GodCardProps) {
+export function GodCard({ god, index, onClick, isFavorited = false }: GodCardProps) {
   const prefersReducedMotion = useReducedMotion();
 
   const cardVariants = prefersReducedMotion
@@ -59,6 +61,20 @@ export function GodCard({ god, index, onClick }: GodCardProps) {
         />
         {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-norse-night via-transparent to-transparent opacity-60" />
+        
+        {/* Favorite Button */}
+        <div 
+          className="absolute top-2 right-2 z-10"
+          onClick={(e) => e.stopPropagation()}
+          onKeyDown={(e) => e.stopPropagation()}
+        >
+          <FavoriteButton
+            type="god"
+            id={god.id}
+            initialFavorited={isFavorited}
+            size="md"
+          />
+        </div>
       </div>
 
       {/* Content */}

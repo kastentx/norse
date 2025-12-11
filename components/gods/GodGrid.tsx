@@ -12,9 +12,10 @@ import {
 export interface GodGridProps {
   gods: God[];
   onGodClick: (god: God) => void;
+  favoriteGodIds?: string[];
 }
 
-export function GodGrid({ gods, onGodClick }: GodGridProps) {
+export function GodGrid({ gods, onGodClick, favoriteGodIds = [] }: GodGridProps) {
   const prefersReducedMotion = useReducedMotion();
 
   const containerVariants = prefersReducedMotion
@@ -45,6 +46,7 @@ export function GodGrid({ gods, onGodClick }: GodGridProps) {
           god={god}
           index={index}
           onClick={() => onGodClick(god)}
+          isFavorited={favoriteGodIds.includes(god.id)}
         />
       ))}
     </motion.div>

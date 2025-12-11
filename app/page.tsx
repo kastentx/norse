@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Navigation } from "@/components/layout/Navigation";
+import { LandingFavorites } from "@/components/favorites/LandingFavorites";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -38,6 +39,9 @@ export default function HomePage() {
       >
         <Navigation />
       </section>
+
+      {/* Favorites Section (only shows when logged in) */}
+      <LandingFavorites />
 
       {/* Feature Highlights */}
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl px-4 animate-fade-in animation-delay-400">
