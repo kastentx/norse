@@ -945,7 +945,113 @@ AUTH_DISCORD_SECRET="your-discord-client-secret"
 
 ---
 
-## 🔍 SEO Files
+## �️ Database Pattern (Supabase) - Optional
+
+> **When to use:** Add a database when you need persistent user data (favorites, preferences, user-generated content), real-time features, or data that shouldn't live in static files. Skip if the app only displays static content.
+
+### 1. Installation
+
+```bash
+npm install @supabase/supabase-js
+```
+
+### 2. Supabase Client (`lib/supabase/client.ts`)
+
+```typescript
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+```
+
+### 3. Database Schema (Supabase SQL Editor)
+
+```sql
+-- User favorites table (works with Auth.js JWT strategy)
+CREATE TABLE user_favorites (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  provider_account_id TEXT UNIQUE NOT NULL,  -- From OAuth provider
+  favorite_gods TEXT[] DEFAULT '{}',
+  favorite_realms TEXT[] DEFAULT '{}',
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Enable Row Level Security (optional but recommended)
+ALTER TABLE user_favorites ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Users can only access their own data
+CREATE POLICY "Users can manage own favorites" ON user_favorites
+  FOR ALL USING (true);  -- Adjust based on your auth strategy
+```
+
+### 4. Data Access Functions (`lib/supabase/favorites.ts`)
+
+```typescript
+import { supabase } from "./client";
+
+export async function getUserFavorites(providerAccountId: string) {
+  const { data, error } = await supabase
+    .from("user_favorites")
+    .select("favorite_gods, favorite_realms")
+    .eq("provider_account_id", providerAccountId)
+    .single();
+
+  if (error && error.code !== "PGRST116") throw error;  // PGRST116 = not found
+  return data || { favorite_gods: [], favorite_realms: [] };
+}
+
+export async function toggleFavorite(
+  providerAccountId: string,
+  type: "god" | "realm",
+  itemId: string
+) {
+  const column = type === "god" ? "favorite_gods" : "favorite_realms";
+  
+  // Get current favorites
+  const current = await getUserFavorites(providerAccountId);
+  const currentList = current[column] || [];
+  
+  // Toggle the item
+  const newList = currentList.includes(itemId)
+    ? currentList.filter((id: string) => id !== itemId)
+    : [...currentList, itemId];
+
+  // Upsert the record
+  const { error } = await supabase
+    .from("user_favorites")
+    .upsert({
+      provider_account_id: providerAccountId,
+      [column]: newList,
+      updated_at: new Date().toISOString(),
+    });
+
+  if (error) throw error;
+  return { isFavorite: newList.includes(itemId) };
+}
+```
+
+### 5. Environment Variables
+
+```bash
+# Supabase (Optional - only if using database features)
+# Get from: https://supabase.com/dashboard/project/_/settings/api
+NEXT_PUBLIC_SUPABASE_URL="https://your-project.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your-anon-key"
+```
+
+### When NOT to Use a Database
+
+- Static content sites (blogs, documentation, portfolios)
+- Demo/prototype applications
+- Apps where data can live in JSON files
+- When you want zero infrastructure dependencies
+
+---
+
+## �🔍 SEO Files
 
 ### Robots (`app/robots.ts`)
 
@@ -1082,7 +1188,8 @@ When using this template, specify any of the following adjustments:
 
 ### Data Source Options
 - [ ] **File-based JSON** (default) - JSON files in `/data` directory
-- [ ] **API/Database** - Replace data layer with API calls or ORM
+- [ ] **Supabase** (optional) - PostgreSQL database with real-time, auth adapters
+- [ ] **API/Database** - Other databases with Prisma, Drizzle, or direct API calls
 - [ ] **CMS Integration** - Contentful, Sanity, Strapi, etc.
 
 ### Styling Options

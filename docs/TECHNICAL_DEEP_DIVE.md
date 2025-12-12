@@ -12,6 +12,7 @@
 | **Framer Motion** | 12.x | Animation library |
 | **Zod** | 4.x | Runtime schema validation |
 | **Auth.js** | 5.0.0-beta.30 | OAuth authentication (Google, GitHub, Discord) |
+| **Supabase** | 2.x | PostgreSQL database with real-time subscriptions |
 ---
 
 ## 🏗️ **Architecture Patterns**
@@ -404,6 +405,62 @@ const handleToggle = async () => {
 
 **Interview talking point:**
 > "I implemented optimistic UI for the favorites feature. When a user clicks the heart, the UI updates immediately while the API call happens in the background. If the call fails, the state rolls back. This provides instant feedback while maintaining data integrity."
+
+### 5. **Supabase Database Integration**
+
+```tsx
+// lib/supabase/client.ts
+import { createClient } from "@supabase/supabase-js";
+
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+// lib/supabase/favorites.ts
+export async function getUserFavorites(providerAccountId: string) {
+  const { data, error } = await supabase
+    .from("user_favorites")
+    .select("*")
+    .eq("provider_account_id", providerAccountId)
+    .single();
+    
+  if (error && error.code !== "PGRST116") throw error;
+  return data;
+}
+
+export async function toggleFavorite(
+  providerAccountId: string,
+  type: "god" | "realm",
+  itemId: string
+) {
+  // Upsert user record, then toggle the favorite
+  const { data: existing } = await supabase
+    .from("user_favorites")
+    .select("*")
+    .eq("provider_account_id", providerAccountId)
+    .single();
+
+  const currentFavorites = existing?.[`favorite_${type}s`] || [];
+  const newFavorites = currentFavorites.includes(itemId)
+    ? currentFavorites.filter((id: string) => id !== itemId)
+    : [...currentFavorites, itemId];
+
+  const { data, error } = await supabase
+    .from("user_favorites")
+    .upsert({
+      provider_account_id: providerAccountId,
+      [`favorite_${type}s`]: newFavorites,
+    })
+    .select()
+    .single();
+
+  return { isFavorite: newFavorites.includes(itemId), data };
+}
+```
+
+**Interview talking point:**
+> "I used Supabase as the database layer because it provides a PostgreSQL database with a simple JavaScript client. The `provider_account_id` links OAuth users to their favorites without requiring a full Auth.js database adapter. Supabase also offers real-time subscriptions and Row Level Security if needed."
 
 ---
 
