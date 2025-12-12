@@ -15,11 +15,10 @@ export interface GodCardProps {
   god: God;
   index: number;
   onClick: () => void;
-  isFavorited?: boolean;
   onFavoriteToggle?: (godId: string, isFavorite: boolean) => void;
 }
 
-export function GodCard({ god, index, onClick, isFavorited = false, onFavoriteToggle }: GodCardProps) {
+export function GodCard({ god, index, onClick, onFavoriteToggle }: GodCardProps) {
   const prefersReducedMotion = useReducedMotion();
 
   const cardVariants = prefersReducedMotion
@@ -72,7 +71,6 @@ export function GodCard({ god, index, onClick, isFavorited = false, onFavoriteTo
           <FavoriteButton
             type="god"
             id={god.id}
-            initialFavorited={isFavorited}
             size="md"
             onToggle={(isFav) => onFavoriteToggle?.(god.id, isFav)}
           />

@@ -138,7 +138,6 @@ export default async function ProfilePage() {
                   <FavoriteButton
                     type="god"
                     id={god!.id}
-                    initialFavorited={true}
                     size="sm"
                   />
                 </div>
@@ -205,7 +204,6 @@ export default async function ProfilePage() {
                   <FavoriteButton
                     type="realm"
                     id={realm!.id}
-                    initialFavorited={true}
                     size="sm"
                   />
                 </div>

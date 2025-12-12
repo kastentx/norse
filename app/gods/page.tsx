@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { useSession } from "next-auth/react";
 import { God } from "@/types/god";
 import { GodSkeleton } from "@/components/gods/GodSkeleton";
 import { GodsErrorBoundary } from "@/components/gods/GodsErrorBoundary";
@@ -27,8 +26,6 @@ function GodsPageContent() {
   const [selectedGod, setSelectedGod] = useState<God | null>(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [favoriteGodIds, setFavoriteGodIds] = useState<string[]>([]);
-  const { data: session } = useSession();
 
   useEffect(() => {
     async function loadGods() {
@@ -46,28 +43,6 @@ function GodsPageContent() {
     loadGods();
   }, []);
 
-  // Fetch favorites when session changes
-  useEffect(() => {
-    async function loadFavorites() {
-      if (!session?.user) {
-        setFavoriteGodIds([]);
-        return;
-      }
-      
-      try {
-        const response = await fetch("/api/user/favorites");
-        if (response.ok) {
-          const data = await response.json();
-          setFavoriteGodIds(data.favoriteGods || []);
-        }
-      } catch (error) {
-        console.error("Failed to load favorites:", error);
-      }
-    }
-
-    loadFavorites();
-  }, [session]);
-
   const handleGodClick = (god: God) => {
     setSelectedGod(god);
     setIsPanelOpen(true);
@@ -76,14 +51,6 @@ function GodsPageContent() {
   const handleClosePanel = () => {
     setIsPanelOpen(false);
     setTimeout(() => setSelectedGod(null), 300);
-  };
-
-  const handleFavoriteToggle = (godId: string, isFavorite: boolean) => {
-    setFavoriteGodIds((prev) =>
-      isFavorite
-        ? [...prev, godId]
-        : prev.filter((id) => id !== godId)
-    );
   };
 
   return (
@@ -105,9 +72,7 @@ function GodsPageContent() {
       ) : (
         <GodGrid 
           gods={gods} 
-          onGodClick={handleGodClick} 
-          favoriteGodIds={favoriteGodIds}
-          onFavoriteToggle={handleFavoriteToggle}
+          onGodClick={handleGodClick}
         />
       )}
 

@@ -7,6 +7,7 @@ import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { SignInButton } from "@/components/auth/SignInButton";
+import { SyncStatus } from "@/components/sync/SyncStatus";
 import { useSession } from "next-auth/react";
 
 export function Header() {
@@ -73,7 +74,10 @@ export function Header() {
             </button>
 
             {/* Auth UI */}
-            <div className="ml-2 border-l border-norse-stone/20 pl-4">
+            <div className="ml-2 border-l border-norse-stone/20 pl-4 flex items-center gap-3">
+              {/* Sync Status */}
+              <SyncStatus />
+              
               {status === "loading" ? (
                 <div className="w-8 h-8 rounded-full bg-norse-stone/20 animate-pulse" />
               ) : session?.user ? (

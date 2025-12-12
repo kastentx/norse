@@ -10,11 +10,10 @@ import { FavoriteButton } from "@/components/favorites/FavoriteButton";
 interface RealmDetailProps {
   realm: Realm;
   onClose: () => void;
-  initialFavorited?: boolean;
   onFavoriteToggle?: (realmId: string, isFavorite: boolean) => void;
 }
 
-export default function RealmDetail({ realm, onClose, initialFavorited = false, onFavoriteToggle }: RealmDetailProps) {
+export default function RealmDetail({ realm, onClose, onFavoriteToggle }: RealmDetailProps) {
   return (
     <AnimatePresence>
       <motion.div
@@ -46,7 +45,6 @@ export default function RealmDetail({ realm, onClose, initialFavorited = false, 
             <FavoriteButton
               type="realm"
               id={realm.id}
-              initialFavorited={initialFavorited}
               size="md"
               className="bg-norse-gray-800/80 hover:bg-norse-gray-700"
               onToggle={(isFav) => onFavoriteToggle?.(realm.id, isFav)}
