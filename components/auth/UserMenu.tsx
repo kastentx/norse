@@ -2,10 +2,19 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
+import type { Session } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
-import { User, LogOut, Heart, ChevronDown } from "lucide-react";
+import { User, LogOut, Heart, ChevronDown, WifiOff } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
+
+interface UserMenuProps {
+  /**
+   * Optional session to use instead of useSession hook.
+   * Used when offline to pass cached session.
+   */
+  session?: Session | null;
+}
 
 /**
  * User Menu Dropdown
@@ -14,10 +23,13 @@ import { cn } from "@/lib/utils/cn";
  * - Profile link
  * - Favorites link
  * - Sign out button
+ * - Offline-aware sign out handling
  */
-export function UserMenu() {
-  const { data: session } = useSession();
+export function UserMenu({ session: propSession }: UserMenuProps) {
+  const { data: hookSession } = useSession();
+  const session = propSession ?? hookSession;
   const [isOpen, setIsOpen] = useState(false);
+  const [signOutError, setSignOutError] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
   // Close menu when clicking outside
@@ -134,14 +146,31 @@ export function UserMenu() {
 
           {/* Sign Out */}
           <div className="border-t border-norse-stone/20 pt-1">
+            {signOutError && (
+              <div className="px-4 py-2 text-xs text-amber-500 flex items-center gap-2">
+                <WifiOff size={14} />
+                <span>{signOutError}</span>
+              </div>
+            )}
             <button
-              onClick={() => {
+              onClick={async () => {
+                if (!navigator.onLine) {
+                  setSignOutError("Connect to sign out");
+                  return;
+                }
+                setSignOutError(null);
                 setIsOpen(false);
-                signOut({ callbackUrl: "/" });
+                try {
+                  await signOut({ callbackUrl: "/" });
+                } catch (error) {
+                  setSignOutError("Unable to sign out");
+                  setIsOpen(true);
+                }
               }}
               className={cn(
                 "flex items-center gap-3 w-full px-4 py-2 text-sm text-norse-stone",
-                "hover:bg-norse-fire/10 hover:text-norse-fire transition-colors"
+                "hover:bg-norse-fire/10 hover:text-norse-fire transition-colors",
+                !navigator.onLine && "opacity-50"
               )}
               role="menuitem"
             >

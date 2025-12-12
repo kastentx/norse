@@ -9,12 +9,17 @@ import { UserMenu } from "@/components/auth/UserMenu";
 import { SignInButton } from "@/components/auth/SignInButton";
 import { SyncStatus } from "@/components/sync/SyncStatus";
 import { useSession } from "next-auth/react";
+import { useOfflineSession } from "@/components/auth/SessionProvider";
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
   const { data: session, status } = useSession();
+  const { isUsingCachedSession, cachedSession } = useOfflineSession();
+  
+  // Use cached session when offline and normal session is unavailable
+  const effectiveSession = session ?? (isUsingCachedSession ? cachedSession : null);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,10 +83,20 @@ export function Header() {
               {/* Sync Status */}
               <SyncStatus />
               
-              {status === "loading" ? (
+              {status === "loading" && !isUsingCachedSession ? (
                 <div className="w-8 h-8 rounded-full bg-norse-stone/20 animate-pulse" />
-              ) : session?.user ? (
-                <UserMenu />
+              ) : effectiveSession?.user ? (
+                <div className="flex items-center gap-2">
+                  {isUsingCachedSession && (
+                    <span 
+                      className="text-xs text-amber-500 hidden sm:inline"
+                      title="Session data may be stale. Reconnect to refresh."
+                    >
+                      (offline)
+                    </span>
+                  )}
+                  <UserMenu session={effectiveSession} />
+                </div>
               ) : (
                 <SignInButton />
               )}
