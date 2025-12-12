@@ -13,7 +13,7 @@
  */
 
 // Version is updated on each deployment - changing this invalidates old caches
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const CACHE_NAME = `norse-mythology-${CACHE_VERSION}`;
 
 // Assets to pre-cache on install (app shell)

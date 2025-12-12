@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,21 +15,33 @@ interface RealmDetailProps {
 }
 
 export default function RealmDetail({ realm, onClose, onFavoriteToggle }: RealmDetailProps) {
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+    
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
+
   return (
     <AnimatePresence>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+        className="fixed inset-0 z-50 flex flex-col items-center bg-black/80 px-0 sm:px-4 py-0 sm:py-4 overflow-y-auto overflow-x-hidden overscroll-contain"
+        style={{ left: 0, right: 0, width: '100vw' }}
         onClick={onClose}
       >
         <motion.div
-          initial={{ scale: 0.9, opacity: 0, y: 20 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.9, opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-lg border border-norse-gold/30 bg-gradient-to-b from-norse-gray-900 to-black shadow-2xl"
+          className="relative w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl shrink-0 sm:rounded-lg border-0 sm:border border-norse-gold/30 bg-gradient-to-b from-norse-gray-900 to-black shadow-2xl sm:mb-8"
+          style={{ maxWidth: '100%' }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
@@ -52,7 +65,7 @@ export default function RealmDetail({ realm, onClose, onFavoriteToggle }: RealmD
           </div>
 
           {/* Realm Image */}
-          <div className="relative h-64 w-full overflow-hidden">
+          <div className="relative h-48 sm:h-56 md:h-64 w-full overflow-hidden">
             <Image
               src={realm.imageUrl}
               alt={realm.name}
@@ -63,8 +76,8 @@ export default function RealmDetail({ realm, onClose, onFavoriteToggle }: RealmD
             <div className="absolute inset-0 bg-gradient-to-t from-norse-gray-900 via-transparent to-transparent" />
             
             {/* Realm Name Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h2 className="mb-2 font-norse text-4xl text-norse-gold md:text-5xl">
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+              <h2 className="mb-2 font-norse text-3xl sm:text-4xl text-norse-gold md:text-5xl">
                 {realm.name}
               </h2>
               <div className="flex items-center gap-3">
@@ -85,19 +98,19 @@ export default function RealmDetail({ realm, onClose, onFavoriteToggle }: RealmD
           </div>
 
           {/* Content */}
-          <div className="p-6 md:p-8">
+          <div className="p-4 sm:p-6 md:p-8">
             {/* Description */}
-            <section className="mb-8">
-              <h3 className="mb-3 font-norse text-2xl text-norse-gold">
+            <section className="mb-6 sm:mb-8">
+              <h3 className="mb-2 sm:mb-3 font-norse text-xl sm:text-2xl text-norse-gold">
                 About
               </h3>
-              <p className="text-lg leading-relaxed text-norse-gray-300">
+              <p className="text-base sm:text-lg leading-relaxed text-norse-gray-300">
                 {realm.description}
               </p>
             </section>
 
             {/* Characteristics Grid */}
-            <section className="mb-8 grid gap-6 md:grid-cols-3">
+            <section className="mb-6 sm:mb-8 grid gap-4 sm:gap-6 md:grid-cols-3">
               <div className="rounded-lg border border-norse-gold/20 bg-norse-gray-800/50 p-4">
                 <h4 className="mb-2 font-norse text-lg text-norse-gold">
                   Environment
@@ -125,8 +138,8 @@ export default function RealmDetail({ realm, onClose, onFavoriteToggle }: RealmD
             </section>
 
             {/* Inhabitants */}
-            <section className="mb-8">
-              <h3 className="mb-3 font-norse text-2xl text-norse-gold">
+            <section className="mb-6 sm:mb-8">
+              <h3 className="mb-2 sm:mb-3 font-norse text-xl sm:text-2xl text-norse-gold">
                 Inhabitants
               </h3>
               <div className="mb-4">
@@ -166,8 +179,8 @@ export default function RealmDetail({ realm, onClose, onFavoriteToggle }: RealmD
 
             {/* Connected Realms */}
             {realm.connections && realm.connections.length > 0 && (
-              <section className="mb-8">
-                <h3 className="mb-3 font-norse text-2xl text-norse-gold">
+              <section className="mb-6 sm:mb-8">
+                <h3 className="mb-2 sm:mb-3 font-norse text-xl sm:text-2xl text-norse-gold">
                   Connected Realms
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -186,7 +199,7 @@ export default function RealmDetail({ realm, onClose, onFavoriteToggle }: RealmD
             {/* Related Stories */}
             {realm.stories.length > 0 && (
               <section>
-                <h3 className="mb-3 font-norse text-2xl text-norse-gold">
+                <h3 className="mb-2 sm:mb-3 font-norse text-xl sm:text-2xl text-norse-gold">
                   Related Stories
                 </h3>
                 <div className="flex flex-wrap gap-2">
